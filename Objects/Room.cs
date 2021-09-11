@@ -19,7 +19,7 @@ namespace Objects
             locked = false;
         }
 
-        public Room(string roomName, string roomDesc, bool roomLocked)
+        public Room(string roomName, string roomDesc, bool roomLocked = false)
         {
             name = roomName;
             desc = roomDesc;

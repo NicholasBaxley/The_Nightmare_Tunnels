@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Objects
 {
-    class Potion
+    public class Potion
     {
         public string name { get; set; }
         public int usesLeft { get; set; } 

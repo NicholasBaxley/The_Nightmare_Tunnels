@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Objects
 {
-    class Item
+    public class Item
     {
         public string name { get; set; }
         public string desc { get; set; }
