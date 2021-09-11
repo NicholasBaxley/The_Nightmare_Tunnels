@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Objects
 {
-    class Mob
+    public class Mob
     {
         public string name { get; set; }
         public string desc { get; set; }

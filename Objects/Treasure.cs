@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Objects
 {
-    class Treasure
+    public class Treasure
     {
         public string name { get; set; }
         public string desc { get; set; }
