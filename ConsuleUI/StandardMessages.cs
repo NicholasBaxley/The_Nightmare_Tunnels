@@ -47,12 +47,14 @@ namespace ConsuleUI
             return "Rooms: " + roomss;
         }
 
+            // Lists every command the user can use
+            // TODO - dont forget to add messages for any commands you add
         public static void DisplayHelpMessage()
         {
             Console.WriteLine("North: moves the player to the northern room.\n"
                             + "South: moves the player to the southern room.\n"
                             + "Quit: Closes the program\n"
-                            + "Help: Provides a list of commands");
+                            + "Help: Provides a list of commands\n");
         }
     }
 }

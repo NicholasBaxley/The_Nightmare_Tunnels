@@ -15,7 +15,7 @@ namespace ConsuleUI
     {
         static void Main(string[] args)
         {
-            //Intializing all of the list
+            //Intializing all of the lists
             List<Room> rooms = new List<Room>();
             List<Weapon> weapons = new List<Weapon>();
             List<Potion> potions = new List<Potion>();
@@ -41,13 +41,13 @@ namespace ConsuleUI
             potions.Add(new Potion("Mana potion", 1));
 
             //Creating all of the treasures
-            treasures.Add(new Treasure("Gold Necklace", "PLACEHOLDER", 1000));
+            treasures.Add(new Treasure("Gold necklace", "PLACEHOLDER", 1000));
             treasures.Add(new Treasure("Gold coin", "PLACEHOLDER", 1));
             treasures.Add(new Treasure("Silver ring", "PLACEHOLDER", 500));
 
             //Creating all of the items
             items.Add(new Item("Bucket", "PLACEHOLDER"));
-            items.Add(new Item("", "PLACEHOLDER"));
+            items.Add(new Item("Tin can", "PLACEHOLDER"));
             items.Add(new Item("Candle", "PLACEHOLDER"));
             items.Add(new Item("Rope", "PLACEHOLDER"));
 

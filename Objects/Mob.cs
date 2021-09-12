@@ -13,6 +13,9 @@ namespace Objects
         public int dmg { get; set; }
         public int atkspd { get; set; }
         public int hp { get; set; }
+        public int ac { get; set; }
+        public int maxHp { get; set; }
+        public int maxAc { get; set; }
 
         public Mob()
         {
@@ -21,6 +24,10 @@ namespace Objects
             dmg = 1;
             atkspd = 1;
             hp = 1;
+            ac = 1;
+            maxHp = 1;
+            maxAc = 1;
+
         }
 
         public Mob(string mobName, string mobDesc, int mobDmg, int mobAtkspd, int mobHp )

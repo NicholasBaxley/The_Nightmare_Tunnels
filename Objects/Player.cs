@@ -12,8 +12,10 @@ namespace Objects
         public string Password { get; set; }
         public string Class { get; set; }
         public string Race { get; set; }
-        public int hp { get; set; }
-        public int ac { get; set; }
+        public int Hp { get; set; }
+        public int Ac { get; set; }
+        public int MaxHp { get; set; }
+        public int MaxAc { get; set; }
         public List<Item> Inventory { get; set; }
 
         public Player()
@@ -22,6 +24,10 @@ namespace Objects
             Password = "";
             Class = "";
             Race = "";
+            Hp = 1;
+            MaxHp = 1;
+            Ac = 1;
+            MaxAc = 1;
         }
         public Player(string name, string password)
         {
