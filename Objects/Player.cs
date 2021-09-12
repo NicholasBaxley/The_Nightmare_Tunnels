@@ -12,6 +12,8 @@ namespace Objects
         public string Password { get; set; }
         public string Class { get; set; }
         public string Race { get; set; }
+        public int hp { get; set; }
+        public int ac { get; set; }
         public List<Item> Inventory { get; set; }
 
         public Player()

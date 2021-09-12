@@ -47,9 +47,9 @@ namespace ConsuleUI
 
             //Creating all of the items
             items.Add(new Item("Bucket", "PLACEHOLDER"));
-            items.Add(new Item("Stool", "PLACEHOLDER"));
-            items.Add(new Item("Table", "PLACEHOLDER"));
-            items.Add(new Item("Plate", "PLACEHOLDER"));
+            items.Add(new Item("", "PLACEHOLDER"));
+            items.Add(new Item("Candle", "PLACEHOLDER"));
+            items.Add(new Item("Rope", "PLACEHOLDER"));
 
             //Creating all of the mobs
             mobs.Add(new Mob("Goblin", "PLACEHOLDER", 5, 3, 20));
@@ -71,7 +71,7 @@ namespace ConsuleUI
             
             Console.WriteLine("Are you a new player?(y/n)");
             input = Console.ReadLine().ToLower();
-            if(input == "y")
+            if(input == "y" || input == "yes")
             {
                 Console.WriteLine("What is your name?");
                 player.Name = Console.ReadLine();
@@ -102,6 +102,7 @@ namespace ConsuleUI
             }
 
             // Switch and loop
+            StandardMessages.DisplayHelpMessage();
             while (!quit)
             {
                 switch (Console.ReadLine().ToLower())
@@ -122,7 +123,7 @@ namespace ConsuleUI
                         quit = true;
                         break;
                     case "help":
-                        // TODO - display commands and what they do
+                        StandardMessages.DisplayHelpMessage();
                         break;
                     default:
                         Console.WriteLine("Invalid input.");
