@@ -8,31 +8,55 @@ namespace Objects
 {
     public class Player
     {
-        public string Name { get; set; }
-        public string Password { get; set; }
-        public string Class { get; set; }
-        public string Race { get; set; }
-        public int Hp { get; set; }
-        public int Ac { get; set; }
-        public int MaxHp { get; set; }
-        public int MaxAc { get; set; }
-        public List<Item> Inventory { get; set; }
+        public string name { get; set; }
+        public string password { get; set; }
+        // class is a reserved keyword by c# so i changed it to playerClass
+        public string playerClass { get; set; }
+        public string race { get; set; }
+
+        private int _hp;
+        public int ac { get; set; }
+        public int maxHp { get; set; }
+        public int maxAc { get; set; }
+        public int dmg { get; set; }
+        public List<Item> inventory { get; set; }
 
         public Player()
         {
-            Name = "";
-            Password = "";
-            Class = "";
-            Race = "";
-            Hp = 1;
-            MaxHp = 1;
-            Ac = 1;
-            MaxAc = 1;
+            name = "John Doe";
+            password = "Password1!";
+            playerClass = "Warrior";
+            race = "Dork";
+            hp = 25;
+            maxHp = 25;
+            ac = 25;
+            maxAc = 25;
+            dmg = 6;
         }
-        public Player(string name, string password)
+
+        public Player(string playerName, string playerPassword)
         {
-            Name = name;
-            Password = password;
+            name = playerName;
+            password = playerPassword;
+        }
+
+        // Makes sure hp can not go below 0
+        public int hp
+        {
+            get { return _hp; }
+
+            set
+            {
+                if (value < 0)
+                {
+                    _hp = 0;
+                }
+                else
+                {
+                    _hp = value;
+                }
+                
+            }
         }
 
         // Method to check whether password meets requirements

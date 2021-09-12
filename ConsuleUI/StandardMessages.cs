@@ -10,7 +10,7 @@ namespace ConsuleUI
             // Displays current room
         public static string DisplayCurrentRoom(int position, List<Room> rooms)
         {   
-            return $"Current room: {rooms[position].name}"; 
+            return $"\nCurrent room: {rooms[position].name}"; 
         }
 
             // Displays next room
@@ -51,10 +51,11 @@ namespace ConsuleUI
             // TODO - dont forget to add messages for any commands you add
         public static void DisplayHelpMessage()
         {
-            Console.WriteLine("North: moves the player to the northern room.\n"
+            Console.WriteLine("\nNorth: moves the player to the northern room.\n"
                             + "South: moves the player to the southern room.\n"
-                            + "Quit: Closes the program\n"
-                            + "Help: Provides a list of commands\n");
+                            + "Quit: Closes the program.\n"
+                            + "Help: Provides a list of commands.\n"
+                            + "Fight: Fight the monsters in the current room.\n");
         }
     }
 }

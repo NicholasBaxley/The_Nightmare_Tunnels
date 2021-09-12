@@ -52,53 +52,62 @@ namespace ConsuleUI
             items.Add(new Item("Rope", "PLACEHOLDER"));
 
             //Creating all of the mobs
-            mobs.Add(new Mob("Goblin", "PLACEHOLDER", 5, 3, 20));
-            mobs.Add(new Mob("Slime", "PLACEHOLDER", 2, 3, 15));
-            mobs.Add(new Mob("Orc", "PLACEHOLDER", 7, 1, 30));
-            mobs.Add(new Mob("Wolf", "PLACEHOLDER", 4, 4, 20));
-            mobs.Add(new Mob("Demon", "PLACEHOLDER", 5, 2, 25));
+            mobs.Add(new Mob("Goblin", "PLACEHOLDER", 5, 3, 20, 10));
+            mobs.Add(new Mob("Slime", "PLACEHOLDER", 2, 3, 15, 10));
+            mobs.Add(new Mob("Orc", "PLACEHOLDER", 7, 1, 30, 10));
+            mobs.Add(new Mob("Wolf", "PLACEHOLDER", 4, 4, 20, 10));
+            mobs.Add(new Mob("Demon", "PLACEHOLDER", 5, 2, 25, 10));
 
             // Creating player
             Player player = new Player();
 
             int position = 0;
             bool quit = false;
+            bool login = false;
             bool passFlag = false;
             string input;
 
             // Slop for testing
             Console.WriteLine("Welcome to The Nightmare Tunnels!");
-            
-            Console.WriteLine("Are you a new player?(y/n)");
-            input = Console.ReadLine().ToLower();
-            if(input == "y" || input == "yes")
+
+            while (!login)
             {
-                Console.WriteLine("What is your name?");
-                player.Name = Console.ReadLine();
-                while (!passFlag)
+                Console.WriteLine("Are you a new player?(y/n)");
+                input = Console.ReadLine().ToLower();
+                if (input == "y" || input == "yes")
                 {
-                    Console.WriteLine("Enter a password. (must contain upper case, lower case and a special character)");
-                    string pass = Console.ReadLine();
-                    if (Player.CheckPassword(pass))
+                    login = true;
+                    Console.WriteLine("\nWhat is your name?");
+                    player.name = Console.ReadLine();
+                    while (!passFlag)
                     {
-                        passFlag = true;
+                        Console.WriteLine("\nEnter a password. (must contain upper case, lower case and a special character)");
+                        string pass = Console.ReadLine();
+                        if (Player.CheckPassword(pass))
+                        {
+                            passFlag = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid password!");
+                        }
                     }
-                    else
-                    {
-                        Console.WriteLine("Invalid password! Your password must contain an uppercase, lowercase and a special character! Try again.");
-                    }
+
+                    // TODO - input validation
+                    Console.WriteLine("\nWhat class do you want to be? (Warrior or mage)");
+                    player.playerClass = Console.ReadLine();
+                    Console.WriteLine("\nWhat race do you want to be? (Human or dwarf)");
+                    player.race = Console.ReadLine();
                 }
-
-                // TODO - input validation
-                Console.WriteLine("What class do you want to be? (Warrior or mage)");
-                player.Class = Console.ReadLine();
-                Console.WriteLine("What race do you want to be? (Human or dwarf)");
-                player.Race = Console.ReadLine();
-
-            }
-            else if(input == "n")
-            {
-                // TODO - Add user login, etc
+                else if (input == "n" || input == "no")
+                {
+                    login = true;
+                    // TODO - Add user login, etc
+                }
+                else
+                {
+                    Console.WriteLine("\nInvalid option!");
+                }
             }
 
             // Switch and loop
@@ -107,22 +116,32 @@ namespace ConsuleUI
             {
                 switch (Console.ReadLine().ToLower())
                 {
+                    case "north":
                     case "n":
                         Movement.MoveNorth(ref position);
                         Console.WriteLine(StandardMessages.DisplayCurrentRoom(position, rooms));
                         Console.WriteLine(StandardMessages.DisplayNextRoomNorth(position, rooms));
                         Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms));
                         break;
+                    case "south":
                     case "s":
                         Movement.MoveSouth(ref position);
                         Console.WriteLine(StandardMessages.DisplayCurrentRoom(position, rooms));
                         Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms));
                         Console.WriteLine(StandardMessages.DisplayRoomsReversed(position, rooms));
                         break;
+                    case "q":
                     case "quit":
                         quit = true;
                         break;
+                    case "h":
                     case "help":
+                        StandardMessages.DisplayHelpMessage();
+                        break;
+                    case "f":
+                    case "fight":
+                        // For now you can only fight random monsters
+                        Combat.StartFight(player, Combat.RandomMob());
                         StandardMessages.DisplayHelpMessage();
                         break;
                     default:
