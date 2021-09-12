@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nick\\Documents\\Projects\\The_Nightmare_Tunnels\\ConsuleUI\\ConsuleUI.csproj": {}
+    "C:\\repos\\The_Nightmare_Tunnels\\ConsuleUI\\ConsuleUI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nick\\Documents\\Projects\\The_Nightmare_Tunnels\\ConsuleUI\\ConsuleUI.csproj": {
+    "C:\\repos\\The_Nightmare_Tunnels\\ConsuleUI\\ConsuleUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nick\\Documents\\Projects\\The_Nightmare_Tunnels\\ConsuleUI\\ConsuleUI.csproj",
+        "projectUniqueName": "C:\\repos\\The_Nightmare_Tunnels\\ConsuleUI\\ConsuleUI.csproj",
         "projectName": "ConsuleUI",
-        "projectPath": "C:\\Users\\Nick\\Documents\\Projects\\The_Nightmare_Tunnels\\ConsuleUI\\ConsuleUI.csproj",
-        "packagesPath": "C:\\Users\\Nick\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nick\\Documents\\Projects\\The_Nightmare_Tunnels\\ConsuleUI\\obj\\",
+        "projectPath": "C:\\repos\\The_Nightmare_Tunnels\\ConsuleUI\\ConsuleUI.csproj",
+        "packagesPath": "C:\\Users\\decei\\.nuget\\packages\\",
+        "outputPath": "C:\\repos\\The_Nightmare_Tunnels\\ConsuleUI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Nick\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\decei\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +32,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Nick\\Documents\\Projects\\The_Nightmare_Tunnels\\Objects\\Objects.csproj": {
-                "projectPath": "C:\\Users\\Nick\\Documents\\Projects\\The_Nightmare_Tunnels\\Objects\\Objects.csproj"
+              "C:\\repos\\The_Nightmare_Tunnels\\Objects\\Objects.csproj": {
+                "projectPath": "C:\\repos\\The_Nightmare_Tunnels\\Objects\\Objects.csproj"
               }
             }
           }
@@ -58,15 +62,15 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Nick\\Documents\\Projects\\The_Nightmare_Tunnels\\Objects\\Objects.csproj": {
+    "C:\\repos\\The_Nightmare_Tunnels\\Objects\\Objects.csproj": {
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nick\\Documents\\Projects\\The_Nightmare_Tunnels\\Objects\\Objects.csproj",
+        "projectUniqueName": "C:\\repos\\The_Nightmare_Tunnels\\Objects\\Objects.csproj",
         "projectName": "Objects",
-        "projectPath": "C:\\Users\\Nick\\Documents\\Projects\\The_Nightmare_Tunnels\\Objects\\Objects.csproj"
+        "projectPath": "C:\\repos\\The_Nightmare_Tunnels\\Objects\\Objects.csproj"
       },
       "frameworks": {
         "net472": {}

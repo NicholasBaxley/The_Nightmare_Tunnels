@@ -1,4 +1,11 @@
-﻿using System;
+﻿/**
+* 9/10/2021 (UPDATED - 9/11/2021)
+* CSC 253
+* Group 4
+* Group Members: Nicholas Baxley, Branden Alder
+* First sprint of The Nightmare Tunnels project
+*/
+using System;
 using System.Collections.Generic;
 using Objects;
 
@@ -50,6 +57,79 @@ namespace ConsuleUI
             mobs.Add(new Mob("Orc", "PLACEHOLDER", 7, 1, 30));
             mobs.Add(new Mob("Wolf", "PLACEHOLDER", 4, 4, 20));
             mobs.Add(new Mob("Demon", "PLACEHOLDER", 5, 2, 25));
+
+            // Creating player
+            Player player = new Player();
+
+            int position = 0;
+            bool quit = false;
+            bool passFlag = false;
+            string input;
+
+            // Slop for testing
+            Console.WriteLine("Welcome to The Nightmare Tunnels!");
+            
+            Console.WriteLine("Are you a new player?(y/n)");
+            input = Console.ReadLine().ToLower();
+            if(input == "y")
+            {
+                Console.WriteLine("What is your name?");
+                player.Name = Console.ReadLine();
+                while (!passFlag)
+                {
+                    Console.WriteLine("Enter a password. (must contain upper case, lower case and a special character)");
+                    string pass = Console.ReadLine();
+                    if (Player.CheckPassword(pass))
+                    {
+                        passFlag = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid password! Your password must contain an uppercase, lowercase and a special character! Try again.");
+                    }
+                }
+
+                // TODO - input validation
+                Console.WriteLine("What class do you want to be? (Warrior or mage)");
+                player.Class = Console.ReadLine();
+                Console.WriteLine("What race do you want to be? (Human or dwarf)");
+                player.Race = Console.ReadLine();
+
+            }
+            else if(input == "n")
+            {
+                // TODO - Add user login, etc
+            }
+
+            // Switch and loop
+            while (!quit)
+            {
+                switch (Console.ReadLine().ToLower())
+                {
+                    case "n":
+                        Movement.MoveNorth(ref position);
+                        Console.WriteLine(StandardMessages.DisplayCurrentRoom(position, rooms));
+                        Console.WriteLine(StandardMessages.DisplayNextRoomNorth(position, rooms));
+                        Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms));
+                        break;
+                    case "s":
+                        Movement.MoveSouth(ref position);
+                        Console.WriteLine(StandardMessages.DisplayCurrentRoom(position, rooms));
+                        Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms));
+                        Console.WriteLine(StandardMessages.DisplayRoomsReversed(position, rooms));
+                        break;
+                    case "quit":
+                        quit = true;
+                        break;
+                    case "help":
+                        // TODO - display commands and what they do
+                        break;
+                    default:
+                        Console.WriteLine("Invalid input.");
+                        break;
+
+                }
+            }
         }
     }
 }

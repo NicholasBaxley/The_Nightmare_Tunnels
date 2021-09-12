@@ -1,0 +1,16 @@
+C:\repos\The_Nightmare_Tunnels\ConsuleUI\bin\Debug\netcoreapp3.1\ConsuleUI.exe
+C:\repos\The_Nightmare_Tunnels\ConsuleUI\bin\Debug\netcoreapp3.1\ConsuleUI.deps.json
+C:\repos\The_Nightmare_Tunnels\ConsuleUI\bin\Debug\netcoreapp3.1\ConsuleUI.runtimeconfig.json
+C:\repos\The_Nightmare_Tunnels\ConsuleUI\bin\Debug\netcoreapp3.1\ConsuleUI.runtimeconfig.dev.json
+C:\repos\The_Nightmare_Tunnels\ConsuleUI\bin\Debug\netcoreapp3.1\ConsuleUI.dll
+C:\repos\The_Nightmare_Tunnels\ConsuleUI\bin\Debug\netcoreapp3.1\ConsuleUI.pdb
+C:\repos\The_Nightmare_Tunnels\ConsuleUI\bin\Debug\netcoreapp3.1\Objects.dll
+C:\repos\The_Nightmare_Tunnels\ConsuleUI\bin\Debug\netcoreapp3.1\Objects.pdb
+C:\repos\The_Nightmare_Tunnels\ConsuleUI\obj\Debug\netcoreapp3.1\ConsuleUI.csproj.AssemblyReference.cache
+C:\repos\The_Nightmare_Tunnels\ConsuleUI\obj\Debug\netcoreapp3.1\ConsuleUI.AssemblyInfoInputs.cache
+C:\repos\The_Nightmare_Tunnels\ConsuleUI\obj\Debug\netcoreapp3.1\ConsuleUI.AssemblyInfo.cs
+C:\repos\The_Nightmare_Tunnels\ConsuleUI\obj\Debug\netcoreapp3.1\ConsuleUI.csproj.CoreCompileInputs.cache
+C:\repos\The_Nightmare_Tunnels\ConsuleUI\obj\Debug\netcoreapp3.1\ConsuleUI.csproj.CopyComplete
+C:\repos\The_Nightmare_Tunnels\ConsuleUI\obj\Debug\netcoreapp3.1\ConsuleUI.dll
+C:\repos\The_Nightmare_Tunnels\ConsuleUI\obj\Debug\netcoreapp3.1\ConsuleUI.pdb
+C:\repos\The_Nightmare_Tunnels\ConsuleUI\obj\Debug\netcoreapp3.1\ConsuleUI.genruntimeconfig.cache
