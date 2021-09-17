@@ -51,13 +51,6 @@ namespace ConsuleUI
             items.Add(new Item("Candle", "PLACEHOLDER"));
             items.Add(new Item("Rope", "PLACEHOLDER"));
 
-            //Creating all of the mobs
-            mobs.Add(new Mob("Goblin", "PLACEHOLDER", 5, 3, 20));
-            mobs.Add(new Mob("Slime", "PLACEHOLDER", 2, 3, 15));
-            mobs.Add(new Mob("Orc", "PLACEHOLDER", 7, 1, 30));
-            mobs.Add(new Mob("Wolf", "PLACEHOLDER", 4, 4, 20));
-            mobs.Add(new Mob("Demon", "PLACEHOLDER", 5, 2, 25));
-
             // Creating player
             Player player = new Player();
 
