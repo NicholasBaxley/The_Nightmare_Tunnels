@@ -9,18 +9,21 @@ namespace Objects
     public class Potion
     {
         public string name { get; set; }
-        public int usesLeft { get; set; } 
+        public int id { get; set; }
+        public int healthRestore { get; set; }
+        public int dmg { get; set; }
         
         public Potion()
         {
             name = "Generic Potion";
-            usesLeft = 1;
         }
 
-        public Potion(string potName, int potUses)
+        public Potion(string potName, int potId, int potHealthRestore, int potDmg)
         {
             name = potName;
-            usesLeft = potUses;
+            id = potId;
+            healthRestore = potHealthRestore;
+            dmg = potDmg;
         }
         
     }

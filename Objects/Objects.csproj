@@ -51,9 +51,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Items.csv" />
     <None Include="Mobs.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Potions.csv" />
     <None Include="Treasure.csv" />
     <None Include="Weapons.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

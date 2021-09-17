@@ -12,6 +12,7 @@ namespace Objects
         public int dmg { get; set; }
         // 0 = Pierce/Thrust, 1 = Blunt, 2 = Slice, 3 = Magical
         public int dmgType { get; set; }
+        public int id { get; set; }
 
         public Weapon()
         {
@@ -20,11 +21,12 @@ namespace Objects
             dmgType = 0;
         }
 
-        public Weapon(string weaponName, int weaponDmg, int weaponDmgType)
+        public Weapon(string weaponName, int weaponDmg, int weaponDmgType, int weaponId)
         {
             name = weaponName;
             dmg = weaponDmg;
             dmgType = weaponDmgType;
+            id = weaponId;
 
         }
 
