@@ -11,19 +11,22 @@ namespace Objects
         public string name { get; set; }
         public string desc { get; set; }
         public int value { get; set; }
+        public bool questItem { get; set; }
 
         public Treasure()
         {
             name = "Generic Necklace";
             desc = "Not very pretty...";
             value = 1;
+            questItem = false;
         }
 
-        public Treasure(string treasureName, string treasureDesc, int treasureValue)
+        public Treasure(string treasureName, string treasureDesc, int treasureValue, bool treasureQuestItem)
         {
             name = treasureName;
             desc = treasureDesc;
             value = treasureValue;
+            questItem = treasureQuestItem;
         }
 
     }
