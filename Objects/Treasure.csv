@@ -1,6 +1,6 @@
-name	desc	price	questItem
-Gold necklace	A golden necklace. Perhaps worn by a queen? Probably not.	65	FALSE
-Silver ring	A plain ring with no special engravings.	20	FALSE
-Amethyst	"A valuable stone with many uses in alchemy, all of which is unknown to you."	40	FALSE
-Monster idol	An idol of a god worshipped by the monsters. Maybe an exotics collector would buy this?	35	FALSE
-Obsidian key	A purple and blackish key designed for a very specific door.	0	TRUE
+name,desc,price,questItem
+Gold necklace,A golden necklace. Perhaps worn by a queen? Probably not.,65,FALSE
+Silver ring,A plain ring with no special engravings.,20,FALSE
+Amethyst,"A valuable stone with many uses in alchemy, all of which is unknown to you.",40,FALSE
+Monster idol,An idol of a god worshipped by the monsters. Maybe an exotics collector would buy this?,35,FALSE
+Obsidian key,A purple and blackish key designed for a very specific door.,0,TRUE

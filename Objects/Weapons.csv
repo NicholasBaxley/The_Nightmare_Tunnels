@@ -1,12 +1,12 @@
-name	desc	dmg	dmgType	price
-Iron sword		3	2	150
-Iron dagger		2	2	100
-Iron mace		4	1	200
-Lighting tome		5	3	250
-Fire tome		4	3	200
-Iron spear		4	0	200
-Brass knuckles		2	1	100
-Rapier		3	0	150
-Iron hammer		6	1	300
-Crossbow		4	0	200
-Spiked whip		3	1	150
+name,desc,dmg,dmgType,price
+Iron sword,3,2,150
+Iron dagger,2,2,100
+Iron mace,4,1,200
+Lighting tome,5,3,250
+Fire tome,4,3,200
+Iron spear,4,0,200
+Brass knuckles,2,1,100
+Rapier,3,0,150
+Iron hammer,6,1,300
+Crossbow,4,0,200
+Spiked whip,3,1,150
