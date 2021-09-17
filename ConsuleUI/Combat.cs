@@ -82,11 +82,11 @@ namespace ConsuleUI
         {
             List<Mob> mobs = new List<Mob>();
 
-            mobs.Add(new Mob("Goblin", "PLACEHOLDER", 5, 3, 20, 10));
-            mobs.Add(new Mob("Slime", "PLACEHOLDER", 2, 3, 15, 10));
-            mobs.Add(new Mob("Orc", "PLACEHOLDER", 7, 1, 30, 10));
-            mobs.Add(new Mob("Wolf", "PLACEHOLDER", 4, 4, 20, 10));
-            mobs.Add(new Mob("Demon", "PLACEHOLDER", 5, 2, 25, 10));
+            mobs.Add(new Mob("Goblin", "PLACEHOLDER", 3, 20, 10));
+            mobs.Add(new Mob("Slime", "PLACEHOLDER", 3, 15, 10));
+            mobs.Add(new Mob("Orc", "PLACEHOLDER", 1, 30, 10));
+            mobs.Add(new Mob("Wolf", "PLACEHOLDER", 4, 20, 10));
+            mobs.Add(new Mob("Demon", "PLACEHOLDER", 2, 25, 10));
 
             var rand = new Random();
             return mobs[rand.Next(mobs.Count - 1)];

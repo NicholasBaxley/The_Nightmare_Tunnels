@@ -8,3 +8,4 @@ C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\ConsuleUI\obj\Debug\Consu
 C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\ConsuleUI\obj\Debug\ConsuleUI.csproj.CopyComplete
 C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\ConsuleUI\obj\Debug\ConsuleUI.exe
 C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\ConsuleUI\obj\Debug\ConsuleUI.pdb
+C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\ConsuleUI\bin\Debug\Mobs.csv
