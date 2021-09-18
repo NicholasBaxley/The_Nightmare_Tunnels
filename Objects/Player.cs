@@ -19,7 +19,7 @@ namespace Objects
         public int maxHp { get; set; }
         public int maxAc { get; set; }
         public int dmg { get; set; }
-        public List<Item> inventory { get; set; }
+        public List<object> inventory { get; set; }
 
         public Player()
         {
@@ -62,7 +62,6 @@ namespace Objects
         // Method to check whether password meets requirements
         public static bool CheckPassword(string pass)
         {   
-            char[] split = pass.ToCharArray(); 
             bool hasUpper = false, hasLower = false, hasSpecial = false;
 
             foreach (char character in pass)
@@ -91,5 +90,10 @@ namespace Objects
             }
         }
 
+        public static string DisplayInventory(Player player)
+        {
+            // TO DO - Display Items
+            return "";
+        }
     }
 }
