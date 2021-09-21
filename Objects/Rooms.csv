@@ -1,0 +1,21 @@
+﻿name,desc,locked,roomID
+Entrance,The room you came into,FALSE,1
+Hall,Just an empty long hallway,FALSE,2
+Fountain,A room with a fountain in it,FALSE,3
+Boss Room,A room with a nasty creature,FALSE,4
+Treasure Room,A room with loot in it,FALSE,5
+Hall,Just an empty long hallway,FALSE,6
+Empty Room,Nothing but junk in here,FALSE,7
+Hall,Just an empty long hallway,FALSE,8
+Nasty Room,A foul smelling room,FALSE,9
+Hall,Just an empty long hallway,FALSE,10
+Big Room,A giant room with supporting beams,FALSE,11
+Well Room,A room with a well,FALSE,12
+Blood Room,A room with blood everywhere,FALSE,13
+Storage Room,A room with a variety of things in it,FALSE,14
+Hall,Just an empty long hallway,FALSE,15
+Impaled Room,A room with heads on pikes,FALSE,16
+Hall,Just an empty long hallway,FALSE,17
+Boss Room,A room with a big creature,FALSE,18
+Hall,Just an empty long hallway,FALSE,19
+Exit Room,A room with light behind a door,TRUE,20

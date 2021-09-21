@@ -10,23 +10,23 @@ namespace Objects
     {
         public string name { get; set; }
         public int dmg { get; set; }
-        public int atkspd { get; set; }
-        // 0 = Physical, 1 = Magical (Will Probably change later)
+        // 0 = Pierce/Thrust, 1 = Blunt, 2 = Slice, 3 = Magical
         public int dmgType { get; set; }
+        public int id { get; set; }
 
         public Weapon()
         {
             name = "Generic Sword";
             dmg = 1;
-            atkspd = 1;
+            dmgType = 0;
         }
 
-        public Weapon(string weaponName, int weaponDmg, int weaponAtkspd, int weaponDmgType)
+        public Weapon(string weaponName, int weaponDmg, int weaponDmgType, int weaponId)
         {
             name = weaponName;
             dmg = weaponDmg;
-            atkspd = weaponAtkspd;
             dmgType = weaponDmgType;
+            id = weaponId;
 
         }
 

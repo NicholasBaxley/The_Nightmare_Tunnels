@@ -11,7 +11,6 @@ namespace Objects
         public string name { get; set; }
         public string desc { get; set; }
         public int dmg { get; set; }
-        public int atkspd { get; set; }
 
         public int _hp;
         public int ac { get; set; }
@@ -42,20 +41,17 @@ namespace Objects
             name = "Generic Mob";
             desc = "Just some monster";
             dmg = 1;
-            atkspd = 1;
             hp = 1;
             ac = 1;
             maxHp = 1;
             maxAc = 1;
-
         }
 
-        public Mob(string mobName, string mobDesc, int mobDmg, int mobAtkspd, int mobHp ,int mobAc)
+        public Mob(string mobName, string mobDesc, int mobDmg, int mobHp ,int mobAc)
         {
             name = mobName;
             desc = mobDesc;
             dmg = mobDmg;
-            atkspd = mobAtkspd;
             hp = mobHp;
             maxHp = mobHp;
             ac = mobAc;

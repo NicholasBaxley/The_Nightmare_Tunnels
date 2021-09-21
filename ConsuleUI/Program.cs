@@ -85,6 +85,7 @@ namespace ConsuleUI
                         string pass = Console.ReadLine();
                         if (Player.CheckPassword(pass))
                         {
+                            player.password = pass;
                             passFlag = true;
                         }
                         else
@@ -98,11 +99,20 @@ namespace ConsuleUI
                     player.playerClass = Console.ReadLine();
                     Console.WriteLine("\nWhat race do you want to be? (Human or dwarf)");
                     player.race = Console.ReadLine();
+
+                    // Saves new player
+                    Console.WriteLine(WriteRead.SaveNewPlayer(player));
                 }
                 else if (input == "n" || input == "no")
                 {
+                    Console.WriteLine("Enter your characters name");
+                    string loginName = Console.ReadLine();
+                    Console.WriteLine("Enter your password");
+                    string pass = Console.ReadLine();
+
+                    Console.WriteLine(WriteRead.LoadPlayer(loginName, pass, new Player()));
+
                     login = true;
-                    // TODO - Add user login, etc
                 }
                 else
                 {
@@ -143,6 +153,10 @@ namespace ConsuleUI
                         // For now you can only fight random monsters
                         Combat.StartFight(player, Combat.RandomMob());
                         StandardMessages.DisplayHelpMessage();
+                        break;
+                    case "i":
+                    case "inventory":
+                        // TO DO - Display whats in inventory
                         break;
                     default:
                         Console.WriteLine("Invalid input.");

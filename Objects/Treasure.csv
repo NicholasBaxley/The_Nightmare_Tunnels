@@ -1,0 +1,6 @@
+name,desc,price,questItem,id
+Gold necklace,A golden necklace. Perhaps worn by a queen? Probably not.,65,FALSE,0
+Silver ring,A plain ring with no special engravings.,20,FALSE,1
+Amethyst,"A valuable stone with many uses in alchemy, all of which is unknown to you.",40,FALSE,2
+Monster idol,An idol of a god worshipped by the monsters. Maybe an exotics collector would buy this?,35,FALSE,3
+Obsidian key,A purple and blackish key designed for a very specific door.,0,TRUE,4

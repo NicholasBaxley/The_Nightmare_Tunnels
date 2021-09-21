@@ -1,0 +1,16 @@
+﻿name,desc,dmg,maxHp,maxAc
+Rat,A creature known to carry disease.,5,15,70
+Green Slime,A slime that has fed on grass.,1,7,60
+Bat,A monster that hunts in the dark using its echolocation.,2,10,65
+Spider,An overgrown spider out on the hunt for prey.,4,13,60
+Fairy,A wild fairy that has grown distrustful of other species in its isolation.,3,16,65
+Mimic,The monster most well known by adventures,9,7,100
+Wolf,A lonely wolf who has lost his hunting pack.,6,20,72
+Goblin,Humanoid beings that are known for their pilfering of adventures.,5,19,74
+Blue Slime,A slime who lives in puddles.,4,15,76
+Ghost,The remains of a fallen soldier who still has lingering regrets.,7,20,74
+Orc,An evolved goblin who has seen many battles.,10,25,70
+Demon,Demonic being who enjoys causing mischief at the worst possible times!,8,22,80
+Giant Lizard,Lizards who have lived a long life in the dungeon can grow into great sizes.,11,24,75
+Crocodile,"Crocodiles are very territorial, and you are in its territory.",13,23,78
+Red Slime,A slime who is hot to the touch.,6,20,85
