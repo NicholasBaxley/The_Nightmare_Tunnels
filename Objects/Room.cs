@@ -20,6 +20,7 @@ namespace Objects
         public int wExit { get; set; }
         public int eExit { get; set; }
         public Mob mob { get; set; }
+        public List<Item> items { get; set; }
 
         public Room()
         {

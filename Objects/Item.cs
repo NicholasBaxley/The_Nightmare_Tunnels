@@ -29,5 +29,19 @@ namespace Objects
             questItem = forQuest;
             id = itemID;
         }
+
+        public static List<Item> RandomItems(List<Item> items, int count)
+        {
+            var rand = new Random(count);
+            List<Item> newItems = new List<Item>();
+            int totalItems = rand.Next(1, 4);
+            for (int index = 0; index < totalItems; index++)
+            {
+                Item copyItem = items[rand.Next(0, items.Count)];
+                Item newItem = new Item(copyItem.name, copyItem.desc, copyItem.price, copyItem.questItem, copyItem.id);
+                newItems.Add(newItem);
+            }
+            return newItems;
+        }
     }
 }

@@ -15,10 +15,10 @@ namespace ConsuleUI
     {
         static void Main(string[] args)
         {
-            //Creating the map
-            List<Room> rooms = Read.CreateMap();
+            //Creating the map          
             List<Potion> potions = Read.CreatePotionList();
             List<Item> items = Read.CreateItemList();
+            List<Room> rooms = Read.CreateMap(items);
             List<Mob> mobs = Read.CreateMobList();
             List<Treasure> treasures = Read.CreateTreasureList();
             List<Weapon> weapons = Read.CreateWeaponList();

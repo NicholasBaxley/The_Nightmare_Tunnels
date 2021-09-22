@@ -93,7 +93,7 @@ namespace ConsuleUI
                 return potions;
             }
         }
-        public static List<Room> CreateMap()
+        public static List<Room> CreateMap(List<Item> items)
         {
             List<Room> rooms = new List<Room>();
             try
@@ -101,8 +101,10 @@ namespace ConsuleUI
                 StreamReader inputFile = File.OpenText("rooms.csv");
                 // This skips the first line of the file
                 inputFile.ReadLine();
+                int count = 0;
                 while (!inputFile.EndOfStream)
                 {
+                    count++;
                     string roomline = inputFile.ReadLine();
                     string[] room = roomline.Split(',');
                     Room roomObject = new Room(room[0],
@@ -118,7 +120,10 @@ namespace ConsuleUI
                     {
                         roomObject.mob = Combat.RandomMob(roomObject.difficulty);
                     }
+                    roomObject.items = Item.RandomItems(items, count);
                     rooms.Add(roomObject);
+
+
                 }
                 return rooms;
             }
