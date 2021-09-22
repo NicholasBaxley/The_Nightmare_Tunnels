@@ -82,14 +82,46 @@ namespace ConsuleUI
             // TODO - dont forget to add messages for any commands you add
         public static void DisplayHelpMessage()
         {
-            Console.WriteLine("\nNorth: moves the player to the northern room.\n"
-                            + "South: moves the player to the southern room.\n"
-                            + "West: moves the player to the western room.\n"
-                            + "East: moves the player to the eastern room.\n"
+            Console.WriteLine("\nNorth: Moves the player to the northern room.\n"
+                            + "South: Moves the player to the southern room.\n"
+                            + "West: Moves the player to the western room.\n"
+                            + "East: Moves the player to the eastern room.\n"
                             + "Directions: Shows you the rooms that are connected to this one.\n"
                             + "Quit: Closes the program.\n"
                             + "Help: Provides a list of commands.\n"
-                            + "Fight: Fight the monsters in the current room.\n");
+                            + "Fight: Fight the monsters in the current room.\n"
+                            + "Inventory: Shows your inventory and items.\n"
+                            + "Look: Examines whats in the room.\n");
+
+        }
+
+        public static void DisplayInventory(Player player)
+        {
+            // TO DO - Display whats the rest of whats in the inventory
+            Console.WriteLine("\nWeapon: " + player.equippedWeapon.name);
+        }
+
+        public static void DisplayLook(Room room)
+        {
+            Console.WriteLine("");
+            if (room.difficulty > 0)
+            {
+                Console.WriteLine("[MOBS]--------------");
+                if (room.mob.hp == 0)
+                {
+                    Console.WriteLine("A dead " + room.mob.name + " lays in the corner.");
+                }
+                else
+                {
+                    Console.WriteLine("A " + room.mob.name + " watches you from the corner of the room.");
+                }
+            }
+
+            Console.WriteLine("[ITEMS]--------------");
+            foreach (Item item in room.items)
+            {
+                Console.WriteLine("You see a " + item.name + " in this room.");
+            }
         }
     }
 }

@@ -15,11 +15,19 @@ namespace ConsuleUI
     {
         static void Main(string[] args)
         {
-            //Creating the map
-            List<Room> rooms = Room.CreateMap();
+            //Creating the map          
+            List<Potion> potions = Read.CreatePotionList();
+            List<Item> items = Read.CreateItemList();
+            List<Room> rooms = Read.CreateMap(items);
+            List<Mob> mobs = Read.CreateMobList();
+            List<Treasure> treasures = Read.CreateTreasureList();
+            List<Weapon> weapons = Read.CreateWeaponList();
 
             // Creating player
             Player player = new Player();
+
+            // TODO - For now give player a random weapon, later save player weapon to file
+            player.equippedWeapon = Weapon.RandomWeapon(weapons);
 
             int position = 0;
             bool quit = false;
@@ -70,7 +78,7 @@ namespace ConsuleUI
                     Console.WriteLine("Enter your password");
                     string pass = Console.ReadLine();
 
-                    Console.WriteLine(WriteRead.LoadPlayer(loginName, pass, new Player()));
+                    Console.WriteLine(Read.LoadPlayer(loginName, pass, new Player()));
 
                     login = true;
                 }
@@ -86,31 +94,36 @@ namespace ConsuleUI
             Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms));
             while (!quit)
             {
+
                 switch (Console.ReadLine().ToLower())
                 {
                     case "north":
                     case "n":
                         Movement.MoveNorth(ref position, rooms);
                         Console.WriteLine(StandardMessages.DisplayCurrentRoom(position, rooms));
-                        Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms)); 
+                        Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms));
+                        StandardMessages.DisplayNextRooms(position, rooms);
                         break;
                     case "south":
                     case "s":
                         Movement.MoveSouth(ref position, rooms);
                         Console.WriteLine(StandardMessages.DisplayCurrentRoom(position, rooms));
-                        Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms));                       
+                        Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms));
+                        StandardMessages.DisplayNextRooms(position, rooms);
                         break;
                     case "west":
                     case "w":
                         Movement.MoveWest(ref position, rooms);
                         Console.WriteLine(StandardMessages.DisplayCurrentRoom(position, rooms));
                         Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms));
+                        StandardMessages.DisplayNextRooms(position, rooms);
                         break;
                     case "east":
                     case "e":
                         Movement.MoveEast(ref position, rooms);
                         Console.WriteLine(StandardMessages.DisplayCurrentRoom(position, rooms));
                         Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms));
+                        StandardMessages.DisplayNextRooms(position, rooms);
                         break;
                     case "directions":
                     case "d":
@@ -127,12 +140,27 @@ namespace ConsuleUI
                     case "f":
                     case "fight":
                         // For now you can only fight random monsters
-                        Combat.StartFight(player, Combat.RandomMob());
-                        StandardMessages.DisplayHelpMessage();
+                        if (rooms[position].difficulty == 0)
+                        {
+                            Console.WriteLine("There are no monsters in this room.");
+                        }
+                        else if (rooms[position].mob.hp == 0)
+                        {
+                            Console.WriteLine("There are no more monsters in this room.");
+                        }
+                        else
+                        {
+                            Combat.StartFight(player, rooms[position].mob);
+                            StandardMessages.DisplayHelpMessage();
+                        }                        
                         break;
                     case "i":
                     case "inventory":
-                        // TO DO - Display whats in inventory
+                        StandardMessages.DisplayInventory(player);                       
+                        break;
+                    case "l":
+                    case "look":
+                        StandardMessages.DisplayLook(rooms[position]);
                         break;
                     default:
                         Console.WriteLine("Invalid input.");

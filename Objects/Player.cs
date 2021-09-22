@@ -28,9 +28,9 @@ namespace Objects
             race = "Dork";
             hp = 25;
             maxHp = 25;
-            ac = 25;
-            maxAc = 25;
-            dmg = 6;
+            ac = 90;
+            maxAc = 90;
+            dmg = 3;
         }
 
         public Player(string playerName, string playerPassword)
