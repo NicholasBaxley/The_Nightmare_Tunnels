@@ -15,48 +15,8 @@ namespace ConsuleUI
     {
         static void Main(string[] args)
         {
-            //Intializing all of the lists
-            List<Room> rooms = new List<Room>();
-            List<Weapon> weapons = new List<Weapon>();
-            List<Potion> potions = new List<Potion>();
-            List<Treasure> treasures = new List<Treasure>();
-            List<Item> items = new List<Item>();
-            List<Mob> mobs = new List<Mob>();
-
-            //Creating all of the rooms
-            rooms.Add(new Room("Entrance", "PLACEHOLDER"));
-            rooms.Add(new Room("Hall", "PLACEHOLDER"));
-            rooms.Add(new Room("Fountain", "PLACEHOLDER"));
-            rooms.Add(new Room("Boss room", "PLACEHOLDER"));
-            rooms.Add(new Room("Treasure room", "PLACEHOLDER"));
-
-            //Creating all of the weapons
-            weapons.Add(new Weapon("Iron sword", 10, 2, 0));
-            weapons.Add(new Weapon("Bronze dagger", 6, 3, 0));
-            weapons.Add(new Weapon("Steel Mace", 14, 1, 0));
-            weapons.Add(new Weapon("Magic Tome", 8, 2, 1));
-
-            //Creating all of the potions
-            potions.Add(new Potion("Healing potion", 2));
-            potions.Add(new Potion("Mana potion", 1));
-
-            //Creating all of the treasures
-            treasures.Add(new Treasure("Gold necklace", "PLACEHOLDER", 1000));
-            treasures.Add(new Treasure("Gold coin", "PLACEHOLDER", 1));
-            treasures.Add(new Treasure("Silver ring", "PLACEHOLDER", 500));
-
-            //Creating all of the items
-            items.Add(new Item("Bucket", "PLACEHOLDER"));
-            items.Add(new Item("Tin can", "PLACEHOLDER"));
-            items.Add(new Item("Candle", "PLACEHOLDER"));
-            items.Add(new Item("Rope", "PLACEHOLDER"));
-
-            //Creating all of the mobs
-            mobs.Add(new Mob("Goblin", "PLACEHOLDER", 5, 3, 20, 10));
-            mobs.Add(new Mob("Slime", "PLACEHOLDER", 2, 3, 15, 10));
-            mobs.Add(new Mob("Orc", "PLACEHOLDER", 7, 1, 30, 10));
-            mobs.Add(new Mob("Wolf", "PLACEHOLDER", 4, 4, 20, 10));
-            mobs.Add(new Mob("Demon", "PLACEHOLDER", 5, 2, 25, 10));
+            //Creating the map
+            List<Room> rooms = Room.CreateMap();
 
             // Creating player
             Player player = new Player();
@@ -122,23 +82,39 @@ namespace ConsuleUI
 
             // Switch and loop
             StandardMessages.DisplayHelpMessage();
+            Console.WriteLine(StandardMessages.DisplayCurrentRoom(position, rooms));
+            Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms));
             while (!quit)
             {
                 switch (Console.ReadLine().ToLower())
                 {
                     case "north":
                     case "n":
-                        Movement.MoveNorth(ref position);
+                        Movement.MoveNorth(ref position, rooms);
                         Console.WriteLine(StandardMessages.DisplayCurrentRoom(position, rooms));
-                        Console.WriteLine(StandardMessages.DisplayNextRoomNorth(position, rooms));
-                        Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms));
+                        Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms)); 
                         break;
                     case "south":
                     case "s":
-                        Movement.MoveSouth(ref position);
+                        Movement.MoveSouth(ref position, rooms);
+                        Console.WriteLine(StandardMessages.DisplayCurrentRoom(position, rooms));
+                        Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms));                       
+                        break;
+                    case "west":
+                    case "w":
+                        Movement.MoveWest(ref position, rooms);
                         Console.WriteLine(StandardMessages.DisplayCurrentRoom(position, rooms));
                         Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms));
-                        Console.WriteLine(StandardMessages.DisplayRoomsReversed(position, rooms));
+                        break;
+                    case "east":
+                    case "e":
+                        Movement.MoveEast(ref position, rooms);
+                        Console.WriteLine(StandardMessages.DisplayCurrentRoom(position, rooms));
+                        Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms));
+                        break;
+                    case "directions":
+                    case "d":
+                        StandardMessages.DisplayNextRooms(position, rooms);
                         break;
                     case "q":
                     case "quit":

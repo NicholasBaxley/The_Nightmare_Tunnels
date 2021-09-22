@@ -10,7 +10,6 @@ namespace Objects
     {
         public string name { get; set; }
         public string password { get; set; }
-        // class is a reserved keyword by c# so i changed it to playerClass
         public string playerClass { get; set; }
         public string race { get; set; }
         public Weapon equippedWeapon { get; set; }
