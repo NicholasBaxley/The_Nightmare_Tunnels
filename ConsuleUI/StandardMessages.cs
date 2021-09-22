@@ -89,7 +89,9 @@ namespace ConsuleUI
                             + "Directions: Shows you the rooms that are connected to this one.\n"
                             + "Quit: Closes the program.\n"
                             + "Help: Provides a list of commands.\n"
-                            + "Fight: Fight the monsters in the current room.\n");
+                            + "Fight: Fight the monsters in the current room.\n"
+                            + "Inventory: Shows your inventory and items.\n");
+
         }
     }
 }

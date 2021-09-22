@@ -34,5 +34,12 @@ namespace Objects
             id = weaponId;
         }
 
+        //Returns a random weapon from the list
+        public static Weapon RandomWeapon(List<Weapon> weapons)
+        {
+            var rand = new Random();
+            return weapons[rand.Next(0, weapons.Count - 1)];
+        }
+
     }
 }

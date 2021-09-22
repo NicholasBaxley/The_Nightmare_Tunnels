@@ -16,6 +16,7 @@ namespace ConsuleUI
             bool playersTurn = true;
             bool playerDefending = false;
             string choice;
+            int damageDealt;
 
             while (fighting)
             {
@@ -43,9 +44,12 @@ namespace ConsuleUI
                         {
                             case "a":
                             case "attack":
+                                Console.WriteLine("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                                 if (TestAccuracy(player))
                                 {
-                                    mob.hp -= Attack(player);
+                                    damageDealt = Attack(player);
+                                    mob.hp -= damageDealt;
+                                    Console.WriteLine("You did " + damageDealt + " damage to the monster!" );
                                 }
                                 else
                                 {
@@ -68,20 +72,19 @@ namespace ConsuleUI
                 {
                     if (TestAccuracy(mob))
                     {
+                        damageDealt = Attack(mob);
                         if (playerDefending)
                         {
-                            player.hp -= Attack(mob) / 3;
+                            damageDealt /= 3;
                         }
-                        else
-                        {
-                            player.hp -= Attack(mob);
-                        }
+                        player.hp -= damageDealt;
+                        Console.WriteLine("The monster did " + damageDealt + " damage to you!");
                     }
                     else
                     {
                         Console.WriteLine("The monster missed!");
                     }
-
+                    Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     playersTurn = true;
                 }
 
@@ -91,19 +94,19 @@ namespace ConsuleUI
             player.hp = player.maxHp;
         }
 
-        // Generates a random mob
-        public static Mob RandomMob()
+        // Generates a random mob based on the difficulty of the room
+        public static Mob RandomMob(int difficulty, List<Mob> mobs)
         {
-            List<Mob> mobs = new List<Mob>();
-
-            mobs.Add(new Mob("Goblin", "PLACEHOLDER", 3, 20, 60, 60));
-            mobs.Add(new Mob("Slime", "PLACEHOLDER", 3, 15, 60, 60));
-            mobs.Add(new Mob("Orc", "PLACEHOLDER", 1, 30, 60, 60));
-            mobs.Add(new Mob("Wolf", "PLACEHOLDER", 4, 20, 60, 60));
-            mobs.Add(new Mob("Demon", "PLACEHOLDER", 2, 25, 60, 60));
-
             var rand = new Random();
-            return mobs[rand.Next(mobs.Count - 1)];
+            List<Mob> selectedMobs = new List<Mob>();
+            foreach(Mob mob in mobs)
+            {
+                if (mob.difficulty == difficulty)
+                {
+                    selectedMobs.Add(mob);
+                }
+            }
+            return selectedMobs[rand.Next(0, selectedMobs.Count - 1)];
         }
 
 
@@ -132,7 +135,7 @@ namespace ConsuleUI
         public static int Attack(Player character)
         {
             var rand = new Random();
-            int dmg = character.dmg + rand.Next(-4, 4);
+            int dmg = character.dmg + character.equippedWeapon.dmg + rand.Next(-2, 3);
             if (dmg < 0)
             {
                 dmg = 1;
@@ -143,7 +146,7 @@ namespace ConsuleUI
         public static int Attack(Mob character)
         {
             var rand = new Random();
-            int dmg = character.dmg + rand.Next(-4, 4);
+            int dmg = character.dmg + rand.Next(-4, 5);
             if (dmg < 0)
             {
                 dmg = 1;

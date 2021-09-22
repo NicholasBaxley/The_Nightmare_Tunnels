@@ -17,3 +17,14 @@ C:\repos\The_Nightmare_Tunnels\Objects\bin\Debug\Weapons.csv
 C:\repos\The_Nightmare_Tunnels\Objects\bin\Debug\players.csv
 C:\repos\The_Nightmare_Tunnels\Objects\bin\Debug\Potions.csv
 C:\repos\The_Nightmare_Tunnels\Objects\bin\Debug\Items.csv
+C:\Users\Nick\Documents\Projects\Tunnels\Objects\bin\Debug\Items.csv
+C:\Users\Nick\Documents\Projects\Tunnels\Objects\bin\Debug\Mobs.csv
+C:\Users\Nick\Documents\Projects\Tunnels\Objects\bin\Debug\players.csv
+C:\Users\Nick\Documents\Projects\Tunnels\Objects\bin\Debug\Potions.csv
+C:\Users\Nick\Documents\Projects\Tunnels\Objects\bin\Debug\Weapons.csv
+C:\Users\Nick\Documents\Projects\Tunnels\Objects\bin\Debug\Objects.dll
+C:\Users\Nick\Documents\Projects\Tunnels\Objects\bin\Debug\Objects.pdb
+C:\Users\Nick\Documents\Projects\Tunnels\Objects\obj\Debug\Objects.csprojAssemblyReference.cache
+C:\Users\Nick\Documents\Projects\Tunnels\Objects\obj\Debug\Objects.csproj.CoreCompileInputs.cache
+C:\Users\Nick\Documents\Projects\Tunnels\Objects\obj\Debug\Objects.dll
+C:\Users\Nick\Documents\Projects\Tunnels\Objects\obj\Debug\Objects.pdb

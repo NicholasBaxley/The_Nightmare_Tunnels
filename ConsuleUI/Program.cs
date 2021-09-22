@@ -26,6 +26,9 @@ namespace ConsuleUI
             // Creating player
             Player player = new Player();
 
+            // TODO - For now give player a random weapon, later save player weapon to file
+            player.equippedWeapon = Weapon.RandomWeapon(weapons);
+
             int position = 0;
             bool quit = false;
             bool login = false;
@@ -136,11 +139,19 @@ namespace ConsuleUI
                     case "f":
                     case "fight":
                         // For now you can only fight random monsters
-                        Combat.StartFight(player, Combat.RandomMob());
+                        if (rooms[position].difficulty == 0)
+                        {
+                            Console.WriteLine("There are no monsters in this room.");
+                        }
+                        else
+                        {
+                            Combat.StartFight(player, Combat.RandomMob(rooms[position].difficulty, mobs));
+                        }
                         StandardMessages.DisplayHelpMessage();
                         break;
                     case "i":
                     case "inventory":
+                        Console.WriteLine("Weapon: " + player.equippedWeapon.name);
                         // TO DO - Display whats in inventory
                         break;
                     default:
