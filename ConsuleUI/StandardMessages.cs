@@ -93,5 +93,11 @@ namespace ConsuleUI
                             + "Inventory: Shows your inventory and items.\n");
 
         }
+
+        public static void DisplayInventory(Player player)
+        {
+            // TO DO - Display whats the rest of whats in the inventory
+            Console.WriteLine("\nWeapon: " + player.equippedWeapon.name);
+        }
     }
 }

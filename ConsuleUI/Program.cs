@@ -94,7 +94,7 @@ namespace ConsuleUI
             Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms));
             while (!quit)
             {
-                Console.WriteLine(rooms[position].difficulty);
+
                 switch (Console.ReadLine().ToLower())
                 {
                     case "north":
@@ -147,13 +147,12 @@ namespace ConsuleUI
                         else
                         {
                             Combat.StartFight(player, Combat.RandomMob(rooms[position].difficulty, mobs));
-                        }
-                        StandardMessages.DisplayHelpMessage();
+                            StandardMessages.DisplayHelpMessage();
+                        }                        
                         break;
                     case "i":
                     case "inventory":
-                        Console.WriteLine("Weapon: " + player.equippedWeapon.name);
-                        // TO DO - Display whats in inventory
+                        StandardMessages.DisplayInventory(player);                       
                         break;
                     default:
                         Console.WriteLine("Invalid input.");
