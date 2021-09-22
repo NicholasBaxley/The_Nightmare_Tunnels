@@ -25,7 +25,7 @@ namespace ConsuleUI
 
                 return "New player saved!";
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return "Error saving player.";
             }
@@ -74,7 +74,7 @@ namespace ConsuleUI
 
                 return $"Player loaded! Welcome back, {player.name}!";
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return "Error loading player.";
             }

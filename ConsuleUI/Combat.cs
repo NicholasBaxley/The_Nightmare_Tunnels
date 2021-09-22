@@ -43,34 +43,48 @@ namespace ConsuleUI
                         {
                             case "a":
                             case "attack":
-                                mob.hp -= Attack(player);
-                                playersTurn = false;
+                                if (TestAccuracy(player))
+                                {
+                                    mob.hp -= Attack(player);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("You missed!");
+                                }
                                 break;
                             case "d":
                             case "defend":
                                 playerDefending = true;
-                                playersTurn = false;
                                 break;
                             default:
                                 Console.WriteLine("Invalid option!");
                                 break;
                         }
+                        playersTurn = false;
                     }
                 }
                 // The monster attacks here
                 else
                 {
-                    if (playerDefending)
+                    if (TestAccuracy(mob))
                     {
-                        player.hp -= Attack(mob) / 3;
+                        if (playerDefending)
+                        {
+                            player.hp -= Attack(mob) / 3;
+                        }
+                        else
+                        {
+                            player.hp -= Attack(mob);
+                        }
                     }
                     else
                     {
-                        player.hp -= Attack(mob);
+                        Console.WriteLine("The monster missed!");
                     }
+
                     playersTurn = true;
                 }
- 
+
             }
             //Reset player hp for testing purposes
             // TODO - DELETE THIS FOR THE REAL FIGHTS
@@ -82,11 +96,11 @@ namespace ConsuleUI
         {
             List<Mob> mobs = new List<Mob>();
 
-            mobs.Add(new Mob("Goblin", "PLACEHOLDER", 3, 20, 10));
-            mobs.Add(new Mob("Slime", "PLACEHOLDER", 3, 15, 10));
-            mobs.Add(new Mob("Orc", "PLACEHOLDER", 1, 30, 10));
-            mobs.Add(new Mob("Wolf", "PLACEHOLDER", 4, 20, 10));
-            mobs.Add(new Mob("Demon", "PLACEHOLDER", 2, 25, 10));
+            mobs.Add(new Mob("Goblin", "PLACEHOLDER", 3, 20, 60, 60));
+            mobs.Add(new Mob("Slime", "PLACEHOLDER", 3, 15, 60, 60));
+            mobs.Add(new Mob("Orc", "PLACEHOLDER", 1, 30, 60, 60));
+            mobs.Add(new Mob("Wolf", "PLACEHOLDER", 4, 20, 60, 60));
+            mobs.Add(new Mob("Demon", "PLACEHOLDER", 2, 25, 60, 60));
 
             var rand = new Random();
             return mobs[rand.Next(mobs.Count - 1)];
@@ -136,5 +150,35 @@ namespace ConsuleUI
             }
             return dmg;
         }
+
+        // Test the player/mobs accuracy and returns true or false
+        public static bool TestAccuracy(Player player)
+        {
+            var rand = new Random();
+            int accuracy = rand.Next(0, 101);
+            if (accuracy <= player.ac)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public static bool TestAccuracy(Mob mob)
+        {
+            var rand = new Random();
+            int accuracy = rand.Next(0, 101);
+            if (accuracy <= mob.ac)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
+

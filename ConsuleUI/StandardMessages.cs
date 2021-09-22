@@ -13,16 +13,47 @@ namespace ConsuleUI
             return $"\nCurrent room: {rooms[position].name}"; 
         }
 
-            // Displays next room
-        public static string DisplayNextRoomNorth(int position, List<Room> rooms)
+            // Displays next rooms
+        public static void DisplayNextRooms(int position, List<Room> rooms)
         {
-            if(position < rooms.Count - 1)
+            int nPosition = rooms[position].nExit;
+            if (!(nPosition == -1))
             {
-                return $"Next Room: {rooms[position + 1].name}";
+                Console.WriteLine("N: " + rooms[nPosition].name);
             }
             else
             {
-                return "There is no room further north";
+                Console.WriteLine("N: [nothing]");
+            }
+
+            int sPosition = rooms[position].sExit;
+            if (!(sPosition == -1))
+            {
+                Console.WriteLine("S: " + rooms[sPosition].name);
+            }
+            else
+            {
+                Console.WriteLine("S: [nothing]");
+            }
+
+            int wPosition = rooms[position].wExit;
+            if (!(wPosition == -1))
+            {
+                Console.WriteLine("W: " + rooms[wPosition].name);
+            }
+            else
+            {
+                Console.WriteLine("W: [nothing]");
+            }
+
+            int ePosition = rooms[position].eExit;
+            if (!(ePosition == -1))
+            {
+                Console.WriteLine("E: " + rooms[ePosition].name);
+            }
+            else
+            {
+                Console.WriteLine("E: [nothing]");
             }
         }
 
@@ -53,6 +84,9 @@ namespace ConsuleUI
         {
             Console.WriteLine("\nNorth: moves the player to the northern room.\n"
                             + "South: moves the player to the southern room.\n"
+                            + "West: moves the player to the western room.\n"
+                            + "East: moves the player to the eastern room.\n"
+                            + "Directions: Shows you the rooms that are connected to this one.\n"
                             + "Quit: Closes the program.\n"
                             + "Help: Provides a list of commands.\n"
                             + "Fight: Fight the monsters in the current room.\n");

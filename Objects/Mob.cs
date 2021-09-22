@@ -12,11 +12,12 @@ namespace Objects
         public string desc { get; set; }
         public int dmg { get; set; }
 
-        public int _hp;
+        private int _hp;
         public int ac { get; set; }
         public int maxHp { get; set; }
         public int maxAc { get; set; }
-        
+        public int difficulty { get; set; }
+
         // Makes sure hp can not go below 0
         public int hp
         {
@@ -45,9 +46,10 @@ namespace Objects
             ac = 1;
             maxHp = 1;
             maxAc = 1;
+            difficulty = 1;
         }
 
-        public Mob(string mobName, string mobDesc, int mobDmg, int mobHp ,int mobAc)
+        public Mob(string mobName, string mobDesc, int mobDmg, int mobHp, int mobAc, int mobDifficulty)
         {
             name = mobName;
             desc = mobDesc;
@@ -56,6 +58,7 @@ namespace Objects
             maxHp = mobHp;
             ac = mobAc;
             maxAc = mobAc;
+            difficulty = mobDifficulty;
         }
     }
 }
