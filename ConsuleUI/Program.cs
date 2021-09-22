@@ -144,15 +144,23 @@ namespace ConsuleUI
                         {
                             Console.WriteLine("There are no monsters in this room.");
                         }
+                        else if (rooms[position].mob.hp == 0)
+                        {
+                            Console.WriteLine("There are no more monsters in this room.");
+                        }
                         else
                         {
-                            Combat.StartFight(player, Combat.RandomMob(rooms[position].difficulty, mobs));
+                            Combat.StartFight(player, rooms[position].mob);
                             StandardMessages.DisplayHelpMessage();
                         }                        
                         break;
                     case "i":
                     case "inventory":
                         StandardMessages.DisplayInventory(player);                       
+                        break;
+                    case "l":
+                    case "look":
+                        StandardMessages.DisplayLook(rooms[position]);
                         break;
                     default:
                         Console.WriteLine("Invalid input.");

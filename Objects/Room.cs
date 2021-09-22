@@ -19,6 +19,7 @@ namespace Objects
         public int sExit { get; set; }
         public int wExit { get; set; }
         public int eExit { get; set; }
+        public Mob mob { get; set; }
 
         public Room()
         {
@@ -27,13 +28,6 @@ namespace Objects
             locked = false;
             id = 0;
         }
-
-        // Creates a list of all the rooms in the game.
-       
-
-
-        ///add e exit here
-        ///finish adding room ids
         public Room(string roomName, string roomDesc, bool roomLocked, int roomId, int roomdifficulty, int roomNExit, int roomSExit, int roomWExit, int roomEExit)
         {
             name = roomName;

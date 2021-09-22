@@ -40,3 +40,18 @@ C:\Users\Nick\Documents\Projects\Tunnels\ConsuleUI\obj\Debug\ConsuleUI.csproj.Co
 C:\Users\Nick\Documents\Projects\Tunnels\ConsuleUI\obj\Debug\ConsuleUI.csproj.CopyComplete
 C:\Users\Nick\Documents\Projects\Tunnels\ConsuleUI\obj\Debug\ConsuleUI.exe
 C:\Users\Nick\Documents\Projects\Tunnels\ConsuleUI\obj\Debug\ConsuleUI.pdb
+C:\Users\Nick\Documents\Projects\new tunnelks\ConsuleUI\bin\Debug\players.csv
+C:\Users\Nick\Documents\Projects\new tunnelks\ConsuleUI\bin\Debug\Potions.csv
+C:\Users\Nick\Documents\Projects\new tunnelks\ConsuleUI\bin\Debug\Items.csv
+C:\Users\Nick\Documents\Projects\new tunnelks\ConsuleUI\bin\Debug\Mobs.csv
+C:\Users\Nick\Documents\Projects\new tunnelks\ConsuleUI\bin\Debug\Weapons.csv
+C:\Users\Nick\Documents\Projects\new tunnelks\ConsuleUI\bin\Debug\ConsuleUI.exe.config
+C:\Users\Nick\Documents\Projects\new tunnelks\ConsuleUI\bin\Debug\ConsuleUI.exe
+C:\Users\Nick\Documents\Projects\new tunnelks\ConsuleUI\bin\Debug\ConsuleUI.pdb
+C:\Users\Nick\Documents\Projects\new tunnelks\ConsuleUI\bin\Debug\Objects.dll
+C:\Users\Nick\Documents\Projects\new tunnelks\ConsuleUI\bin\Debug\Objects.pdb
+C:\Users\Nick\Documents\Projects\new tunnelks\ConsuleUI\obj\Debug\ConsuleUI.csprojAssemblyReference.cache
+C:\Users\Nick\Documents\Projects\new tunnelks\ConsuleUI\obj\Debug\ConsuleUI.csproj.CoreCompileInputs.cache
+C:\Users\Nick\Documents\Projects\new tunnelks\ConsuleUI\obj\Debug\ConsuleUI.csproj.CopyComplete
+C:\Users\Nick\Documents\Projects\new tunnelks\ConsuleUI\obj\Debug\ConsuleUI.exe
+C:\Users\Nick\Documents\Projects\new tunnelks\ConsuleUI\obj\Debug\ConsuleUI.pdb

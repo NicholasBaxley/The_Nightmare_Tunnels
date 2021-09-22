@@ -90,7 +90,8 @@ namespace ConsuleUI
                             + "Quit: Closes the program.\n"
                             + "Help: Provides a list of commands.\n"
                             + "Fight: Fight the monsters in the current room.\n"
-                            + "Inventory: Shows your inventory and items.\n");
+                            + "Inventory: Shows your inventory and items.\n"
+                            + "Look: Examines whats in the room.\n");
 
         }
 
@@ -98,6 +99,21 @@ namespace ConsuleUI
         {
             // TO DO - Display whats the rest of whats in the inventory
             Console.WriteLine("\nWeapon: " + player.equippedWeapon.name);
+        }
+
+        public static void DisplayLook(Room room)
+        {
+            if (room.difficulty > 0)
+            {
+                if (room.mob.hp == 0)
+                {
+                    Console.WriteLine("A dead " + room.mob.name + " lays in the corner.");
+                }
+                else
+                {
+                    Console.WriteLine("A " + room.mob.name + " watches you from the corner of the room.");
+                }
+            }        
         }
     }
 }

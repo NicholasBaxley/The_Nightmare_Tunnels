@@ -23,7 +23,6 @@ namespace ConsuleUI
                 // If either the player or mob dies, a message is displayed and the fight ends
                 if (mob.hp == 0)
                 {
-                    mob.hp = mob.maxHp;
                     Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     fighting = false;
                     DisplayWonMessage();
@@ -107,8 +106,9 @@ namespace ConsuleUI
         }
 
         // Generates a random mob based on the difficulty of the room
-        public static Mob RandomMob(int difficulty, List<Mob> mobs)
+        public static Mob RandomMob(int difficulty)
         {
+            List<Mob> mobs = Read.CreateMobList();
             var rand = new Random();
             List<Mob> selectedMobs = new List<Mob>();
             foreach(Mob mob in mobs)
@@ -118,7 +118,8 @@ namespace ConsuleUI
                     selectedMobs.Add(mob);
                 }
             }
-            return selectedMobs[rand.Next(0, selectedMobs.Count)];
+            Mob temp = selectedMobs[rand.Next(0, selectedMobs.Count)];
+            return new Mob(temp.name, temp.desc, temp.dmg, temp.hp, temp.maxAc, temp.difficulty);
         }
 
 

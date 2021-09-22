@@ -108,12 +108,16 @@ namespace ConsuleUI
                     Room roomObject = new Room(room[0],
                                                room[1],
                                                bool.Parse(room[2]),
-                                               Int32.Parse(room[3]),
-                                               Int32.Parse(room[4]),
-                                               Int32.Parse(room[5]),
-                                               Int32.Parse(room[6]),
-                                               Int32.Parse(room[7]),
-                                               Int32.Parse(room[8]));
+                                               int.Parse(room[3]),
+                                               int.Parse(room[4]),
+                                               int.Parse(room[5]),
+                                               int.Parse(room[6]),
+                                               int.Parse(room[7]),
+                                               int.Parse(room[8]));
+                    if (roomObject.difficulty > 0)
+                    {
+                        roomObject.mob = Combat.RandomMob(roomObject.difficulty);
+                    }
                     rooms.Add(roomObject);
                 }
                 return rooms;
