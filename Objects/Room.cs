@@ -34,7 +34,7 @@ namespace Objects
 
         ///add e exit here
         ///finish adding room ids
-        public Room(string roomName, string roomDesc, bool roomLocked, int roomdifficulty, int roomId, int roomNExit, int roomSExit, int roomWExit, int roomEExit)
+        public Room(string roomName, string roomDesc, bool roomLocked, int roomId, int roomdifficulty, int roomNExit, int roomSExit, int roomWExit, int roomEExit)
         {
             name = roomName;
             desc = roomDesc;

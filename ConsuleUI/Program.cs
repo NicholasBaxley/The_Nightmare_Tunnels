@@ -94,6 +94,7 @@ namespace ConsuleUI
             Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms));
             while (!quit)
             {
+                Console.WriteLine(rooms[position].difficulty);
                 switch (Console.ReadLine().ToLower())
                 {
                     case "north":

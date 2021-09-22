@@ -23,6 +23,8 @@ namespace ConsuleUI
                 // If either the player or mob dies, a message is displayed and the fight ends
                 if (mob.hp == 0)
                 {
+                    mob.hp = mob.maxHp;
+                    Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     fighting = false;
                     DisplayWonMessage();
                 }
@@ -34,35 +36,45 @@ namespace ConsuleUI
                 // Decides whose turn it is to attack, player starts first
                 else if (playersTurn)
                 {
+                    playerDefending = false;
                     DisplayFightersHP(player, mob);
                     while (playersTurn)
                     {
                         // The options the player has doing a fight
                         Console.WriteLine("Attack/Defend");
-                        choice = Console.ReadLine();
-                        switch (choice)
+                       
+                        bool attacking = true;
+                        while (attacking)
                         {
-                            case "a":
-                            case "attack":
-                                Console.WriteLine("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                if (TestAccuracy(player))
-                                {
-                                    damageDealt = Attack(player);
-                                    mob.hp -= damageDealt;
-                                    Console.WriteLine("You did " + damageDealt + " damage to the monster!" );
-                                }
-                                else
-                                {
-                                    Console.WriteLine("You missed!");
-                                }
-                                break;
-                            case "d":
-                            case "defend":
-                                playerDefending = true;
-                                break;
-                            default:
-                                Console.WriteLine("Invalid option!");
-                                break;
+                            choice = Console.ReadLine();
+                            switch (choice)
+                            {
+                                case "a":
+                                case "attack":
+                                    Console.WriteLine("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                    if (TestAccuracy(player))
+                                    {
+                                        damageDealt = Attack(player);
+                                        mob.hp -= damageDealt;
+                                        Console.WriteLine("You did " + damageDealt + " damage to the monster!");
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("You missed!");
+                                    }
+                                    attacking = false;
+                                    break;
+                                case "d":
+                                case "defend":
+                                    Console.WriteLine("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                    Console.WriteLine("You choose to defend!");
+                                    playerDefending = true;
+                                    attacking = false;
+                                    break;
+                                default:
+                                    Console.WriteLine("Not an option!");
+                                    break;
+                            }
                         }
                         playersTurn = false;
                     }
@@ -75,7 +87,7 @@ namespace ConsuleUI
                         damageDealt = Attack(mob);
                         if (playerDefending)
                         {
-                            damageDealt /= 3;
+                            damageDealt = damageDealt / 3 ;
                         }
                         player.hp -= damageDealt;
                         Console.WriteLine("The monster did " + damageDealt + " damage to you!");
@@ -106,7 +118,7 @@ namespace ConsuleUI
                     selectedMobs.Add(mob);
                 }
             }
-            return selectedMobs[rand.Next(0, selectedMobs.Count - 1)];
+            return selectedMobs[rand.Next(0, selectedMobs.Count)];
         }
 
 
@@ -146,7 +158,7 @@ namespace ConsuleUI
         public static int Attack(Mob character)
         {
             var rand = new Random();
-            int dmg = character.dmg + rand.Next(-4, 5);
+            int dmg = character.dmg;
             if (dmg < 0)
             {
                 dmg = 1;
