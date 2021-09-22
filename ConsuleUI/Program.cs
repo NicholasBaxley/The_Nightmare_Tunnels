@@ -16,7 +16,12 @@ namespace ConsuleUI
         static void Main(string[] args)
         {
             //Creating the map
-            List<Room> rooms = Room.CreateMap();
+            List<Room> rooms = Read.CreateMap();
+            List<Potion> potions = Read.CreatePotionList();
+            List<Item> items = Read.CreateItemList();
+            List<Mob> mobs = Read.CreateMobList();
+            List<Treasure> treasures = Read.CreateTreasureList();
+            List<Weapon> weapons = Read.CreateWeaponList();
 
             // Creating player
             Player player = new Player();
@@ -70,7 +75,7 @@ namespace ConsuleUI
                     Console.WriteLine("Enter your password");
                     string pass = Console.ReadLine();
 
-                    Console.WriteLine(WriteRead.LoadPlayer(loginName, pass, new Player()));
+                    Console.WriteLine(Read.LoadPlayer(loginName, pass, new Player()));
 
                     login = true;
                 }
@@ -92,25 +97,29 @@ namespace ConsuleUI
                     case "n":
                         Movement.MoveNorth(ref position, rooms);
                         Console.WriteLine(StandardMessages.DisplayCurrentRoom(position, rooms));
-                        Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms)); 
+                        Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms));
+                        StandardMessages.DisplayNextRooms(position, rooms);
                         break;
                     case "south":
                     case "s":
                         Movement.MoveSouth(ref position, rooms);
                         Console.WriteLine(StandardMessages.DisplayCurrentRoom(position, rooms));
-                        Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms));                       
+                        Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms));
+                        StandardMessages.DisplayNextRooms(position, rooms);
                         break;
                     case "west":
                     case "w":
                         Movement.MoveWest(ref position, rooms);
                         Console.WriteLine(StandardMessages.DisplayCurrentRoom(position, rooms));
                         Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms));
+                        StandardMessages.DisplayNextRooms(position, rooms);
                         break;
                     case "east":
                     case "e":
                         Movement.MoveEast(ref position, rooms);
                         Console.WriteLine(StandardMessages.DisplayCurrentRoom(position, rooms));
                         Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms));
+                        StandardMessages.DisplayNextRooms(position, rooms);
                         break;
                     case "directions":
                     case "d":

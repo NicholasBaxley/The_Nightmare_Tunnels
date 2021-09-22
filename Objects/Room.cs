@@ -29,36 +29,7 @@ namespace Objects
         }
 
         // Creates a list of all the rooms in the game.
-        public static List<Room> CreateMap()
-        {
-            List<Room> rooms = new List<Room>();
-            try
-            {
-                StreamReader inputFile = File.OpenText("rooms.csv");
-                // This skips the first line of the file
-                inputFile.ReadLine();
-                while (!inputFile.EndOfStream)
-                {
-                    string roomline = inputFile.ReadLine();
-                    string[] room = roomline.Split(',');
-                    Room roomObject = new Room(room[0],
-                                               room[1],
-                                               bool.Parse(room[2]),
-                                               Int32.Parse(room[3]),
-                                               Int32.Parse(room[4]),
-                                               Int32.Parse(room[5]),
-                                               Int32.Parse(room[6]),
-                                               Int32.Parse(room[7]),
-                                               Int32.Parse(room[8]));
-                    rooms.Add(roomObject);
-                }
-                return rooms;
-            }
-            catch (Exception)
-            {
-                return rooms;
-            } 
-        }
+       
 
 
         ///add e exit here

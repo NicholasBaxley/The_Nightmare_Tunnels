@@ -1,0 +1,3 @@
+﻿name,desc,healthRestore,dmg,id
+Healing potion,A potion that will restore some of your life,15,0,0
+Poison potion,A potion to be thrown at your enemies poisoning them,0,12,1
