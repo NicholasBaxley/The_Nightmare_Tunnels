@@ -65,9 +65,7 @@
     </None>
     <None Include="Rooms.csv" />
     <None Include="Treasure.csv" />
-    <None Include="Weapons.csv">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="Weapons.csv" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

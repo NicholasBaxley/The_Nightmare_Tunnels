@@ -44,12 +44,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Combat.cs" />
+    <Compile Include="Login.cs" />
     <Compile Include="Movement.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Read.cs" />
     <Compile Include="StandardMessages.cs" />
-    <Compile Include="WriteRead.cs" />
+    <Compile Include="World.cs" />
+    <Compile Include="Write.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

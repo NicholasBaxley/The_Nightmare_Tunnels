@@ -39,3 +39,13 @@ C:\Users\Nick\Documents\Projects\new tunnelks\Objects\obj\Debug\Objects.csprojAs
 C:\Users\Nick\Documents\Projects\new tunnelks\Objects\obj\Debug\Objects.csproj.CoreCompileInputs.cache
 C:\Users\Nick\Documents\Projects\new tunnelks\Objects\obj\Debug\Objects.dll
 C:\Users\Nick\Documents\Projects\new tunnelks\Objects\obj\Debug\Objects.pdb
+C:\Users\decei\Desktop\realrealrepo\The_Nightmare_Tunnels\Objects\bin\Debug\Items.csv
+C:\Users\decei\Desktop\realrealrepo\The_Nightmare_Tunnels\Objects\bin\Debug\Mobs.csv
+C:\Users\decei\Desktop\realrealrepo\The_Nightmare_Tunnels\Objects\bin\Debug\Potions.csv
+C:\Users\decei\Desktop\realrealrepo\The_Nightmare_Tunnels\Objects\bin\Debug\players.csv
+C:\Users\decei\Desktop\realrealrepo\The_Nightmare_Tunnels\Objects\bin\Debug\Objects.dll
+C:\Users\decei\Desktop\realrealrepo\The_Nightmare_Tunnels\Objects\bin\Debug\Objects.pdb
+C:\Users\decei\Desktop\realrealrepo\The_Nightmare_Tunnels\Objects\obj\Debug\Objects.csproj.AssemblyReference.cache
+C:\Users\decei\Desktop\realrealrepo\The_Nightmare_Tunnels\Objects\obj\Debug\Objects.csproj.CoreCompileInputs.cache
+C:\Users\decei\Desktop\realrealrepo\The_Nightmare_Tunnels\Objects\obj\Debug\Objects.dll
+C:\Users\decei\Desktop\realrealrepo\The_Nightmare_Tunnels\Objects\obj\Debug\Objects.pdb
