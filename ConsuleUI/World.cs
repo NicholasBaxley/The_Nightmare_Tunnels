@@ -10,12 +10,12 @@ namespace ConsuleUI
     public static class World
     {
         // Create lists
-        public static List<Potion> potions = Read.CreatePotionList();
-        public static List<Item> items = Read.CreateItemList();
-        public static List<Room> rooms = Read.CreateMap(items);
-        public static List<Mob> mobs = Read.CreateMobList();
-        public static List<Treasure> treasures = Read.CreateTreasureList();
-        public static List<Weapon> weapons = Read.CreateWeaponList();
+        public static List<Potion> potions = SqliteDataAccess.LoadPotions();
+        public static List<Item> items = SqliteDataAccess.LoadItems();
+        public static List<Room> rooms = SqliteDataAccess.LoadRooms();
+        public static List<Mob> mobs = SqliteDataAccess.LoadMobs();
+        public static List<Treasure> treasures = SqliteDataAccess.LoadTreasure();
+        public static List<Weapon> weapons = SqliteDataAccess.LoadWeapons();
 
         public static Player player = new Player();
 

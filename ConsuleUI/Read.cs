@@ -63,7 +63,7 @@ namespace ConsuleUI
 
                 return mobs;
             }
-        }
+        }/*
         public static List<Potion> CreatePotionList()
         {
             List<Potion> potions = new List<Potion>();
@@ -92,7 +92,7 @@ namespace ConsuleUI
                 Console.WriteLine("Error loading potions");
                 return potions;
             }
-        }
+        }*/
         public static List<Room> CreateMap(List<Item> items)
         {
             List<Room> rooms = new List<Room>();

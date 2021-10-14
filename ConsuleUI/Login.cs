@@ -72,7 +72,8 @@ namespace ConsuleUI
                     player.race = Console.ReadLine();
 
                     // Saves new player
-                    Console.WriteLine(Write.SaveNewPlayer(player));
+                    SqliteDataAccess.SaveNewPlayer(player);
+                    login = true;
                 }
                 else if (input == "n" || input == "no")
                 {
@@ -81,7 +82,7 @@ namespace ConsuleUI
                     Console.WriteLine("Enter your password");
                     string pass = Console.ReadLine();
 
-                    Console.WriteLine(Read.LoadPlayer(loginName, pass, new Player()));
+                    player = SqliteDataAccess.LoadPlayer(loginName, pass);           
 
                     login = true;
                 }
