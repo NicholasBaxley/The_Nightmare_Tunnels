@@ -117,7 +117,6 @@ namespace ConsuleUI
                     string temp = cnn.QuerySingle<string>($"SELECT password " +
                                                           $"  FROM players " +
                                                           $" WHERE name=@name AND password = @pass", new { name,pass });
-
                     return true;
                 }
                 catch (Exception ex)

@@ -15,15 +15,18 @@ namespace ConsuleUI
     {
         static void Main(string[] args)
         {
-
-            // TODO - For now give player a random weapon, later save player weapon to file
-            World.player.equippedWeapon = Weapon.RandomWeapon(World.weapons);
-
+            Player player = World.player;
             Console.WriteLine("Welcome to The Nightmare Tunnels!");
 
             // Log player in
             Login.PlayerLogin();
 
+            // TODO - For now gives new players a random weapon.
+            if (player.equippedWeapon == null)
+            {
+                player.equippedWeapon = Weapon.RandomWeapon(World.weapons);
+            }
+            
 
             // Switch and loop
             StandardMessages.DisplayHelpMessage();
@@ -88,20 +91,20 @@ namespace ConsuleUI
                         }
                         else
                         {
-                            Combat.StartFight(World.player, World.rooms[World.position].mob);
+                            Combat.StartFight(player, World.rooms[World.position].mob);
                             StandardMessages.DisplayHelpMessage();
                         }                        
                         break;
                     case "i":
                     case "inventory":
-                        StandardMessages.DisplayInventory(World.player);                       
+                        StandardMessages.DisplayInventory(player);                       
                         break;
                     case "l":
                     case "look":
                         StandardMessages.DisplayLook(World.rooms[World.position]);
                         break;
                     case "save":
-                        SqliteDataAccess.SavePlayer(World.player);
+                        SqliteDataAccess.SavePlayer(player);
                         Console.WriteLine("Hopefully Saved.");
                         break;
                     default:

@@ -21,11 +21,12 @@ namespace ConsuleUI
 
             while (!login)
             {
+
                 Console.WriteLine("Are you a new player?(y/n)");
                 input = Console.ReadLine().ToLower();
 
                 // New User
-                if (input == "y" || input == "yes")
+                if (input == "y" || input == "yes" ||)
                 {
                     //login = true;
                     while (!nameFlag) 
