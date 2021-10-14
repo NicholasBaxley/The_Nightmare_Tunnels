@@ -18,6 +18,8 @@ namespace ConsuleUI
             string choice;
             int damageDealt;
 
+            Console.WriteLine(mob.Info());
+
             while (fighting)
             {
                 // If either the player or mob dies, a message is displayed and the fight ends
