@@ -10,8 +10,6 @@ C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\Objects\obj\Debug\Objects
 C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\Objects\obj\Debug\Objects.csproj.CoreCompileInputs.cache
 C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\Objects\obj\Debug\Objects.dll
 C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\Objects\obj\Debug\Objects.pdb
-C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\Objects\bin\Debug\Mobs.csv
-C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\Objects\bin\Debug\Weapons.csv
 C:\repos\The_Nightmare_Tunnels\Objects\bin\Debug\Mobs.csv
 C:\repos\The_Nightmare_Tunnels\Objects\bin\Debug\Weapons.csv
 C:\repos\The_Nightmare_Tunnels\Objects\bin\Debug\players.csv

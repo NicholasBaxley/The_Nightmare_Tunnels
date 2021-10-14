@@ -29,6 +29,7 @@ namespace ConsuleUI
             StandardMessages.DisplayHelpMessage();
             Console.WriteLine(StandardMessages.DisplayCurrentRoom(World.position, World.rooms));
             Console.WriteLine(StandardMessages.DisplayRoomDescription(World.position, World.rooms));
+
             while (!World.quit)
             {
 

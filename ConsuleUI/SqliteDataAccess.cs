@@ -26,7 +26,20 @@ namespace ConsuleUI
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 var output = cnn.Query<Room>("select * from rooms", new DynamicParameters());
-                return output.ToList();
+                List<Room> rooms = output.ToList();
+
+                //Adding items and mobs to rooms
+                for (int index = 0; index < rooms.Count(); index++)
+                {
+                    Room room = rooms[index];
+                    if (room.difficulty > 0)
+                    {
+                        room.mob = Combat.RandomMob(room.difficulty);
+                    }
+                    room.items = Item.RandomItems(World.items, index);
+                }
+                return rooms;
+                    
             }
         }
 
@@ -67,6 +80,7 @@ namespace ConsuleUI
             }
         }
         
+        //TODO - Crashes if name doesnt exist, add try statement
         public static Player LoadPlayer(string name, string password) // input validation
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -95,7 +109,7 @@ namespace ConsuleUI
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString())) // Fix after adding inventory
             {
-                cnn.Execute($"insert into players (Name, Password, Class, Race, currentHP) values (@name, @password, @playerClass, @race, @hp)", player);
+               // cnn.Execute($"insert into players (Name, Password, Class, Race, currentHP) values (@name, @password, @playerClass, @race, @hp)", player);
             }
         }
 

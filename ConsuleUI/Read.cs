@@ -36,6 +36,7 @@ namespace ConsuleUI
                 return items;
             }
         }
+
         public static List<Mob> CreateMobList()
         {
             List<Mob> mobs = new List<Mob>();
@@ -63,7 +64,9 @@ namespace ConsuleUI
 
                 return mobs;
             }
-        }/*
+
+        }
+        /*
         public static List<Potion> CreatePotionList()
         {
             List<Potion> potions = new List<Potion>();
@@ -92,7 +95,8 @@ namespace ConsuleUI
                 Console.WriteLine("Error loading potions");
                 return potions;
             }
-        }*/
+        }
+        */
         public static List<Room> CreateMap(List<Item> items)
         {
             List<Room> rooms = new List<Room>();
@@ -160,6 +164,7 @@ namespace ConsuleUI
                 return treasures;
             }
         }
+
         public static List<Weapon> CreateWeaponList()
         {
             List<Weapon> weapons = new List<Weapon>();
@@ -186,6 +191,7 @@ namespace ConsuleUI
                 return weapons;
             }
         }
+
         // Reads player CSV to load player
         public static string LoadPlayer(string name, string pass, Player player)
         {

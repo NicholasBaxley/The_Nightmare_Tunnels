@@ -86,6 +86,11 @@ namespace ConsuleUI
 
                     login = true;
                 }
+                //TODO - for quick access to game, im tired of making a fake account each time i wanna test something. DELETE WHEN PROJECT IS FINISHED
+                else if (input == "tester")
+                {
+                    login = true;
+                }
                 else
                 {
                     Console.WriteLine("\nInvalid option!");
