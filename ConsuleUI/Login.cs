@@ -26,7 +26,7 @@ namespace ConsuleUI
                 input = Console.ReadLine().ToLower();
 
                 // New User
-                if (input == "y" || input == "yes" ||)
+                if (input == "y" || input == "yes")
                 {
                     //login = true;
                     while (!nameFlag) 
