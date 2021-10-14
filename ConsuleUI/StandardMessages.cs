@@ -91,7 +91,8 @@ namespace ConsuleUI
                             + "Help: Provides a list of commands.\n"
                             + "Fight: Fight the monsters in the current room.\n"
                             + "Inventory: Shows your inventory and items.\n"
-                            + "Look: Examines whats in the room.\n");
+                            + "Look: Examines whats in the room.\n"
+                            + "Save: Saves your player.\n");
 
         }
 

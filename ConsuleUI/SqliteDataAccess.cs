@@ -86,7 +86,6 @@ namespace ConsuleUI
             }
         }
         
-        //TODO - Crashes if name doesnt exist, add try statement
         // Loads the player into the game doing login.
         public static void LoadPlayer(string name, string password) // input validation
         {
