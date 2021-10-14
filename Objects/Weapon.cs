@@ -12,6 +12,7 @@ namespace Objects
         public string name { get; set; }
         public string desc { get; set; }
         public int dmg { get; set; }
+
         // 0 = Pierce/Thrust, 1 = Blunt, 2 = Slice, 3 = Magical
         public int dmgType { get; set; }
         public int price { get; set; }

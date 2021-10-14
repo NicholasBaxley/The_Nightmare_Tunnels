@@ -22,7 +22,7 @@ namespace ConsuleUI
             Console.WriteLine("Welcome to The Nightmare Tunnels!");
 
             // Log player in
-            Login.PlayerLogin(World.player);
+            Login.PlayerLogin();
 
 
             // Switch and loop
@@ -99,6 +99,10 @@ namespace ConsuleUI
                     case "l":
                     case "look":
                         StandardMessages.DisplayLook(World.rooms[World.position]);
+                        break;
+                    case "save":
+                        SqliteDataAccess.SavePlayer(World.player);
+                        Console.WriteLine("Hopefully Saved.");
                         break;
                     default:
                         Console.WriteLine("Invalid input.");

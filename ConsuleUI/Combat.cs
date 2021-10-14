@@ -18,8 +18,6 @@ namespace ConsuleUI
             string choice;
             int damageDealt;
 
-            Console.WriteLine(mob.Info());
-
             while (fighting)
             {
                 // If either the player or mob dies, a message is displayed and the fight ends
@@ -138,7 +136,6 @@ namespace ConsuleUI
         }
 
         // Shows the hp for player and monster on screen
-        //TODO - Make better formatting
         public static void DisplayFightersHP(Player player, Mob mob)
         {
             Console.WriteLine("\n\n" + player.name + ": " + player.hp + "/" + player.maxHp);

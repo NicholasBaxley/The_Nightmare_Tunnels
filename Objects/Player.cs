@@ -9,12 +9,16 @@ namespace Objects
 {
     public class Player
     {
+        public int id { get; set; }
         public string name { get; set; }
         public string password { get; set; }
         public string playerClass { get; set; }
         public string race { get; set; }
-        public Weapon equippedWeapon { get; set; }
+        public int weaponId { get; set; }
+
+        public Weapon _equippedWeapon;
         private int _hp;
+
         public int ac { get; set; }
         public int maxHp { get; set; }
         public int maxAc { get; set; }
@@ -56,6 +60,18 @@ namespace Objects
                     _hp = value;
                 }
                 
+            }
+        }
+
+        //Automatically sets the weapons id
+        public Weapon equippedWeapon
+        {
+            get { return _equippedWeapon; }
+            set
+            {
+                _equippedWeapon = value;
+                weaponId = equippedWeapon.id;
+
             }
         }
 

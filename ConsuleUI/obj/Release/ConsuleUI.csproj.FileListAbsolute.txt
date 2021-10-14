@@ -1,0 +1,15 @@
+C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\ConsuleUI\bin\Release\GameObjects.db
+C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\ConsuleUI\bin\Release\ConsuleUI.exe.config
+C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\ConsuleUI\bin\Release\ConsuleUI.exe
+C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\ConsuleUI\bin\Release\ConsuleUI.pdb
+C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\ConsuleUI\bin\Release\Dapper.dll
+C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\ConsuleUI\bin\Release\Objects.dll
+C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\ConsuleUI\bin\Release\System.Data.SQLite.dll
+C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\ConsuleUI\bin\Release\Objects.pdb
+C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\ConsuleUI\bin\Release\Dapper.xml
+C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\ConsuleUI\bin\Release\System.Data.SQLite.xml
+C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\ConsuleUI\obj\Release\ConsuleUI.csprojAssemblyReference.cache
+C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\ConsuleUI\obj\Release\ConsuleUI.csproj.CoreCompileInputs.cache
+C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\ConsuleUI\obj\Release\ConsuleUI.csproj.CopyComplete
+C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\ConsuleUI\obj\Release\ConsuleUI.exe
+C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\ConsuleUI\obj\Release\ConsuleUI.pdb

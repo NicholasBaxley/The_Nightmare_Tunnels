@@ -9,8 +9,9 @@ namespace ConsuleUI
 {
     public static class Login
     {
-        public static void PlayerLogin(Player player)
+        public static void PlayerLogin()
         {
+            Player player = World.player;
             bool login = false;
             bool passFlag = false;
             string input;
@@ -23,6 +24,7 @@ namespace ConsuleUI
                 Console.WriteLine("Are you a new player?(y/n)");
                 input = Console.ReadLine().ToLower();
 
+                // New User
                 if (input == "y" || input == "yes")
                 {
                     //login = true;
@@ -75,18 +77,44 @@ namespace ConsuleUI
                     SqliteDataAccess.SaveNewPlayer(player);
                     login = true;
                 }
+                // Returning User
                 else if (input == "n" || input == "no")
                 {
-                    Console.WriteLine("Enter your characters name");
-                    string loginName = Console.ReadLine();
-                    Console.WriteLine("Enter your password");
-                    string pass = Console.ReadLine();
+                    bool loop = true; 
+                    string loginName = "";
+                    string pass = "";
+                    while(loop)
+                    {              
+                        Console.WriteLine("Enter your characters name.");
+                        loginName = Console.ReadLine();
+                        if (!SqliteDataAccess.CheckForPlayer(loginName))
+                        {
+                            Console.WriteLine("Not a user!");
+                        }
+                        else
+                        {
+                            loop = false;
+                        }
+                    }
 
-                    player = SqliteDataAccess.LoadPlayer(loginName, pass);           
-
+                    loop = true;
+                    while(loop)
+                    {
+                        Console.WriteLine("Enter your password");
+                        pass = Console.ReadLine();
+                        if (!SqliteDataAccess.CheckForPass(loginName, pass))
+                        {
+                            Console.WriteLine("Not the correct password!");
+                        }
+                        else
+                        {
+                            loop = false;
+                        }
+                    }
+                    SqliteDataAccess.LoadPlayer(loginName, pass);           
                     login = true;
                 }
-                //TODO - for quick access to game, im tired of making a fake account each time i wanna test something. DELETE WHEN PROJECT IS FINISHED
+                //TODO - for quick access to game, im tired of making a fake account each time i wanna test something.
                 else if (input == "tester")
                 {
                     login = true;
