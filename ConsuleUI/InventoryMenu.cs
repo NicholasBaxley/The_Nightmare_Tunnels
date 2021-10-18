@@ -82,5 +82,43 @@ namespace ConsuleUI
                 }
             }                 
         }
+
+        public static void TakeItem(Player player, Room room)
+        {
+            string input;
+            int id;
+            bool quit = false;
+            while (!quit)
+            {
+                StandardMessages.DisplayRoomItems(room);
+                Console.WriteLine("\nType the id of the item you want to take or type All to take all items or Quit to go back to the game menu.");
+                input = Console.ReadLine().ToLower();
+
+                if (input == "quit" || input == "q")
+                {
+                    quit = true;
+                    input = "fail boolean check";
+                }
+
+                bool succuess = int.TryParse(input, out id);
+                if (succuess)
+                {
+                    if (id < 0)
+                    {
+                        Console.WriteLine("Items cant have negative id's!");
+                    }
+                    else if (id > player.inventory.Count() - 1)
+                    {
+                        Console.WriteLine("That item doesnt exist!");
+                    }
+                    else
+                    {                     
+                        player.inventory.Add(room.items[id]);
+                        room.items.RemoveAt(id);
+                        Console.WriteLine("Item Obtained!");
+                    }
+                }
+            }
+        }
     }
 }

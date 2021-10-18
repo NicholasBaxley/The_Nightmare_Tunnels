@@ -78,6 +78,7 @@ namespace ConsuleUI
 
                     // Saves new player
                     SqliteDataAccess.SaveNewPlayer(new Player(name, password, playerClass, race));
+                    World.player = new Player(name, password, playerClass, race);
                     login = true;
                 }
                 // Returning User

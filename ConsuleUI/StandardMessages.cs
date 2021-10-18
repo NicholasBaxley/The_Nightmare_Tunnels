@@ -62,21 +62,6 @@ namespace ConsuleUI
         {   
             return $"Room description: {rooms[position].desc}";
         }
-            // Displays rooms reversed
-        public static string DisplayRoomsReversed(int position, List<Room> rooms)
-        {
-            string roomss = "";
-            rooms.Reverse();
-
-            foreach (var name in rooms)
-            {
-                roomss += "[" + name.name + "] ";
-            }
-
-            rooms.Reverse();
-
-            return "Rooms: " + roomss;
-        }
 
             // Lists every command the user can use
             // TODO - dont forget to add messages for any commands you add
@@ -132,12 +117,19 @@ namespace ConsuleUI
             DisplayInventoryItems(player);
         }
 
+        // Displays all mobs and items in the current room
         public static void DisplayLook(Room room)
         {
-            Console.WriteLine("");
+            DisplayRoomMobs(room);
+            DisplayRoomItems(room);
+        }
+
+        //Displays the current rooms mobs
+        public static void DisplayRoomMobs(Room room)
+        {
             if (room.difficulty > 0)
             {
-                Console.WriteLine("[MOBS]--------------");
+                Console.WriteLine("\n[MOBS]--------------");
                 if (room.mob.hp == 0)
                 {
                     Console.WriteLine("A dead " + room.mob.name + " lays in the corner.");
@@ -147,11 +139,17 @@ namespace ConsuleUI
                     Console.WriteLine("A " + room.mob.name + " watches you from the corner of the room.");
                 }
             }
+        }
 
-            Console.WriteLine("[ITEMS]--------------");
+        //Displays the current rooms items
+        public static void DisplayRoomItems(Room room)
+        {
+            int count = 0;
+            Console.WriteLine("\n[ITEMS]--------------");
             foreach (Item item in room.items)
             {
-                Console.WriteLine("You see a " + item.name + " in this room.");
+                Console.WriteLine($"[{count}]You see a " + item.name + " in this room.");
+                count++;
             }
         }
     }

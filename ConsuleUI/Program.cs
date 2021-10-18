@@ -27,12 +27,12 @@ namespace ConsuleUI
                 player.equippedWeapon = Weapon.RandomWeapon(World.weapons);
             }
             
-
-            // Switch and loop
+            // Shows help message and starting location
             StandardMessages.DisplayHelpMessage();
             Console.WriteLine(StandardMessages.DisplayCurrentRoom(World.position, World.rooms));
             Console.WriteLine(StandardMessages.DisplayRoomDescription(World.position, World.rooms));
 
+            // Main loop that controls the game
             while (!World.quit)
             {
 
@@ -98,11 +98,18 @@ namespace ConsuleUI
                     case "i":
                     case "inventory":
                         InventoryMenu.DisplayInventory(player);
-                        StandardMessages.DisplayHelpMessage();
+                        Console.WriteLine(StandardMessages.DisplayCurrentRoom(World.position, World.rooms));
+                        Console.WriteLine(StandardMessages.DisplayRoomDescription(World.position, World.rooms));
                         break;
                     case "l":
                     case "look":
                         StandardMessages.DisplayLook(World.rooms[World.position]);
+                        break;
+                    case "t":
+                    case "take":
+                        InventoryMenu.TakeItem(player, World.rooms[World.position]);
+                        Console.WriteLine(StandardMessages.DisplayCurrentRoom(World.position, World.rooms));
+                        Console.WriteLine(StandardMessages.DisplayRoomDescription(World.position, World.rooms));
                         break;
                     case "save":
                         SqliteDataAccess.SavePlayer(player);
@@ -111,7 +118,6 @@ namespace ConsuleUI
                     default:
                         Console.WriteLine("Invalid input.");
                         break;
-
                 }
             }
         }

@@ -41,6 +41,7 @@ namespace Objects
         public Player(string playerName, string playerPassword, string Class, string playerRace)
         {
             name = playerName;
+            inventory = new List<IInventoryItem>();
             password = playerPassword;
             playerClass = Class;
             race = playerRace;
