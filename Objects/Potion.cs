@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Objects
 {
-    public class Potion
+    public class Potion : IInventoryItem
     {
         public string name { get; set; }
         public string desc { get; set; }

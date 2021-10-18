@@ -18,12 +18,12 @@ namespace Objects
 
         public Weapon _equippedWeapon;
         private int _hp;
-
+        private List<IInventoryItem> _inventory = new List<IInventoryItem>();
         public int ac { get; set; }
         public int maxHp { get; set; }
         public int maxAc { get; set; }
         public int dmg { get; set; }
-        public List<object> inventory { get; set; }
+        public List<IInventoryItem> inventory { get {return _inventory ; } set {_inventory.Add((IInventoryItem)value); } }
 
         public Player()
         {

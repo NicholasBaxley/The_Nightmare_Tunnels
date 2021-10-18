@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Objects
 {
-    public class Item
+    public class Item : IInventoryItem
     {
         public string name { get; set; }
         public string desc { get; set; }
