@@ -11,7 +11,10 @@ namespace ConsuleUI
     {
         public static void PlayerLogin()
         {
-            Player player = World.player;
+            string name = "";
+            string password = "";
+            string playerClass;
+            string race;
             bool login = false;
             bool passFlag = false;
             string input;
@@ -34,7 +37,7 @@ namespace ConsuleUI
                     
                         Console.WriteLine("\nWhat is your name?");
                         input = Console.ReadLine();
-                        player.name = input;
+                        name = input;
                         Console.WriteLine($"Are you sure {input} is the name you want? (y/n)");
                         input = Console.ReadLine();
 
@@ -54,11 +57,10 @@ namespace ConsuleUI
                     while (!passFlag)
                     {
                         Console.WriteLine("\nEnter a password. (must contain upper case, lower case and a special character)");
-                        string pass = Console.ReadLine();
+                        password = Console.ReadLine();
 
-                        if (Player.CheckPassword(pass))
+                        if (Player.CheckPassword(password))
                         {
-                            player.password = pass;
                             passFlag = true;
                         }
                         else
@@ -69,13 +71,13 @@ namespace ConsuleUI
 
                     // TODO - input validation
                     Console.WriteLine("\nWhat class do you want to be? (Warrior or mage)");
-                    player.playerClass = Console.ReadLine();
+                    playerClass = Console.ReadLine();
 
                     Console.WriteLine("\nWhat race do you want to be? (Human or dwarf)");
-                    player.race = Console.ReadLine();
+                    race = Console.ReadLine();
 
                     // Saves new player
-                    SqliteDataAccess.SaveNewPlayer(player);
+                    SqliteDataAccess.SaveNewPlayer(new Player(name, password, playerClass, race));
                     login = true;
                 }
                 // Returning User

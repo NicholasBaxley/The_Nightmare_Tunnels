@@ -98,8 +98,12 @@ namespace ConsuleUI
 
         public static void DisplayInventory(Player player)
         {
-            // TO DO - Display whats the rest of whats in the inventory
+            // TODO - Display whats the rest of whats in the inventory
             Console.WriteLine("\nWeapon: " + player.equippedWeapon.name);
+            foreach (IInventoryItem item in player.inventory)
+            {
+                Console.WriteLine(item.name);
+            }
         }
 
         public static void DisplayLook(Room room)

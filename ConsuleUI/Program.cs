@@ -15,11 +15,11 @@ namespace ConsuleUI
     {
         static void Main(string[] args)
         {
-            Player player = World.player;
             Console.WriteLine("Welcome to The Nightmare Tunnels!");
 
             // Log player in
             Login.PlayerLogin();
+            Player player = World.player;
 
             // TODO - For now gives new players a random weapon.
             if (player.equippedWeapon == null)

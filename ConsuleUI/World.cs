@@ -17,7 +17,7 @@ namespace ConsuleUI
         public static List<Treasure> treasures = SqliteDataAccess.LoadTreasure();
         public static List<Weapon> weapons = SqliteDataAccess.LoadWeapons();
 
-        public static Player player = new Player();
+        public static Player player;
 
         public static int position = 0;
         public static bool quit = false;

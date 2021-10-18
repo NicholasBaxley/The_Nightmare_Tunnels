@@ -9,25 +9,25 @@ namespace Objects
 {
     public class Player
     {
+        private int _hp;
+        private List<IInventoryItem> _inventory;
+        public Weapon _equippedWeapon;
         public int id { get; set; }
         public string name { get; set; }
         public string password { get; set; }
         public string playerClass { get; set; }
         public string race { get; set; }
-        public int weaponId { get; set; }
-
-        public Weapon _equippedWeapon;
-        private int _hp;
-        private List<IInventoryItem> _inventory = new List<IInventoryItem>();
+        public int weaponId { get; set; }     
         public int ac { get; set; }
         public int maxHp { get; set; }
         public int maxAc { get; set; }
         public int dmg { get; set; }
-        public List<IInventoryItem> inventory { get {return _inventory ; } set {_inventory.Add((IInventoryItem)value); } }
+        
 
         public Player()
         {
             name = "John Doe";
+            inventory = new List<IInventoryItem>();
             password = "Password1!";
             playerClass = "Warrior";
             race = "Dork";
@@ -38,10 +38,12 @@ namespace Objects
             dmg = 3;
         }
 
-        public Player(string playerName, string playerPassword)
+        public Player(string playerName, string playerPassword, string Class, string playerRace)
         {
             name = playerName;
             password = playerPassword;
+            playerClass = Class;
+            race = playerRace;
         }
 
         // Makes sure hp can not go below 0
@@ -61,6 +63,19 @@ namespace Objects
                 }
                 
             }
+        }
+
+        public List<IInventoryItem> inventory 
+        {   
+            get 
+            {
+                return _inventory; 
+            } 
+            
+            set 
+            { 
+                _inventory = value; 
+            } 
         }
 
         //Automatically sets the weapons id
