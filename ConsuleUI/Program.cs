@@ -19,7 +19,7 @@ namespace ConsuleUI
 
             // Log player in
             Login.PlayerLogin();
-            Player player = World.player;
+            Player player =  World.player;
 
             // TODO - For now gives new players a random weapon.
             if (player.equippedWeapon == null)
@@ -97,7 +97,8 @@ namespace ConsuleUI
                         break;
                     case "i":
                     case "inventory":
-                        StandardMessages.DisplayInventory(player);                       
+                        InventoryMenu.DisplayInventory(player);
+                        StandardMessages.DisplayHelpMessage();
                         break;
                     case "l":
                     case "look":

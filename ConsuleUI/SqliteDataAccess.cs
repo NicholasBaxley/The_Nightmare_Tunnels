@@ -12,7 +12,7 @@ namespace ConsuleUI
     public class SqliteDataAccess
     {
 
-        //Loads all items into the world list
+        // Loads all items into the world list
         public static List<Item> LoadItems() 
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -22,7 +22,7 @@ namespace ConsuleUI
             }
         }
 
-        //Loads all rooms into the world list and populates them with mobs and items
+        // Loads all rooms into the world list and populates them with mobs and items
         public static List<Room> LoadRooms()
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -45,7 +45,7 @@ namespace ConsuleUI
             }
         }
 
-        //Loads all mobs into the world list
+        // Loads all mobs into the world list
         public static List<Mob> LoadMobs()
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -56,7 +56,7 @@ namespace ConsuleUI
             }
         }
 
-        //Loads all potion into the world list
+        // Loads all potion into the world list
         public static List<Potion> LoadPotions()
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -66,7 +66,7 @@ namespace ConsuleUI
             }
         }
 
-        //Loads all treasure into the world list
+        // Loads all treasure into the world list
         public static List<Treasure> LoadTreasure()
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -76,7 +76,7 @@ namespace ConsuleUI
             }
         }
 
-        //Loads all weapons into the world list
+        // Loads all weapons into the world list
         public static List<Weapon> LoadWeapons()
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
@@ -87,7 +87,7 @@ namespace ConsuleUI
         }
         
         // Loads the player into the game doing login.
-        public static void LoadPlayer(string name, string password) // input validation
+        public static void LoadPlayer(string name, string password)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
@@ -146,7 +146,7 @@ namespace ConsuleUI
         // Makes sure the password is correct when you try to log in.
         public static bool CheckForPass(string name, string pass)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString())) // Fix after adding inventory
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 try
                 {
@@ -195,7 +195,7 @@ namespace ConsuleUI
         // Updates a players stats
         public static void SavePlayer(Player player)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString())) // Fix after adding inventory
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 string invString = MakeInvString(player);
                 string playerName = player.name;
@@ -213,7 +213,7 @@ namespace ConsuleUI
         // Saves a new player
         public static void SaveNewPlayer(Player player)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString())) // Fix after adding inventory
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 cnn.Execute($"INSERT into players (name, password, playerClass, race, hp, maxHp, ac, maxAc, dmg) " +
                             $"VALUES (@name, @password, @playerClass, @race, @maxHp, @maxHp, @maxAc, @maxAc, @dmg)", player);
@@ -223,7 +223,7 @@ namespace ConsuleUI
         // Checks to see if a playername is in the database
         public static bool CheckForPlayer(string name)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString())) // Fix after adding inventory
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 try
                 {

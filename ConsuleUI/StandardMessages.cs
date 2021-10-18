@@ -93,17 +93,43 @@ namespace ConsuleUI
                             + "Inventory: Shows your inventory and items.\n"
                             + "Look: Examines whats in the room.\n"
                             + "Save: Saves your player.\n");
-
         }
 
-        public static void DisplayInventory(Player player)
+        //Gives you the commands for the inventory menu
+        public static void DisplayInventoryMenu()
         {
-            // TODO - Display whats the rest of whats in the inventory
-            Console.WriteLine("\nWeapon: " + player.equippedWeapon.name);
+            Console.WriteLine("\nWhat would you like to do?" +
+                              "\nAll" +
+                              "\nWeapon" +
+                              "\nItems" +
+                              "\nDiscard" +
+                              "\nClose");
+        }
+
+        //Display the currently equipped weapon
+        public static void DisplayInventoryWeapon(Player player)
+        {
+            Console.WriteLine("\n[WEAPON]-----------------------");
+            Console.WriteLine(player.equippedWeapon.name);
+        }
+
+        //Displays all your items
+        public static void DisplayInventoryItems(Player player)
+        {
+            int count = 0;
+            Console.WriteLine("\n[ITEMS]-----------------------");
             foreach (IInventoryItem item in player.inventory)
             {
-                Console.WriteLine(item.name);
+                Console.WriteLine($"[{count}] " + item.name);
+                count++;
             }
+        }
+
+        //Displays both yuor weapon and items
+        public static void DisplayInventoryAll(Player player)
+        {
+            DisplayInventoryWeapon(player);
+            DisplayInventoryItems(player);
         }
 
         public static void DisplayLook(Room room)

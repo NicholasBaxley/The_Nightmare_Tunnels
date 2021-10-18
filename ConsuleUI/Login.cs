@@ -120,6 +120,7 @@ namespace ConsuleUI
                 //TODO - for quick access to game, im tired of making a fake account each time i wanna test something.
                 else if (input == "tester")
                 {
+                    SqliteDataAccess.LoadPlayer("Nicholas", "Password1!");
                     login = true;
                 }
                 else
