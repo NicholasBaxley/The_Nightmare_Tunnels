@@ -99,6 +99,18 @@ namespace ConsuleUI
                     quit = true;
                     input = "fail boolean check";
                 }
+                else if (input == "all" || input == "a")
+                {
+                    quit = true;
+                    input = "fail boolean check";
+                    for (int index = 0; index != room.items.Count();)
+                    {
+                        player.inventory.Add(room.items[index]);
+                        room.items.Remove(room.items[index]);
+                    }
+                    Console.WriteLine("You took all the items!");
+
+                }
 
                 bool succuess = int.TryParse(input, out id);
                 if (succuess)
