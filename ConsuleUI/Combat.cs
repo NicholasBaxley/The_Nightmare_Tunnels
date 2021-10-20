@@ -108,7 +108,7 @@ namespace ConsuleUI
         // Generates a random mob based on the difficulty of the room
         public static Mob RandomMob(int difficulty)
         {
-            List<Mob> mobs = Read.CreateMobList();
+            List<Mob> mobs = SqliteDataAccess.LoadMobs();
             var rand = new Random();
             List<Mob> selectedMobs = new List<Mob>();
             foreach(Mob mob in mobs)
@@ -136,7 +136,6 @@ namespace ConsuleUI
         }
 
         // Shows the hp for player and monster on screen
-        //TODO - Make better formatting
         public static void DisplayFightersHP(Player player, Mob mob)
         {
             Console.WriteLine("\n\n" + player.name + ": " + player.hp + "/" + player.maxHp);

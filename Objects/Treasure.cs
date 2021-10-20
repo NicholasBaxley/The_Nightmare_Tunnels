@@ -7,7 +7,7 @@ using System.IO;
 
 namespace Objects
 {
-    public class Treasure
+    public class Treasure : IInventoryItem
     {
         public string name { get; set; }
         public string desc { get; set; }

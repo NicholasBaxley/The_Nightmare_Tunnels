@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,21 +9,25 @@ namespace Objects
 {
     public class Player
     {
+        private int _hp;
+        private List<IInventoryItem> _inventory;
+        public Weapon _equippedWeapon;
+        public int id { get; set; }
         public string name { get; set; }
         public string password { get; set; }
         public string playerClass { get; set; }
         public string race { get; set; }
-        public Weapon equippedWeapon { get; set; }
-        private int _hp;
+        public int weaponId { get; set; }     
         public int ac { get; set; }
         public int maxHp { get; set; }
         public int maxAc { get; set; }
         public int dmg { get; set; }
-        public List<object> inventory { get; set; }
+        
 
         public Player()
         {
             name = "John Doe";
+            inventory = new List<IInventoryItem>();
             password = "Password1!";
             playerClass = "Warrior";
             race = "Dork";
@@ -33,10 +38,13 @@ namespace Objects
             dmg = 3;
         }
 
-        public Player(string playerName, string playerPassword)
+        public Player(string playerName, string playerPassword, string Class, string playerRace)
         {
             name = playerName;
+            inventory = new List<IInventoryItem>();
             password = playerPassword;
+            playerClass = Class;
+            race = playerRace;
         }
 
         // Makes sure hp can not go below 0
@@ -55,6 +63,31 @@ namespace Objects
                     _hp = value;
                 }
                 
+            }
+        }
+
+        public List<IInventoryItem> inventory 
+        {   
+            get 
+            {
+                return _inventory; 
+            } 
+            
+            set 
+            { 
+                _inventory = value; 
+            } 
+        }
+
+        //Automatically sets the weapons id
+        public Weapon equippedWeapon
+        {
+            get { return _equippedWeapon; }
+            set
+            {
+                _equippedWeapon = value;
+                weaponId = equippedWeapon.id;
+
             }
         }
 
@@ -88,6 +121,7 @@ namespace Objects
                 return false;
             }
         }
+
 
         public static string DisplayInventory(Player player)
         {

@@ -1,9 +1,9 @@
 ﻿/**
-* 9/10/2021 (UPDATED - 9/11/2021)
+* 9/10/2021 (UPDATED - 10/06/2021)
 * CSC 253
 * Group 4
 * Group Members: Nicholas Baxley, Branden Alder
-* First sprint of The Nightmare Tunnels project
+* Third sprint of The Nightmare Tunnels project
 */
 using System;
 using System.Collections.Generic;
@@ -15,123 +15,64 @@ namespace ConsuleUI
     {
         static void Main(string[] args)
         {
-            //Creating the map          
-            List<Potion> potions = Read.CreatePotionList();
-            List<Item> items = Read.CreateItemList();
-            List<Room> rooms = Read.CreateMap(items);
-            List<Mob> mobs = Read.CreateMobList();
-            List<Treasure> treasures = Read.CreateTreasureList();
-            List<Weapon> weapons = Read.CreateWeaponList();
-
-            // Creating player
-            Player player = new Player();
-
-            // TODO - For now give player a random weapon, later save player weapon to file
-            player.equippedWeapon = Weapon.RandomWeapon(weapons);
-
-            int position = 0;
-            bool quit = false;
-            bool login = false;
-            bool passFlag = false;
-            string input;
-
-            // Slop for testing
             Console.WriteLine("Welcome to The Nightmare Tunnels!");
 
-            while (!login)
+            // Log player in
+            Login.PlayerLogin();
+            Player player =  World.player;
+
+            // TODO - For now gives new players a random weapon.
+            if (player.equippedWeapon == null)
             {
-                Console.WriteLine("Are you a new player?(y/n)");
-                input = Console.ReadLine().ToLower();
-                if (input == "y" || input == "yes")
-                {
-                    login = true;
-                    Console.WriteLine("\nWhat is your name?");
-                    player.name = Console.ReadLine();
-                    while (!passFlag)
-                    {
-                        Console.WriteLine("\nEnter a password. (must contain upper case, lower case and a special character)");
-                        string pass = Console.ReadLine();
-                        if (Player.CheckPassword(pass))
-                        {
-                            player.password = pass;
-                            passFlag = true;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Invalid password!");
-                        }
-                    }
-
-                    // TODO - input validation
-                    Console.WriteLine("\nWhat class do you want to be? (Warrior or mage)");
-                    player.playerClass = Console.ReadLine();
-                    Console.WriteLine("\nWhat race do you want to be? (Human or dwarf)");
-                    player.race = Console.ReadLine();
-
-                    // Saves new player
-                    Console.WriteLine(WriteRead.SaveNewPlayer(player));
-                }
-                else if (input == "n" || input == "no")
-                {
-                    Console.WriteLine("Enter your characters name");
-                    string loginName = Console.ReadLine();
-                    Console.WriteLine("Enter your password");
-                    string pass = Console.ReadLine();
-
-                    Console.WriteLine(Read.LoadPlayer(loginName, pass, new Player()));
-
-                    login = true;
-                }
-                else
-                {
-                    Console.WriteLine("\nInvalid option!");
-                }
+                player.equippedWeapon = Weapon.RandomWeapon(World.weapons);
             }
-
-            // Switch and loop
+            
+            // Shows help message and starting location
             StandardMessages.DisplayHelpMessage();
-            Console.WriteLine(StandardMessages.DisplayCurrentRoom(position, rooms));
-            Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms));
-            while (!quit)
+            Console.WriteLine(StandardMessages.DisplayCurrentRoom(World.position, World.rooms));
+            Console.WriteLine(StandardMessages.DisplayRoomDescription(World.position, World.rooms));
+
+            // Main loop that controls the game
+            while (!World.quit)
             {
 
                 switch (Console.ReadLine().ToLower())
                 {
                     case "north":
                     case "n":
-                        Movement.MoveNorth(ref position, rooms);
-                        Console.WriteLine(StandardMessages.DisplayCurrentRoom(position, rooms));
-                        Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms));
-                        StandardMessages.DisplayNextRooms(position, rooms);
+                        Movement.MoveNorth(ref World.position, World.rooms);
+                        Console.WriteLine(StandardMessages.DisplayCurrentRoom(World.position, World.rooms));
+                        Console.WriteLine(StandardMessages.DisplayRoomDescription(World.position, World.rooms));
+                        StandardMessages.DisplayNextRooms(World.position, World.rooms);
                         break;
                     case "south":
                     case "s":
-                        Movement.MoveSouth(ref position, rooms);
-                        Console.WriteLine(StandardMessages.DisplayCurrentRoom(position, rooms));
-                        Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms));
-                        StandardMessages.DisplayNextRooms(position, rooms);
+                        Movement.MoveSouth(ref World.position, World.rooms);
+                        Console.WriteLine(StandardMessages.DisplayCurrentRoom(World.position, World.rooms));
+                        Console.WriteLine(StandardMessages.DisplayRoomDescription(World.position, World.rooms));
+                        StandardMessages.DisplayNextRooms(World.position, World.rooms);
                         break;
                     case "west":
                     case "w":
-                        Movement.MoveWest(ref position, rooms);
-                        Console.WriteLine(StandardMessages.DisplayCurrentRoom(position, rooms));
-                        Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms));
-                        StandardMessages.DisplayNextRooms(position, rooms);
+                        Movement.MoveWest(ref World.position, World.rooms);
+                        Console.WriteLine(StandardMessages.DisplayCurrentRoom(World.position, World.rooms));
+                        Console.WriteLine(StandardMessages.DisplayRoomDescription(World.position, World.rooms));
+                        StandardMessages.DisplayNextRooms(World.position, World.rooms);
                         break;
                     case "east":
                     case "e":
-                        Movement.MoveEast(ref position, rooms);
-                        Console.WriteLine(StandardMessages.DisplayCurrentRoom(position, rooms));
-                        Console.WriteLine(StandardMessages.DisplayRoomDescription(position, rooms));
-                        StandardMessages.DisplayNextRooms(position, rooms);
+                        Movement.MoveEast(ref World.position, World.rooms);
+                        Console.WriteLine(StandardMessages.DisplayCurrentRoom(World.position, World.rooms));
+                        Console.WriteLine(StandardMessages.DisplayRoomDescription(World.position, World.rooms));
+                        StandardMessages.DisplayNextRooms(World.position, World.rooms);
                         break;
                     case "directions":
                     case "d":
-                        StandardMessages.DisplayNextRooms(position, rooms);
+                        StandardMessages.DisplayNextRooms(World.position, World.rooms);
                         break;
                     case "q":
                     case "quit":
-                        quit = true;
+                        World.quit = true;
                         break;
                     case "h":
                     case "help":
@@ -140,32 +81,43 @@ namespace ConsuleUI
                     case "f":
                     case "fight":
                         // For now you can only fight random monsters
-                        if (rooms[position].difficulty == 0)
+                        if (World.rooms[World.position].difficulty == 0)
                         {
                             Console.WriteLine("There are no monsters in this room.");
                         }
-                        else if (rooms[position].mob.hp == 0)
+                        else if (World.rooms[World.position].mob.hp == 0)
                         {
                             Console.WriteLine("There are no more monsters in this room.");
                         }
                         else
                         {
-                            Combat.StartFight(player, rooms[position].mob);
+                            Combat.StartFight(player, World.rooms[World.position].mob);
                             StandardMessages.DisplayHelpMessage();
                         }                        
                         break;
                     case "i":
                     case "inventory":
-                        StandardMessages.DisplayInventory(player);                       
+                        InventoryMenu.DisplayInventory(player);
+                        Console.WriteLine(StandardMessages.DisplayCurrentRoom(World.position, World.rooms));
+                        Console.WriteLine(StandardMessages.DisplayRoomDescription(World.position, World.rooms));
                         break;
                     case "l":
                     case "look":
-                        StandardMessages.DisplayLook(rooms[position]);
+                        StandardMessages.DisplayLook(World.rooms[World.position]);
+                        break;
+                    case "t":
+                    case "take":
+                        InventoryMenu.TakeItem(player, World.rooms[World.position]);
+                        Console.WriteLine(StandardMessages.DisplayCurrentRoom(World.position, World.rooms));
+                        Console.WriteLine(StandardMessages.DisplayRoomDescription(World.position, World.rooms));
+                        break;
+                    case "save":
+                        SqliteDataAccess.SavePlayer(player);
+                        Console.WriteLine("Hopefully Saved.");
                         break;
                     default:
                         Console.WriteLine("Invalid input.");
                         break;
-
                 }
             }
         }

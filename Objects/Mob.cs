@@ -62,6 +62,11 @@ namespace Objects
             difficulty = mobDifficulty;
         }
 
+        public string Info()
+        {
+            return $"[{name}]: {desc}\n Damage:{dmg}\n Hp:{maxHp}\n Acc:{maxAc}\n Diff:{difficulty}";
+        }
+
        
     }
 }
