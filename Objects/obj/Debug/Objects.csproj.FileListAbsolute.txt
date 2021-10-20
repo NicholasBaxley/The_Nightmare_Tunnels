@@ -59,3 +59,9 @@ C:\Users\Nick\Desktop\Project\Objects\obj\Debug\Objects.csprojAssemblyReference.
 C:\Users\Nick\Desktop\Project\Objects\obj\Debug\Objects.csproj.CoreCompileInputs.cache
 C:\Users\Nick\Desktop\Project\Objects\obj\Debug\Objects.dll
 C:\Users\Nick\Desktop\Project\Objects\obj\Debug\Objects.pdb
+C:\Users\ALDERB6714\Desktop\repo\The_Nightmare_Tunnels\Objects\bin\Debug\Objects.dll
+C:\Users\ALDERB6714\Desktop\repo\The_Nightmare_Tunnels\Objects\bin\Debug\Objects.pdb
+C:\Users\ALDERB6714\Desktop\repo\The_Nightmare_Tunnels\Objects\obj\Debug\Objects.csprojAssemblyReference.cache
+C:\Users\ALDERB6714\Desktop\repo\The_Nightmare_Tunnels\Objects\obj\Debug\Objects.csproj.CoreCompileInputs.cache
+C:\Users\ALDERB6714\Desktop\repo\The_Nightmare_Tunnels\Objects\obj\Debug\Objects.dll
+C:\Users\ALDERB6714\Desktop\repo\The_Nightmare_Tunnels\Objects\obj\Debug\Objects.pdb

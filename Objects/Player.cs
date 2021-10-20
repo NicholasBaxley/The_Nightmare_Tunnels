@@ -7,63 +7,42 @@ using System.Threading.Tasks;
 
 namespace Objects
 {
-    public class Player
+    public class Player : Living
     {
-        private int _hp;
         private List<IInventoryItem> _inventory;
         public Weapon _equippedWeapon;
         public int id { get; set; }
-        public string name { get; set; }
         public string password { get; set; }
         public string playerClass { get; set; }
         public string race { get; set; }
         public int weaponId { get; set; }     
-        public int ac { get; set; }
-        public int maxHp { get; set; }
-        public int maxAc { get; set; }
-        public int dmg { get; set; }
         
 
-        public Player()
+        public Player() : base()
         {
             name = "John Doe";
             inventory = new List<IInventoryItem>();
             password = "Password1!";
             playerClass = "Warrior";
             race = "Dork";
-            hp = 25;
-            maxHp = 25;
-            ac = 90;
-            maxAc = 90;
-            dmg = 3;
         }
 
-        public Player(string playerName, string playerPassword, string Class, string playerRace)
+        public Player(string playerName, string playerPassword, string playerClass, string playerRace) : base()
         {
             name = playerName;
             inventory = new List<IInventoryItem>();
             password = playerPassword;
-            playerClass = Class;
+            this.playerClass = playerClass;
             race = playerRace;
         }
 
-        // Makes sure hp can not go below 0
-        public int hp
+        public Player(string playerName, string playerPassword, string playerClass, string playerRace, int playerHP, int playerMaxHP, int playerAc, int playerMaxAc, int playerDmg) 
+            : base(playerName, playerHP, playerMaxHP, playerAc, playerMaxAc, playerDmg)
         {
-            get { return _hp; }
-
-            set
-            {
-                if (value < 0)
-                {
-                    _hp = 0;
-                }
-                else
-                {
-                    _hp = value;
-                }
-                
-            }
+            password = playerPassword;
+            inventory = new List<IInventoryItem>();
+            this.playerClass = playerClass;
+            race = playerRace;
         }
 
         public List<IInventoryItem> inventory 
@@ -120,13 +99,6 @@ namespace Objects
             {
                 return false;
             }
-        }
-
-
-        public static string DisplayInventory(Player player)
-        {
-            // TO DO - Display Items
-            return "";
         }
     }
 }
