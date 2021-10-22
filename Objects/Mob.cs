@@ -18,7 +18,8 @@ namespace Objects
             difficulty = 1;
         }
 
-        public Mob(string mobName, string mobDesc, int mobDmg, int mobHp, int mobAc, int mobDifficulty) : base(mobName, mobHp, mobHp, mobAc, mobAc, mobDmg)
+        public Mob(string mobName, string mobDesc, int mobDmg, int mobHp, int mobAc, int mobDifficulty, double WeakSlash, double WeakPierce, double WeakBlunt, double WeakMagical) 
+            : base(mobName, mobHp, mobHp, mobAc, mobAc, mobDmg, WeakSlash, WeakPierce, WeakBlunt, WeakMagical)
         {
             desc = mobDesc;
             difficulty = mobDifficulty;

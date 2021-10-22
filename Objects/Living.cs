@@ -14,6 +14,11 @@ namespace Objects
         public int ac { get; set; }
         public int maxAc { get; set; }
         public int dmg { get; set; }
+        public double weakSlash { get; set; }
+        public double weakPierce { get; set; }
+        public double weakBlunt { get; set; }
+        public double weakMagical { get; set; }
+
         public int hp
         {
             get { return _hp; }
@@ -41,14 +46,18 @@ namespace Objects
             dmg = 3;
         }
 
-        public Living(string name, int hp, int maxHP, int ac, int maxAc, int dmg)
+        public Living(string Name, int Hp, int MaxHP, int Ac, int MaxAc, int Dmg, double WeakSlash, double WeakPierce, double WeakBlunt, double WeakMagical)
         {
-            this.name = name;
-            this.hp = hp;
-            this.maxHp = maxHP;
-            this.ac = ac;
-            this.maxAc = maxAc;
-            this.dmg = dmg;
+            name = Name;
+            hp = Hp;
+            maxHp = MaxHP;
+            ac = Ac;
+            maxAc = MaxAc;
+            dmg = Dmg;
+            weakSlash = WeakSlash;
+            weakPierce = WeakPierce;
+            weakBlunt = WeakBlunt;
+            weakMagical = WeakMagical;
         }
     }
 }

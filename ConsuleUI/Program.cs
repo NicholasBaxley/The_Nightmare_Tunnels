@@ -72,6 +72,7 @@ namespace ConsuleUI
                         break;
                     case "q":
                     case "quit":
+                        SqliteDataAccess.SavePlayer(player);
                         World.quit = true;
                         break;
                     case "h":
@@ -113,7 +114,7 @@ namespace ConsuleUI
                         break;
                     case "save":
                         SqliteDataAccess.SavePlayer(player);
-                        Console.WriteLine("Hopefully Saved.");
+                        Console.WriteLine("Saved.");
                         break;
                     default:
                         Console.WriteLine("Invalid input.");

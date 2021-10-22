@@ -119,7 +119,7 @@ namespace ConsuleUI
                 }
             }
             Mob temp = selectedMobs[rand.Next(0, selectedMobs.Count)];
-            return new Mob(temp.name, temp.desc, temp.dmg, temp.hp, temp.maxAc, temp.difficulty);
+            return new Mob(temp.name, temp.desc, temp.dmg, temp.hp, temp.maxAc, temp.difficulty, temp.weakSlash, temp.weakPierce, temp.weakBlunt, temp.weakBlunt);
         }
 
 

@@ -11,7 +11,6 @@ namespace Objects
     {
         private List<IInventoryItem> _inventory;
         public Weapon _equippedWeapon;
-        public int id { get; set; }
         public string password { get; set; }
         public string playerClass { get; set; }
         public string race { get; set; }
@@ -37,7 +36,7 @@ namespace Objects
         }
 
         public Player(string playerName, string playerPassword, string playerClass, string playerRace, int playerHP, int playerMaxHP, int playerAc, int playerMaxAc, int playerDmg) 
-            : base(playerName, playerHP, playerMaxHP, playerAc, playerMaxAc, playerDmg)
+            : base(playerName, playerHP, playerMaxHP, playerAc, playerMaxAc, playerDmg, 1.0, 1.0, 1.0, 1.0)
         {
             password = playerPassword;
             inventory = new List<IInventoryItem>();
