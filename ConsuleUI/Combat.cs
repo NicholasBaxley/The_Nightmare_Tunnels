@@ -17,6 +17,8 @@ namespace ConsuleUI
             bool playerDefending = false;
             string choice;
             int damageDealt;
+            int playerWeaponType = player.equippedWeapon.dmgType;
+            int mobWeaponType;
 
             while (fighting)
             {
@@ -53,8 +55,9 @@ namespace ConsuleUI
                                     Console.WriteLine("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                                     if (TestAccuracy(player))
                                     {
-                                        damageDealt = Attack(player);
+                                        damageDealt = (int)(Attack(player) * Weakness(player.equippedWeapon, mob));
                                         mob.hp -= damageDealt;
+                                        Console.WriteLine(Attack(player));
                                         Console.WriteLine("You did " + damageDealt + " damage to the monster!");
                                     }
                                     else
@@ -192,6 +195,24 @@ namespace ConsuleUI
             else
             {
                 return false;
+            }
+        }
+
+        //Gets the player or mobs weakness depending on weapon being used.
+        // 0 = slash, 1 = pierce, 2 = blunt, default = magical
+        public static double Weakness(Weapon weapon, Living thing)
+        {
+            int weaponType = weapon.dmgType;
+            switch (weaponType)
+            {
+                case 0:
+                    return thing.weakSlash;
+                case 1:
+                    return thing.weakPierce;
+                case 2:
+                    return thing.weakBlunt;
+                default:
+                    return thing.weakMagical;
             }
         }
     }
