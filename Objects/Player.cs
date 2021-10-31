@@ -33,6 +33,8 @@ namespace Objects
             password = playerPassword;
             this.playerClass = playerClass;
             race = playerRace;
+            ac = 15;
+            maxAc = 15;
         }
 
         public Player(string playerName, string playerPassword, string playerClass, string playerRace, int playerHP, int playerMaxHP, int playerAc, int playerMaxAc, int playerDmg) 

@@ -18,7 +18,6 @@ namespace ConsuleUI
             string choice;
             int damageDealt;
             int playerWeaponType = player.equippedWeapon.dmgType;
-            int mobWeaponType;
 
             while (fighting)
             {
@@ -53,7 +52,7 @@ namespace ConsuleUI
                                 case "a":
                                 case "attack":
                                     Console.WriteLine("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                    if (TestAccuracy(player))
+                                    if (TestAccuracy(player, mob))
                                     {
                                         damageDealt = (int)(Attack(player) * Weakness(player.equippedWeapon, mob));
                                         mob.hp -= damageDealt;
@@ -84,7 +83,7 @@ namespace ConsuleUI
                 // The monster attacks here
                 else
                 {
-                    if (TestAccuracy(mob))
+                    if (TestAccuracy(mob, player))
                     {
                         damageDealt = Attack(mob);
                         if (playerDefending)
@@ -170,11 +169,11 @@ namespace ConsuleUI
         }
 
         // Test the player/mobs accuracy and returns true or false
-        public static bool TestAccuracy(Player player)
+        public static bool TestAccuracy(Player player, Mob mob)
         {
             var rand = new Random();
-            int accuracy = rand.Next(0, 101);
-            if (accuracy <= player.ac)
+            int accuracy = rand.Next(0, 31);
+            if (accuracy >= mob.ac)
             {
                 return true;
             }
@@ -184,11 +183,11 @@ namespace ConsuleUI
             }
         }
 
-        public static bool TestAccuracy(Mob mob)
+        public static bool TestAccuracy(Mob mob, Player player)
         {
             var rand = new Random();
-            int accuracy = rand.Next(0, 101);
-            if (accuracy <= mob.ac)
+            int accuracy = rand.Next(0, 31);
+            if (accuracy >= player.ac)
             {
                 return true;
             }

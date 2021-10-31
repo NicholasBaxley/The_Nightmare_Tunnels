@@ -158,7 +158,7 @@ namespace ConsuleUI
                                                           $" WHERE name=@name AND password = @pass ", new { name,pass });
                     return true;
                 }
-                catch (Exception ex)
+                catch(Exception)
                 {
                     return false;
                 }
@@ -235,7 +235,7 @@ namespace ConsuleUI
                                                     $" WHERE name=@name ", new { name });
                     return true;
                 }
-                catch(Exception ex)
+                catch(Exception)
                 {
                     return false;
                 }
