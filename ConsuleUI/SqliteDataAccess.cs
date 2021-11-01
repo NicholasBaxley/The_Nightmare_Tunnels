@@ -38,7 +38,7 @@ namespace ConsuleUI
                     {
                         room.mob = Combat.RandomMob(room.difficulty);
                     }
-                    room.items = Item.RandomItems(World.items, index);
+                    room.items = Item.RandomItems(World.items);
                 }
                 return rooms;
                     

@@ -64,7 +64,6 @@ namespace ConsuleUI
         }
 
             // Lists every command the user can use
-            // TODO - dont forget to add messages for any commands you add
         public static void DisplayHelpMessage()
         {
             Console.WriteLine("\nNorth: Moves the player to the northern room.\n"
@@ -76,7 +75,7 @@ namespace ConsuleUI
                             + "Help: Provides a list of commands.\n"
                             + "Fight: Fight the monsters in the current room.\n"
                             + "Inventory: Shows your inventory and items.\n"
-                            + "Look: Examines whats in the room.\n"
+                            + "Look: Examine what is in the room.\n"
                             + "Save: Saves your player.\n");
         }
 
@@ -122,6 +121,11 @@ namespace ConsuleUI
         {
             DisplayRoomMobs(room);
             DisplayRoomItems(room);
+        }
+
+        public static void NoMobsInRoom()
+        {
+            Console.WriteLine("There are no mobs in this room");
         }
 
         //Displays the current rooms mobs

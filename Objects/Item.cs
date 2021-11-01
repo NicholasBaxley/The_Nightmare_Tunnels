@@ -14,6 +14,7 @@ namespace Objects
         public int price { get; set; }
         public bool questItem { get; set; }
         public int id { get; set; }
+        private static Random rand = new Random();
 
         public Item()
         {
@@ -30,9 +31,10 @@ namespace Objects
             id = itemID;
         }
 
-        public static List<Item> RandomItems(List<Item> items, int count)
+        public static List<Item> RandomItems(List<Item> items)
         {
-            var rand = new Random(count);
+            
+            
             List<Item> newItems = new List<Item>();
             int totalItems = rand.Next(1, 4);
             for (int index = 0; index < totalItems; index++)
