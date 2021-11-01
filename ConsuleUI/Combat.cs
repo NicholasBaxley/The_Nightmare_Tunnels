@@ -7,11 +7,13 @@ using Objects;
 
 namespace ConsuleUI
 {
-    class Combat
+    public class Combat
     {
+        static Random rand = new Random();
         //The main method that controls most of the fight.
         public static void StartFight(Player player, Mob mob)
         {
+            
             bool fighting = true;
             bool playersTurn = true;
             bool playerDefending = false;
@@ -111,7 +113,6 @@ namespace ConsuleUI
         public static Mob RandomMob(int difficulty)
         {
             List<Mob> mobs = SqliteDataAccess.LoadMobs();
-            var rand = new Random();
             List<Mob> selectedMobs = new List<Mob>();
             foreach(Mob mob in mobs)
             {
@@ -123,7 +124,6 @@ namespace ConsuleUI
             Mob temp = selectedMobs[rand.Next(0, selectedMobs.Count)];
             return new Mob(temp.name, temp.desc, temp.dmg, temp.hp, temp.maxAc, temp.difficulty, temp.weakSlash, temp.weakPierce, temp.weakBlunt, temp.weakBlunt);
         }
-
 
         // The defeat/won messages
         // TODO - Change messages later when healing is implemented
@@ -147,8 +147,7 @@ namespace ConsuleUI
 
         //Returns the amount of damage a player or mob will do.
         public static int Attack(Player character)
-        {
-            var rand = new Random();
+        {            
             int dmg = character.dmg + character.equippedWeapon.dmg + rand.Next(-2, 3);
             if (dmg < 0)
             {
@@ -159,7 +158,6 @@ namespace ConsuleUI
 
         public static int Attack(Mob character)
         {
-            var rand = new Random();
             int dmg = character.dmg;
             if (dmg < 0)
             {
@@ -171,7 +169,6 @@ namespace ConsuleUI
         // Test the player/mobs accuracy and returns true or false
         public static bool TestAccuracy(Player player, Mob mob)
         {
-            var rand = new Random();
             int accuracy = rand.Next(0, 31);
             if (accuracy >= mob.ac)
             {
@@ -185,7 +182,6 @@ namespace ConsuleUI
 
         public static bool TestAccuracy(Mob mob, Player player)
         {
-            var rand = new Random();
             int accuracy = rand.Next(0, 31);
             if (accuracy >= player.ac)
             {
