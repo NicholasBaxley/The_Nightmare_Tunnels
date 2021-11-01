@@ -58,7 +58,6 @@ namespace ConsuleUI
                                     {
                                         damageDealt = (int)(Attack(player) * Weakness(player.equippedWeapon, mob));
                                         mob.hp -= damageDealt;
-                                        Console.WriteLine(Attack(player));
                                         Console.WriteLine("You did " + damageDealt + " damage to the monster!");
                                     }
                                     else
