@@ -10,6 +10,7 @@ namespace Objects
     {
         public string name { get; set; }
         private int _hp;
+        public Weapon _equippedWeapon;
         public int maxHp { get; set; }
         public int ac { get; set; }
         public int maxAc { get; set; }
@@ -35,6 +36,19 @@ namespace Objects
                 }
             }
         }
+        public int weaponId { get; set; }     
+
+        //Automatically sets the weapons id
+        public Weapon equippedWeapon
+        {
+            get { return _equippedWeapon; }
+            set
+            {
+                _equippedWeapon = value;
+                weaponId = equippedWeapon.id;
+
+            }
+        }
 
         public Living()
         {
@@ -43,7 +57,11 @@ namespace Objects
             maxHp = 25;
             ac = 90;
             maxAc = 90;
-            dmg = 3;
+            dmg = 3; 
+            weakSlash = 1;
+            weakPierce = 1;
+            weakBlunt = 1;
+            weakMagical = 1;
         }
 
         public Living(string Name, int Hp, int MaxHP, int Ac, int MaxAc, int Dmg, double WeakSlash, double WeakPierce, double WeakBlunt, double WeakMagical)

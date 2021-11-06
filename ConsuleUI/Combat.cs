@@ -13,13 +13,15 @@ namespace ConsuleUI
         //The main method that controls most of the fight.
         public static void StartFight(Player player, Mob mob)
         {
-            
             bool fighting = true;
             bool playersTurn = true;
             bool playerDefending = false;
             string choice;
             int damageDealt;
             int playerWeaponType = player.equippedWeapon.dmgType;
+
+            // Give mob a random weapon
+            mob.equippedWeapon = Weapon.RandomWeapon(World.weapons);
 
             while (fighting)
             {
@@ -86,7 +88,7 @@ namespace ConsuleUI
                 {
                     if (TestAccuracy(mob, player))
                     {
-                        damageDealt = Attack(mob);
+                        damageDealt = (int)(Attack(mob) * Weakness(mob.equippedWeapon, player));
                         if (playerDefending)
                         {
                             damageDealt = damageDealt / 3 ;
@@ -157,7 +159,7 @@ namespace ConsuleUI
 
         public static int Attack(Mob character)
         {
-            int dmg = character.dmg;
+            int dmg = character.dmg + character.equippedWeapon.dmg;
             if (dmg < 0)
             {
                 dmg = 1;

@@ -10,12 +10,10 @@ namespace Objects
     public class Player : Living
     {
         private List<IInventoryItem> _inventory;
-        public Weapon _equippedWeapon;
+
         public string password { get; set; }
         public string playerClass { get; set; }
         public string race { get; set; }
-        public int weaponId { get; set; }     
-        
 
         public Player() : base()
         {
@@ -57,18 +55,6 @@ namespace Objects
             { 
                 _inventory = value; 
             } 
-        }
-
-        //Automatically sets the weapons id
-        public Weapon equippedWeapon
-        {
-            get { return _equippedWeapon; }
-            set
-            {
-                _equippedWeapon = value;
-                weaponId = equippedWeapon.id;
-
-            }
         }
 
         // Method to check whether password meets requirements
