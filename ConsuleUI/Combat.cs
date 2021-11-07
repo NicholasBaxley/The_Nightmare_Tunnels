@@ -7,8 +7,9 @@ using Objects;
 
 namespace ConsuleUI
 {
-    class Combat
+    public class Combat
     {
+        static Random rand = new Random();
         //The main method that controls most of the fight.
         public static void StartFight(Player player, Mob mob)
         {
@@ -17,6 +18,10 @@ namespace ConsuleUI
             bool playerDefending = false;
             string choice;
             int damageDealt;
+            int playerWeaponType = player.equippedWeapon.dmgType;
+
+            // Give mob a random weapon
+            mob.equippedWeapon = Weapon.RandomWeapon(World.weapons);
 
             while (fighting)
             {
@@ -51,9 +56,9 @@ namespace ConsuleUI
                                 case "a":
                                 case "attack":
                                     Console.WriteLine("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                    if (TestAccuracy(player))
+                                    if (TestAccuracy(player, mob))
                                     {
-                                        damageDealt = Attack(player);
+                                        damageDealt = (int)(Attack(player) * Weakness(player.equippedWeapon, mob));
                                         mob.hp -= damageDealt;
                                         Console.WriteLine("You did " + damageDealt + " damage to the monster!");
                                     }
@@ -81,9 +86,9 @@ namespace ConsuleUI
                 // The monster attacks here
                 else
                 {
-                    if (TestAccuracy(mob))
+                    if (TestAccuracy(mob, player))
                     {
-                        damageDealt = Attack(mob);
+                        damageDealt = (int)(Attack(mob) * Weakness(mob.equippedWeapon, player));
                         if (playerDefending)
                         {
                             damageDealt = damageDealt / 3 ;
@@ -109,7 +114,6 @@ namespace ConsuleUI
         public static Mob RandomMob(int difficulty)
         {
             List<Mob> mobs = SqliteDataAccess.LoadMobs();
-            var rand = new Random();
             List<Mob> selectedMobs = new List<Mob>();
             foreach(Mob mob in mobs)
             {
@@ -118,10 +122,10 @@ namespace ConsuleUI
                     selectedMobs.Add(mob);
                 }
             }
+            
             Mob temp = selectedMobs[rand.Next(0, selectedMobs.Count)];
-            return new Mob(temp.name, temp.desc, temp.dmg, temp.hp, temp.maxAc, temp.difficulty);
+            return temp.CopyMob();
         }
-
 
         // The defeat/won messages
         // TODO - Change messages later when healing is implemented
@@ -145,8 +149,7 @@ namespace ConsuleUI
 
         //Returns the amount of damage a player or mob will do.
         public static int Attack(Player character)
-        {
-            var rand = new Random();
+        {            
             int dmg = character.dmg + character.equippedWeapon.dmg + rand.Next(-2, 3);
             if (dmg < 0)
             {
@@ -157,8 +160,7 @@ namespace ConsuleUI
 
         public static int Attack(Mob character)
         {
-            var rand = new Random();
-            int dmg = character.dmg;
+            int dmg = character.dmg + character.equippedWeapon.dmg;
             if (dmg < 0)
             {
                 dmg = 1;
@@ -167,11 +169,10 @@ namespace ConsuleUI
         }
 
         // Test the player/mobs accuracy and returns true or false
-        public static bool TestAccuracy(Player player)
+        public static bool TestAccuracy(Player player, Mob mob)
         {
-            var rand = new Random();
-            int accuracy = rand.Next(0, 101);
-            if (accuracy <= player.ac)
+            int accuracy = rand.Next(0, 31);
+            if (accuracy >= mob.ac)
             {
                 return true;
             }
@@ -181,17 +182,34 @@ namespace ConsuleUI
             }
         }
 
-        public static bool TestAccuracy(Mob mob)
+        public static bool TestAccuracy(Mob mob, Player player)
         {
-            var rand = new Random();
-            int accuracy = rand.Next(0, 101);
-            if (accuracy <= mob.ac)
+            int accuracy = rand.Next(0, 31);
+            if (accuracy >= player.ac)
             {
                 return true;
             }
             else
             {
                 return false;
+            }
+        }
+
+        //Gets the player or mobs weakness depending on weapon being used.
+        // 0 = slash, 1 = pierce, 2 = blunt, default = magical
+        public static double Weakness(Weapon weapon, Living thing)
+        {
+            int weaponType = weapon.dmgType;
+            switch (weaponType)
+            {
+                case 0:
+                    return thing.weakSlash;
+                case 1:
+                    return thing.weakPierce;
+                case 2:
+                    return thing.weakBlunt;
+                default:
+                    return thing.weakMagical;
             }
         }
     }

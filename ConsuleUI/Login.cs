@@ -19,8 +19,6 @@ namespace ConsuleUI
             bool passFlag = false;
             string input;
             bool nameFlag = false;
-            bool classFlag = false;
-            bool raceFlag = false;
 
             while (!login)
             {

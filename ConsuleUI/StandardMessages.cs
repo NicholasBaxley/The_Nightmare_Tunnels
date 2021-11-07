@@ -57,14 +57,13 @@ namespace ConsuleUI
             }
         }
 
-            // Displays room description
+        // Displays room description
         public static string DisplayRoomDescription(int position, List<Room> rooms)
         {   
             return $"Room description: {rooms[position].desc}";
         }
 
-            // Lists every command the user can use
-            // TODO - dont forget to add messages for any commands you add
+        // Lists every command the user can use
         public static void DisplayHelpMessage()
         {
             Console.WriteLine("\nNorth: Moves the player to the northern room.\n"
@@ -76,8 +75,9 @@ namespace ConsuleUI
                             + "Help: Provides a list of commands.\n"
                             + "Fight: Fight the monsters in the current room.\n"
                             + "Inventory: Shows your inventory and items.\n"
-                            + "Look: Examines whats in the room.\n"
-                            + "Save: Saves your player.\n");
+                            + "Look: Examine what is in the room.\n"
+                            + "Save: Saves your player.\n"
+                            + "MoveEnemies: A Test Command that forces all enemies to move.\n");
         }
 
         //Gives you the commands for the inventory menu
@@ -110,7 +110,7 @@ namespace ConsuleUI
             }
         }
 
-        //Displays both yuor weapon and items
+        //Displays both your weapon and items
         public static void DisplayInventoryAll(Player player)
         {
             DisplayInventoryWeapon(player);
@@ -124,21 +124,27 @@ namespace ConsuleUI
             DisplayRoomItems(room);
         }
 
+        public static void NoMobsInRoom()
+        {
+            Console.WriteLine("There are no mobs in this room");
+        }
+
         //Displays the current rooms mobs
         public static void DisplayRoomMobs(Room room)
-        {
-            if (room.difficulty > 0)
-            {
+        {   
                 Console.WriteLine("\n[MOBS]--------------");
-                if (room.mob.hp == 0)
+                if (room.mob == null)
                 {
-                    Console.WriteLine("A dead " + room.mob.name + " lays in the corner.");
+                Console.WriteLine("NULL");
+                }
+                else if (room.mob.hp == 0)
+                {
+                    Console.WriteLine("A " + room.mob.name + " watches you from the corner of the room.");
                 }
                 else
                 {
                     Console.WriteLine("A " + room.mob.name + " watches you from the corner of the room.");
                 }
-            }
         }
 
         //Displays the current rooms items

@@ -38,7 +38,20 @@ namespace ConsuleUI
                     {
                         room.mob = Combat.RandomMob(room.difficulty);
                     }
-                    room.items = Item.RandomItems(World.items, index);
+                    else
+                    {
+                        room.mob = null;
+                    }
+                    switch (room.id)
+                    {
+                        case 3:
+                        case 17:
+                            room.mob.isBoss = true;
+                            break;
+                        default:
+                            break;
+                    }
+                    room.items = Item.RandomItems(World.items);
                 }
                 return rooms;
                     
@@ -109,34 +122,37 @@ namespace ConsuleUI
                     // Remakes the weapon from its id
                     output.equippedWeapon = World.weapons[weaponId];
 
-                    // Rebuilds all the items from their string ids
-                    invString = invString.TrimEnd(',');
-                    string[] tokens = invString.Split(',');
-
-                    foreach (string token in tokens)
+                    // Rebuilds all the items from their string ids if their inventory is not empty
+                    if (!(invString == ""))
                     {
-                        char itemType = token[0];
-                        int id;
-                        switch (itemType)
+                        invString = invString.TrimEnd(',');
+                        string[] tokens = invString.Split(',');
+
+                        foreach (string token in tokens)
                         {
-                            case 't':
-                                id = int.Parse(token.TrimStart('t'));
-                                Treasure t = World.treasures[id];
-                                output.inventory.Add(new Treasure(t.name, t.desc, t.value, t.questItem, t.id));
-                                break;
-                            case 'i':
-                                id = int.Parse(token.TrimStart('i'));
-                                Item i = World.items[id];
-                                output.inventory.Add(new Item(i.name, i.desc, i.price, i.questItem, i.id));
-                                break;
-                            default:
-                                id = int.Parse(token.TrimStart('p'));
-                                Potion p = World.potions[id];
-                                output.inventory.Add(new Potion(p.id, p.name, p.desc, p.healthRestore, p.dmg));
-                                break;
+                            char itemType = token[0];
+                            int id;
+                            switch (itemType)
+                            {
+                                case 't':
+                                    id = int.Parse(token.TrimStart('t'));
+                                    Treasure t = World.treasures[id];
+                                    output.inventory.Add(new Treasure(t.name, t.desc, t.value, t.questItem, t.id));
+                                    break;
+                                case 'i':
+                                    id = int.Parse(token.TrimStart('i'));
+                                    Item i = World.items[id];
+                                    output.inventory.Add(new Item(i.name, i.desc, i.price, i.questItem, i.id));
+                                    break;
+                                default:
+                                    id = int.Parse(token.TrimStart('p'));
+                                    Potion p = World.potions[id];
+                                    output.inventory.Add(new Potion(p.id, p.name, p.desc, p.healthRestore, p.dmg));
+                                    break;
+                            }
                         }
                     }
-
+                    
                     // Sets the player stats
                     World.player = output;
                 }                             
@@ -155,7 +171,7 @@ namespace ConsuleUI
                                                           $" WHERE name=@name AND password = @pass ", new { name,pass });
                     return true;
                 }
-                catch (Exception ex)
+                catch(Exception)
                 {
                     return false;
                 }
@@ -232,7 +248,7 @@ namespace ConsuleUI
                                                     $" WHERE name=@name ", new { name });
                     return true;
                 }
-                catch(Exception ex)
+                catch(Exception)
                 {
                     return false;
                 }
