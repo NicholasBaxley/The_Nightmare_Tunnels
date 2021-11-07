@@ -136,20 +136,14 @@ namespace ConsuleUI
                 if (room.mob == null)
                 {
                 Console.WriteLine("NULL");
-            }
+                }
                 else if (room.mob.hp == 0)
                 {
                     Console.WriteLine("A " + room.mob.name + " watches you from the corner of the room.");
-
-                    //TEST STUFF
-                    Console.WriteLine(room.mob.isBoss);
                 }
                 else
                 {
                     Console.WriteLine("A " + room.mob.name + " watches you from the corner of the room.");
-
-                    //TEST STUFF
-                    Console.WriteLine(room.mob.isBoss);
                 }
         }
 
