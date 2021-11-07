@@ -1,5 +1,5 @@
 ﻿/**
-* 9/10/2021 (UPDATED - 10/06/2021)
+* 9/10/2021 (UPDATED - 11/6/2021)
 * CSC 253
 * Group 4
 * Group Members: Nicholas Baxley, Branden Alder
@@ -19,7 +19,7 @@ namespace ConsuleUI
 
             // Log player in
             Login.PlayerLogin();
-            Player player =  World.player;
+            Player player = World.player;
 
             // TODO - For now gives new players a random weapon.
             if (player.equippedWeapon == null)

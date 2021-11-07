@@ -38,6 +38,19 @@ namespace ConsuleUI
                     {
                         room.mob = Combat.RandomMob(room.difficulty);
                     }
+                    else
+                    {
+                        room.mob = null;
+                    }
+                    switch (room.id)
+                    {
+                        case 3:
+                        case 17:
+                            room.mob.isBoss = true;
+                            break;
+                        default:
+                            break;
+                    }
                     room.items = Item.RandomItems(World.items);
                 }
                 return rooms;

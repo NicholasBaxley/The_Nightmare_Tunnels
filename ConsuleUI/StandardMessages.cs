@@ -57,13 +57,13 @@ namespace ConsuleUI
             }
         }
 
-            // Displays room description
+        // Displays room description
         public static string DisplayRoomDescription(int position, List<Room> rooms)
         {   
             return $"Room description: {rooms[position].desc}";
         }
 
-            // Lists every command the user can use
+        // Lists every command the user can use
         public static void DisplayHelpMessage()
         {
             Console.WriteLine("\nNorth: Moves the player to the northern room.\n"
@@ -76,7 +76,8 @@ namespace ConsuleUI
                             + "Fight: Fight the monsters in the current room.\n"
                             + "Inventory: Shows your inventory and items.\n"
                             + "Look: Examine what is in the room.\n"
-                            + "Save: Saves your player.\n");
+                            + "Save: Saves your player.\n"
+                            + "MoveEnemies: A Test Command that forces all enemies to move.\n");
         }
 
         //Gives you the commands for the inventory menu
@@ -109,7 +110,7 @@ namespace ConsuleUI
             }
         }
 
-        //Displays both yuor weapon and items
+        //Displays both your weapon and items
         public static void DisplayInventoryAll(Player player)
         {
             DisplayInventoryWeapon(player);
@@ -130,19 +131,26 @@ namespace ConsuleUI
 
         //Displays the current rooms mobs
         public static void DisplayRoomMobs(Room room)
-        {
-            if (room.difficulty > 0)
-            {
+        {   
                 Console.WriteLine("\n[MOBS]--------------");
-                if (room.mob.hp == 0)
+                if (room.mob == null)
                 {
-                    Console.WriteLine("A dead " + room.mob.name + " lays in the corner.");
+                Console.WriteLine("NULL");
+            }
+                else if (room.mob.hp == 0)
+                {
+                    Console.WriteLine("A " + room.mob.name + " watches you from the corner of the room.");
+
+                    //TEST STUFF
+                    Console.WriteLine(room.mob.isBoss);
                 }
                 else
                 {
                     Console.WriteLine("A " + room.mob.name + " watches you from the corner of the room.");
+
+                    //TEST STUFF
+                    Console.WriteLine(room.mob.isBoss);
                 }
-            }
         }
 
         //Displays the current rooms items

@@ -61,7 +61,7 @@ namespace ConsuleUI
                     case "f":
                     case "fight":
                         // For now you can only fight random monsters
-                        if (World.rooms[World.position].difficulty == 0)
+                        if (World.rooms[World.position].mob == null)
                         {
                             StandardMessages.NoMobsInRoom();
                         }
@@ -94,6 +94,11 @@ namespace ConsuleUI
                     case "save":
                         SqliteDataAccess.SavePlayer(player);
                         Console.WriteLine("Saved.");
+                        break;
+                    case "me":
+                    case "moveenemies":
+                        Movement.MoveEnemies();
+                        Console.WriteLine("\nEnemies Moved");
                         break;
                     default:
                         Console.WriteLine("Invalid input.");

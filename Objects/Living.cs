@@ -57,7 +57,7 @@ namespace Objects
             maxHp = 25;
             ac = 90;
             maxAc = 90;
-            dmg = 3; 
+            dmg = 1; 
             weakSlash = 1;
             weakPierce = 1;
             weakBlunt = 1;

@@ -147,3 +147,18 @@ C:\Users\decei\Desktop\projectrepo\The_Nightmare_Tunnels\ConsuleUI\obj\Debug\Con
 C:\Users\decei\Desktop\projectrepo\The_Nightmare_Tunnels\ConsuleUI\obj\Debug\ConsuleUI.csproj.CopyComplete
 C:\Users\decei\Desktop\projectrepo\The_Nightmare_Tunnels\ConsuleUI\obj\Debug\ConsuleUI.exe
 C:\Users\decei\Desktop\projectrepo\The_Nightmare_Tunnels\ConsuleUI\obj\Debug\ConsuleUI.pdb
+C:\Users\Nick\Desktop\New folder\ConsuleUI\bin\Debug\GameObjects.db
+C:\Users\Nick\Desktop\New folder\ConsuleUI\bin\Debug\ConsuleUI.exe.config
+C:\Users\Nick\Desktop\New folder\ConsuleUI\bin\Debug\ConsuleUI.exe
+C:\Users\Nick\Desktop\New folder\ConsuleUI\bin\Debug\ConsuleUI.pdb
+C:\Users\Nick\Desktop\New folder\ConsuleUI\bin\Debug\Dapper.dll
+C:\Users\Nick\Desktop\New folder\ConsuleUI\bin\Debug\Objects.dll
+C:\Users\Nick\Desktop\New folder\ConsuleUI\bin\Debug\System.Data.SQLite.dll
+C:\Users\Nick\Desktop\New folder\ConsuleUI\bin\Debug\Objects.pdb
+C:\Users\Nick\Desktop\New folder\ConsuleUI\bin\Debug\Dapper.xml
+C:\Users\Nick\Desktop\New folder\ConsuleUI\bin\Debug\System.Data.SQLite.xml
+C:\Users\Nick\Desktop\New folder\ConsuleUI\obj\Debug\ConsuleUI.csprojAssemblyReference.cache
+C:\Users\Nick\Desktop\New folder\ConsuleUI\obj\Debug\ConsuleUI.csproj.CoreCompileInputs.cache
+C:\Users\Nick\Desktop\New folder\ConsuleUI\obj\Debug\ConsuleUI.csproj.CopyComplete
+C:\Users\Nick\Desktop\New folder\ConsuleUI\obj\Debug\ConsuleUI.exe
+C:\Users\Nick\Desktop\New folder\ConsuleUI\obj\Debug\ConsuleUI.pdb
