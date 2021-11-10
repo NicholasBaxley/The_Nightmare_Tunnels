@@ -30,6 +30,7 @@ namespace ConsuleUI
                 {
                     Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     fighting = false;
+                    World.rooms[World.position].mob = null;
                     DisplayWonMessage();
                 }
                 else if (player.hp == 0)

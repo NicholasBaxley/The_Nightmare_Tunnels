@@ -135,11 +135,7 @@ namespace ConsuleUI
                 Console.WriteLine("\n[MOBS]--------------");
                 if (room.mob == null)
                 {
-                Console.WriteLine("NULL");
-                }
-                else if (room.mob.hp == 0)
-                {
-                    Console.WriteLine("A " + room.mob.name + " watches you from the corner of the room.");
+                Console.WriteLine("");
                 }
                 else
                 {
