@@ -92,7 +92,7 @@ namespace ConsuleUI
                         damageDealt = (int)(Attack(mob) * Weakness(mob.equippedWeapon, player));
                         if (playerDefending)
                         {
-                            damageDealt = damageDealt / 3 ;
+                            damageDealt = damageDealt / 3;
                         }
                         player.hp -= damageDealt;
                         Console.WriteLine("The monster did " + damageDealt + " damage to you!");
@@ -198,7 +198,23 @@ namespace ConsuleUI
 
         //Gets the player or mobs weakness depending on weapon being used.
         // 0 = slash, 1 = pierce, 2 = blunt, default = magical
-        public static double Weakness(Weapon weapon, Living thing)
+        public static double Weakness(Weapon weapon, Mob thing)
+        {
+            int weaponType = weapon.dmgType;
+            switch (weaponType)
+            {
+                case 0:
+                    return thing.weakSlash;
+                case 1:
+                    return thing.weakPierce;
+                case 2:
+                    return thing.weakBlunt;
+                default:
+                    return thing.weakMagical;
+            }
+        }
+
+        public static double Weakness(Weapon weapon, Player thing)
         {
             int weaponType = weapon.dmgType;
             switch (weaponType)

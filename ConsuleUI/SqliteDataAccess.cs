@@ -53,8 +53,7 @@ namespace ConsuleUI
                     }
                     room.items = Item.RandomItems(World.items);
                 }
-                return rooms;
-                    
+                return rooms;                  
             }
         }
 
