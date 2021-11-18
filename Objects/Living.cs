@@ -20,6 +20,7 @@ namespace Objects
         public double _weakBlunt;
         public double _weakMagical;
 
+        // Makes sure hp can not drop below 0
         public int hp
         {
             get { return _hp; }

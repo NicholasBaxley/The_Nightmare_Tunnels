@@ -108,17 +108,19 @@ namespace Objects
             race = "Human";
         }
 
-        public Player(string playerName, string playerPassword, string playerClass, string playerRace) : base()
+        //For when saving new playing
+        public Player(string playerName, string playerPassword, string PlayerClass, string playerRace) : base()
         {
             name = playerName;
             inventory = new List<IInventoryItem>();
             password = playerPassword;
-            this.playerClass = playerClass;
+            playerClass = PlayerClass;
             race = playerRace;
             ac = 15;
             maxAc = 15;
         }
 
+        //For when loading player from database
         public Player(string playerName, string playerPassword, string playerClass, string playerRace, int playerHP, int playerMaxHP, int playerAc, int playerMaxAc, int playerDmg) 
             : base(playerName, playerHP, playerMaxHP, playerAc, playerMaxAc, playerDmg)
         {
