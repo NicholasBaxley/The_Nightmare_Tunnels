@@ -110,6 +110,39 @@ namespace ConsuleUI
             }
         }
 
+        // Displays all potions
+        public static void DisplayPotions(Player player)
+        {
+            int count = 0;
+            Console.WriteLine("\n[POTIONS]-----------------------");
+            foreach (IInventoryItem item in player.inventory)
+            {
+                if(item is Potion)
+                {
+                    Console.WriteLine($"[{count}] " + item.name);
+                }
+                count++;
+            }
+        }
+
+        // Displays all potions and returns a list of their ids
+        public static List<int> DisplayPotionsAndIds(Player player)
+        {
+            List<int> validPots = new List<int>();
+            int count = 0;
+            Console.WriteLine("\n[POTIONS]-----------------------");
+            foreach (IInventoryItem item in player.inventory)
+            {
+                if (item is Potion)
+                {
+                    validPots.Add(count);
+                    Console.WriteLine($"[{count}] " + item.name);
+                }
+                count++;
+            }
+            return validPots;
+        }
+
         //Displays both your weapon and items
         public static void DisplayInventoryAll(Player player)
         {

@@ -60,7 +60,7 @@ namespace ConsuleUI
                 if (input == "quit" || input == "q")
                 {
                     quit = true;
-                    input = "fail boolean check";
+                    input = "";
                 }
 
                 bool succuess = int.TryParse(input, out id);
@@ -131,6 +131,43 @@ namespace ConsuleUI
                     }
                 }
             }
+        }
+
+        public static Potion GrabPotionFromInv()
+        {
+            bool loop = true;
+            List<int> validPots = StandardMessages.DisplayPotionsAndIds(World.player);
+            Console.WriteLine("What potion do you want to use?");
+            Potion pot = new Potion();
+            string input;
+            while (loop)
+            {
+                input = Console.ReadLine();
+                bool succuess = int.TryParse(input, out int id);
+                if (succuess)
+                {
+                    if (id < 0)
+                    {
+                        Console.WriteLine("Items cant have negative id's!");
+                    }
+                    else if (!validPots.Contains(id))
+                    {
+                        Console.WriteLine("That item doesnt exist!");
+                    }
+                    else
+                    {
+                        loop = false;
+                        Potion temp = (Potion)World.player.inventory[id];
+                        pot = new Potion(temp.id, temp.name, temp.desc, temp.dmg);
+                        World.player.inventory.RemoveAt(id);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Enter a Valid ID!");
+                }                
+            }
+            return pot;
         }
     }
 }

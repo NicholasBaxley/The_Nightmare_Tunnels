@@ -46,13 +46,13 @@ namespace ConsuleUI
                     while (playersTurn)
                     {
                         // The options the player has doing a fight
-                        Console.WriteLine("Attack/Defend");
+                        Console.WriteLine("Attack/Defend/Potion");
                        
                         bool attacking = true;
                         while (attacking)
                         {
                             choice = Console.ReadLine();
-                            switch (choice)
+                            switch (choice.ToLower())
                             {
                                 case "a":
                                 case "attack":
@@ -76,10 +76,40 @@ namespace ConsuleUI
                                     playerDefending = true;
                                     attacking = false;
                                     break;
+                                case"p":
+                                case"potion":
+                                    Potion pot = InventoryMenu.GrabPotionFromInv();
+                                    Console.WriteLine("Who do you want to use the pot on?");
+                                    bool loop = true;
+                                    string option;
+                                    while (loop)
+                                    {
+                                        option = Console.ReadLine().ToLower();
+                                        switch (option)
+                                        {
+                                            case "player":
+                                                loop = false;
+                                                break;
+                                            case "mob":
+                                                loop = false;
+                                                break;
+                                            default:
+                                                Console.WriteLine("Not a valid option!");
+                                                break;
+                                        }
+                                    }
+
+                                    //Write the use of a potion.
+
+
+
+                                    if (option == "player")
+                                    break;
                                 default:
                                     Console.WriteLine("Not an option!");
                                     break;
                             }
+
                         }
                         playersTurn = false;
                     }
