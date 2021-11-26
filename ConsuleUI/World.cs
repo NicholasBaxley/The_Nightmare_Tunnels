@@ -19,6 +19,8 @@ namespace ConsuleUI
 
         public static Player player;
 
+        public static Alert message;
+
         public static int position = 0;
         public static bool quit = false;
     }

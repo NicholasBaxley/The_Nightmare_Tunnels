@@ -28,7 +28,7 @@ namespace ConsuleUI
                 // If either the player or mob dies, a message is displayed and the fight ends
                 if (mob.hp == 0)
                 {
-                    Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                    World.message.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     fighting = false;
                     World.rooms[World.position].mob = null;
                     DisplayWonMessage();
@@ -46,7 +46,7 @@ namespace ConsuleUI
                     while (playersTurn)
                     {
                         // The options the player has doing a fight
-                        Console.WriteLine("Attack/Defend/Potion");
+                        World.message.WriteLine("Attack/Defend/Potion");
                        
                         bool attacking = true;
                         while (attacking)
@@ -56,32 +56,32 @@ namespace ConsuleUI
                             {
                                 case "a":
                                 case "attack":
-                                    Console.WriteLine("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                    World.message.WriteLine("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                                     if (TestAccuracy(player, mob))
                                     {
                                         damageDealt = (int)(Attack(player) * Weakness(player.equippedWeapon, mob));
                                         mob.hp -= damageDealt;
-                                        Console.WriteLine("You did " + damageDealt + " damage to the monster!");
+                                        World.message.WriteLine("You did " + damageDealt + " damage to the monster!");
                                     }
                                     else
                                     {
-                                        Console.WriteLine("You missed!");
+                                        World.message.WriteLine("You missed!");
                                     }
                                     attacking = false;
                                     break;
                                 case "d":
                                 case "defend":
-                                    Console.WriteLine("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                    Console.WriteLine("You choose to defend!");
+                                    World.message.WriteLine("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                    World.message.WriteLine("You choose to defend!");
                                     playerDefending = true;
                                     attacking = false;
                                     break;
-                                case"p":
-                                case"potion":
+                                case "p":
+                                case "potion":
                                     Potion pot = InventoryMenu.GrabPotionFromInv();
-                                    Console.WriteLine("Who do you want to use the pot on?");
+                                    World.message.WriteLine("Who do you want to use the pot on?");
                                     bool loop = true;
-                                    string option;
+                                    string option = "";
                                     while (loop)
                                     {
                                         option = Console.ReadLine().ToLower();
@@ -94,19 +94,23 @@ namespace ConsuleUI
                                                 loop = false;
                                                 break;
                                             default:
-                                                Console.WriteLine("Not a valid option!");
+                                                World.message.WriteLine("Not a valid option!");
                                                 break;
                                         }
                                     }
-
+                                    
                                     //Write the use of a potion.
 
 
 
                                     if (option == "player")
+                                    {
+
+                                    }
+
                                     break;
                                 default:
-                                    Console.WriteLine("Not an option!");
+                                    World.message.WriteLine("Not an option!");
                                     break;
                             }
 
@@ -125,13 +129,13 @@ namespace ConsuleUI
                             damageDealt = damageDealt / 3;
                         }
                         player.hp -= damageDealt;
-                        Console.WriteLine("The monster did " + damageDealt + " damage to you!");
+                        World.message.WriteLine("The monster did " + damageDealt + " damage to you!");
                     }
                     else
                     {
-                        Console.WriteLine("The monster missed!");
+                        World.message.WriteLine("The monster missed!");
                     }
-                    Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                    World.message.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     playersTurn = true;
                 }
 
@@ -162,20 +166,20 @@ namespace ConsuleUI
         // TODO - Change messages later when healing is implemented
         public static void DisplayLostMessage()
         {
-            Console.WriteLine("\nYou died! Here is a free revive for now...");
+            World.message.WriteLine("\nYou died! Here is a free revive for now...");
         }
 
         public static void DisplayWonMessage()
         {
-            Console.WriteLine("\nYou Won! Here is a free Heal for now...");
+            World.message.WriteLine("\nYou Won! Here is a free Heal for now...");
         }
 
         // Shows the hp for player and monster on screen
         public static void DisplayFightersHP(Player player, Mob mob)
         {
-            Console.WriteLine("\n\n" + player.name + ": " + player.hp + "/" + player.maxHp);
-            Console.WriteLine("--------------------");
-            Console.WriteLine(mob.name + ": " + mob.hp + "/" + mob.maxHp + "\n");
+            World.message.WriteLine("\n\n" + player.name + ": " + player.hp + "/" + player.maxHp);
+            World.message.WriteLine("--------------------");
+            World.message.WriteLine(mob.name + ": " + mob.hp + "/" + mob.maxHp + "\n");
         }
 
         //Returns the amount of damage a player or mob will do.

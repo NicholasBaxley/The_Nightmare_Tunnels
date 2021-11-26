@@ -40,7 +40,7 @@ namespace ConsuleUI
                         quit = true;
                         break;
                     default:
-                        Console.WriteLine("Invalid input.");
+                        World.message.WriteLine("Invalid input.");
                         break;
                 }
             }
@@ -54,7 +54,7 @@ namespace ConsuleUI
             while (!quit)
             {
                 StandardMessages.DisplayInventoryItems(player);
-                Console.WriteLine("\nType the id of the item you want to delete or type Quit to leave.");
+                World.message.WriteLine("\nType the id of the item you want to delete or type Quit to leave.");
                 input = Console.ReadLine().ToLower();
 
                 if (input == "quit" || input == "q")
@@ -68,16 +68,16 @@ namespace ConsuleUI
                 {
                     if (id < 0)
                     {
-                        Console.WriteLine("Items cant have negative id's!");
+                        World.message.WriteLine("Items cant have negative id's!");
                     }
                     else if (id > player.inventory.Count() - 1)
                     {
-                        Console.WriteLine("That item doesnt exist!");
+                        World.message.WriteLine("That item doesnt exist!");
                     }
                     else
                     {
                         player.inventory.RemoveAt(id);
-                        Console.WriteLine("Item deleted!");
+                        World.message.WriteLine("Item deleted!");
                     }               
                 }
             }                 
@@ -91,7 +91,7 @@ namespace ConsuleUI
             while (!quit)
             {
                 StandardMessages.DisplayRoomItems(room);
-                Console.WriteLine("\nType the id of the item you want to take or type All to take all items or Quit to go back to the game menu.");
+                World.message.WriteLine("\nType the id of the item you want to take or type All to take all items or Quit to go back to the game menu.");
                 input = Console.ReadLine().ToLower();
 
                 if (input == "quit" || input == "q")
@@ -108,7 +108,7 @@ namespace ConsuleUI
                         player.inventory.Add(room.items[index]);
                         room.items.Remove(room.items[index]);
                     }
-                    Console.WriteLine("You took all the items!");
+                    World.message.WriteLine("You took all the items!");
 
                 }
 
@@ -117,17 +117,17 @@ namespace ConsuleUI
                 {
                     if (id < 0)
                     {
-                        Console.WriteLine("Items cant have negative id's!");
+                        World.message.WriteLine("Items cant have negative id's!");
                     }
                     else if (id > player.inventory.Count() - 1)
                     {
-                        Console.WriteLine("That item doesnt exist!");
+                        World.message.WriteLine("That item doesnt exist!");
                     }
                     else
                     {                     
                         player.inventory.Add(room.items[id]);
                         room.items.RemoveAt(id);
-                        Console.WriteLine("Item Obtained!");
+                        World.message.WriteLine("Item Obtained!");
                     }
                 }
             }
@@ -148,11 +148,11 @@ namespace ConsuleUI
                 {
                     if (id < 0)
                     {
-                        Console.WriteLine("Items cant have negative id's!");
+                        World.message.WriteLine("Items cant have negative id's!");
                     }
                     else if (!validPots.Contains(id))
                     {
-                        Console.WriteLine("That item doesnt exist!");
+                        World.message.WriteLine("That item doesnt exist!");
                     }
                     else
                     {
@@ -164,7 +164,7 @@ namespace ConsuleUI
                 }
                 else
                 {
-                    Console.WriteLine("Enter a Valid ID!");
+                    World.message.WriteLine("Enter a Valid ID!");
                 }                
             }
             return pot;

@@ -22,7 +22,7 @@ namespace ConsuleUI
             while (!login)
             {
 
-                Console.WriteLine("Are you a new player?(y/n)");
+                World.message.WriteLine("Are you a new player?(y/n)");
                 input = Console.ReadLine().ToLower();
 
                 // New User
@@ -31,10 +31,10 @@ namespace ConsuleUI
                     while (loop)
                     {
 
-                        Console.WriteLine("\nWhat is your name?");
+                        World.message.WriteLine("\nWhat is your name?");
                         input = Console.ReadLine();
                         name = input;
-                        Console.WriteLine($"Are you sure {input} is the name you want? (y/n)");
+                        World.message.WriteLine($"Are you sure {input} is the name you want? (y/n)");
                         input = Console.ReadLine();
 
                         if (input.ToLower() == "y" || input.ToLower() == "yes")
@@ -55,7 +55,7 @@ namespace ConsuleUI
                     loop = true;
                     while (loop)
                     {
-                        Console.WriteLine("\nEnter a password. (must contain upper case, lower case and a special character)");
+                        World.message.WriteLine("\nEnter a password. (must contain upper case, lower case and a special character)");
                         password = Console.ReadLine();
 
                         if (Player.CheckPassword(password))
@@ -64,7 +64,7 @@ namespace ConsuleUI
                         }
                         else
                         {
-                            Console.WriteLine("Invalid password!");
+                            World.message.WriteLine("Invalid password!");
                         }
                     }
 
@@ -72,17 +72,16 @@ namespace ConsuleUI
                     loop = true;
                     while (loop)
                     {
-                                                                                                    // TODO - input validation
-                        Console.WriteLine("\nWhat class do you want to be? (Warrior or mage)");
+                        World.message.WriteLine("\nWhat class do you want to be? (Warrior or mage)");
                         playerClass = Console.ReadLine();
                         if(playerClass.ToLower() == "warrior" || playerClass.ToLower() == "mage")
                         {
-                            Console.WriteLine($"You picked {playerClass}.");
+                            World.message.WriteLine($"You picked {playerClass}.");
                             loop = false;
                         }
                         else
                         {
-                            Console.WriteLine("Invalid choice.");
+                            World.message.WriteLine("Invalid choice.");
                         }
 
                     }
@@ -91,16 +90,16 @@ namespace ConsuleUI
                     loop = true;
                     while (loop)
                     {
-                        Console.WriteLine("\nWhat race do you want to be? (Human or dwarf)");
+                        World.message.WriteLine("\nWhat race do you want to be? (Human or dwarf)");
                         race = Console.ReadLine();
                         if(race.ToLower() == "human" || race.ToLower() == "dwarf")
                         {
-                            Console.WriteLine($"You picked {race}.");
+                            World.message.WriteLine($"You picked {race}.");
                             loop = false;
                         }
                         else
                         {
-                            Console.WriteLine("Invalid choice.");
+                            World.message.WriteLine("Invalid choice.");
                         }
                     }
 
@@ -118,11 +117,11 @@ namespace ConsuleUI
                     string pass = "";
                     while (loop)
                     {
-                        Console.WriteLine("Enter your characters name.");
+                        World.message.WriteLine("Enter your characters name.");
                         loginName = Console.ReadLine();
                         if (!SqliteDataAccess.CheckForPlayer(loginName))
                         {
-                            Console.WriteLine("Not a user!");
+                            World.message.WriteLine("Not a user!");
                         }
                         else
                         {
@@ -134,11 +133,11 @@ namespace ConsuleUI
                     loop = true;
                     while (loop)
                     {
-                        Console.WriteLine("Enter your password");
+                        World.message.WriteLine("Enter your password");
                         pass = Console.ReadLine();
                         if (!SqliteDataAccess.CheckForPass(loginName, pass))
                         {
-                            Console.WriteLine("Not the correct password!");
+                            World.message.WriteLine("Not the correct password!");
                         }
                         else
                         {
@@ -156,7 +155,7 @@ namespace ConsuleUI
                 }
                 else
                 {
-                    Console.WriteLine("\nInvalid option!");
+                    World.message.WriteLine("\nInvalid option!");
                 }
             }
         }
