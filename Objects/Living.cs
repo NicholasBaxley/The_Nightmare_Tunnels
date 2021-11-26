@@ -15,11 +15,12 @@ namespace Objects
         public int ac { get; set; }
         public int maxAc { get; set; }
         public int dmg { get; set; }
-        public double weakSlash { get; set; }
-        public double weakPierce { get; set; }
-        public double weakBlunt { get; set; }
-        public double weakMagical { get; set; }
+        public double _weakSlash;
+        public double _weakPierce;
+        public double _weakBlunt;
+        public double _weakMagical;
 
+        // Makes sure hp can not drop below 0
         public int hp
         {
             get { return _hp; }
@@ -58,12 +59,9 @@ namespace Objects
             ac = 90;
             maxAc = 90;
             dmg = 1; 
-            weakSlash = 1;
-            weakPierce = 1;
-            weakBlunt = 1;
-            weakMagical = 1;
         }
 
+        //For making mobs
         public Living(string Name, int Hp, int MaxHP, int Ac, int MaxAc, int Dmg, double WeakSlash, double WeakPierce, double WeakBlunt, double WeakMagical)
         {
             name = Name;
@@ -72,10 +70,21 @@ namespace Objects
             ac = Ac;
             maxAc = MaxAc;
             dmg = Dmg;
-            weakSlash = WeakSlash;
-            weakPierce = WeakPierce;
-            weakBlunt = WeakBlunt;
-            weakMagical = WeakMagical;
+            _weakSlash = WeakSlash;
+            _weakPierce = WeakPierce;
+            _weakBlunt = WeakBlunt;
+            _weakMagical = WeakMagical;
+        }
+
+        //For making players
+        public Living(string Name, int Hp, int MaxHP, int Ac, int MaxAc, int Dmg)
+        {
+            name = Name;
+            hp = Hp;
+            maxHp = MaxHP;
+            ac = Ac;
+            maxAc = MaxAc;
+            dmg = Dmg;
         }
     }
 }

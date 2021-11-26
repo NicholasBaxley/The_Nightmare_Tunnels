@@ -11,7 +11,6 @@ namespace Objects
     {
         public string name { get; set; }
         public string desc { get; set; }
-        public int healthRestore { get; set; }
         public int dmg { get; set; }
         public int id { get; set; }
         
@@ -22,12 +21,11 @@ namespace Objects
             name = "Generic Potion";
         }
 
-        public Potion(int potId,  string potName, string potDesc, int potHealthRestore, int potDmg)
+        public Potion(int potId,  string potName, string potDesc, int potDmg)
         {
             name = potName;
             desc = potDesc;
             id = potId;
-            healthRestore = potHealthRestore;
             dmg = potDmg;
         }
         

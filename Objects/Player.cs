@@ -15,28 +15,114 @@ namespace Objects
         public string playerClass { get; set; }
         public string race { get; set; }
 
+        public List<double> raceBonus 
+        {
+            get
+            {
+                List<double> bonus = new List<double>();
+                switch (playerClass.ToLower())
+                {
+                    // [slash, pierce, blunt, magical] adds resistance to these stats in this order.
+                    // If Resistent give them a negative number, if they take more damage give positive number
+                    case "human":
+                        bonus.Add(-0.3);
+                        bonus.Add(0.2);
+                        bonus.Add(0.0);
+                        bonus.Add(0.0);
+                        break;
+                    default:
+                        bonus.Add(-0.1);
+                        bonus.Add(0.1);
+                        bonus.Add(-0.3);
+                        bonus.Add(0.2);
+                        break;
+                }
+                return bonus;
+            }
+        }
+
+        public List<double> classBonus
+        {
+            get
+            {
+                List<double> bonus = new List<double>();
+                switch (playerClass.ToLower())
+                {
+                    // [slash, pierce, blunt, magical] adds resistance to these stats in this order.
+                    // If Resistent give them a negative number, if they take more damage give positive number
+                    case "warrior":
+                        bonus.Add(-0.3);
+                        bonus.Add(0.2);
+                        bonus.Add(0.0);
+                        bonus.Add(0.0);
+                        break;
+                    default:
+                        bonus.Add(0.2);
+                        bonus.Add(0.1);
+                        bonus.Add(0.0);
+                        bonus.Add(-0.3);
+                        break;
+                }
+                return bonus;
+            }
+        }
+
+        public double weakSlash
+        {
+            get
+            {
+                return 1 + raceBonus[0] + classBonus[0];
+            }
+        }
+        public double weakPierce
+        {
+            get
+            {
+                return 1 + raceBonus[1] + classBonus[1];
+            }
+        }
+
+        public double weakBlunt
+        {
+            get
+            {
+                return 1 + raceBonus[2] + classBonus[2];
+            }
+        }
+
+        public double weakMagical
+        {
+            get
+            {
+                return 1 + raceBonus[3] + classBonus[3];
+            }
+        }
+
+
         public Player() : base()
         {
             name = "John Doe";
             inventory = new List<IInventoryItem>();
             password = "Password1!";
             playerClass = "Warrior";
-            race = "Dork";
+            race = "Human";
         }
 
-        public Player(string playerName, string playerPassword, string playerClass, string playerRace) : base()
+        //For when saving new playing
+        public Player(string playerName, string playerPassword, string PlayerClass, string playerRace) : base()
         {
             name = playerName;
             inventory = new List<IInventoryItem>();
             password = playerPassword;
-            this.playerClass = playerClass;
+            playerClass = PlayerClass;
             race = playerRace;
             ac = 15;
             maxAc = 15;
         }
 
+        //For when loading player from database
         public Player(string playerName, string playerPassword, string playerClass, string playerRace, int playerHP, int playerMaxHP, int playerAc, int playerMaxAc, int playerDmg) 
-            : base(playerName, playerHP, playerMaxHP, playerAc, playerMaxAc, playerDmg, 1.0, 1.0, 1.0, 1.0)
+            : base(playerName, playerHP, playerMaxHP, playerAc, playerMaxAc, playerDmg)
         {
             password = playerPassword;
             inventory = new List<IInventoryItem>();

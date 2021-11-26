@@ -14,6 +14,53 @@ namespace Objects
         public bool isBoss { get; set; }
         public bool moved { get; set; }
 
+        public double weakSlash
+        {
+            get
+            {
+                return _weakSlash;
+            }
+            set
+            {
+                 _weakSlash = value;
+            }
+        }
+        public double weakPierce
+        {
+            get
+            {
+                return _weakPierce;
+            }
+            set
+            {
+                _weakPierce = value;
+            }
+        }
+
+        public double weakBlunt
+        {
+            get
+            {
+                return _weakBlunt;
+            }
+            set
+            {
+                _weakBlunt = value;
+            }
+        }
+
+        public double weakMagical
+        {
+            get
+            {
+                return _weakMagical;
+            }
+            set
+            {
+                _weakMagical = value;
+            }
+        }
+
         public Mob()
         {
             desc = "Just some monster";
@@ -30,15 +77,10 @@ namespace Objects
             moved = false;
         }
 
-        public string Info()
-        {
-            return $"[{name}]: {desc}\n Damage:{dmg}\n Hp:{maxHp}\n Acc:{maxAc}\n Diff:{difficulty}\n Boss?: {isBoss}";
-        }
-
         //Makes a new copy of the mob (needed to make sure multiple rooms dont use the same copy of a monster)
         public Mob CopyMob()
         {         
-            return new Mob(name, desc, dmg, hp, maxAc, difficulty, weakSlash, weakPierce, weakBlunt, weakMagical);
+            return new Mob(name, desc, dmg, hp, maxAc, difficulty, _weakSlash, _weakPierce, _weakBlunt, _weakMagical);
         }
        
     }

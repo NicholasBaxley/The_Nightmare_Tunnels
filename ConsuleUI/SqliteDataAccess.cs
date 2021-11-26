@@ -53,8 +53,7 @@ namespace ConsuleUI
                     }
                     room.items = Item.RandomItems(World.items);
                 }
-                return rooms;
-                    
+                return rooms;                  
             }
         }
 
@@ -147,7 +146,7 @@ namespace ConsuleUI
                                 default:
                                     id = int.Parse(token.TrimStart('p'));
                                     Potion p = World.potions[id];
-                                    output.inventory.Add(new Potion(p.id, p.name, p.desc, p.healthRestore, p.dmg));
+                                    output.inventory.Add(new Potion(p.id, p.name, p.desc, p.dmg));
                                     break;
                             }
                         }

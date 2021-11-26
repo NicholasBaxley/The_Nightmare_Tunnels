@@ -28,7 +28,7 @@ namespace ConsuleUI
                 // If either the player or mob dies, a message is displayed and the fight ends
                 if (mob.hp == 0)
                 {
-                    Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                    World.message.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     fighting = false;
                     World.rooms[World.position].mob = null;
                     DisplayWonMessage();
@@ -46,40 +46,74 @@ namespace ConsuleUI
                     while (playersTurn)
                     {
                         // The options the player has doing a fight
-                        Console.WriteLine("Attack/Defend");
+                        World.message.WriteLine("Attack/Defend/Potion");
                        
                         bool attacking = true;
                         while (attacking)
                         {
                             choice = Console.ReadLine();
-                            switch (choice)
+                            switch (choice.ToLower())
                             {
                                 case "a":
                                 case "attack":
-                                    Console.WriteLine("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                    World.message.WriteLine("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                                     if (TestAccuracy(player, mob))
                                     {
                                         damageDealt = (int)(Attack(player) * Weakness(player.equippedWeapon, mob));
                                         mob.hp -= damageDealt;
-                                        Console.WriteLine("You did " + damageDealt + " damage to the monster!");
+                                        World.message.WriteLine("You did " + damageDealt + " damage to the monster!");
                                     }
                                     else
                                     {
-                                        Console.WriteLine("You missed!");
+                                        World.message.WriteLine("You missed!");
                                     }
                                     attacking = false;
                                     break;
                                 case "d":
                                 case "defend":
-                                    Console.WriteLine("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                                    Console.WriteLine("You choose to defend!");
+                                    World.message.WriteLine("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                                    World.message.WriteLine("You choose to defend!");
                                     playerDefending = true;
                                     attacking = false;
                                     break;
+                                case "p":
+                                case "potion":
+                                    Potion pot = InventoryMenu.GrabPotionFromInv();
+                                    World.message.WriteLine("Who do you want to use the pot on?");
+                                    bool loop = true;
+                                    string option = "";
+                                    while (loop)
+                                    {
+                                        option = Console.ReadLine().ToLower();
+                                        switch (option)
+                                        {
+                                            case "player":
+                                                loop = false;
+                                                break;
+                                            case "mob":
+                                                loop = false;
+                                                break;
+                                            default:
+                                                World.message.WriteLine("Not a valid option!");
+                                                break;
+                                        }
+                                    }
+                                    
+                                    //Write the use of a potion.
+
+
+
+                                    if (option == "player")
+                                    {
+
+                                    }
+
+                                    break;
                                 default:
-                                    Console.WriteLine("Not an option!");
+                                    World.message.WriteLine("Not an option!");
                                     break;
                             }
+
                         }
                         playersTurn = false;
                     }
@@ -92,16 +126,16 @@ namespace ConsuleUI
                         damageDealt = (int)(Attack(mob) * Weakness(mob.equippedWeapon, player));
                         if (playerDefending)
                         {
-                            damageDealt = damageDealt / 3 ;
+                            damageDealt = damageDealt / 3;
                         }
                         player.hp -= damageDealt;
-                        Console.WriteLine("The monster did " + damageDealt + " damage to you!");
+                        World.message.WriteLine("The monster did " + damageDealt + " damage to you!");
                     }
                     else
                     {
-                        Console.WriteLine("The monster missed!");
+                        World.message.WriteLine("The monster missed!");
                     }
-                    Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                    World.message.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                     playersTurn = true;
                 }
 
@@ -132,20 +166,20 @@ namespace ConsuleUI
         // TODO - Change messages later when healing is implemented
         public static void DisplayLostMessage()
         {
-            Console.WriteLine("\nYou died! Here is a free revive for now...");
+            World.message.WriteLine("\nYou died! Here is a free revive for now...");
         }
 
         public static void DisplayWonMessage()
         {
-            Console.WriteLine("\nYou Won! Here is a free Heal for now...");
+            World.message.WriteLine("\nYou Won! Here is a free Heal for now...");
         }
 
         // Shows the hp for player and monster on screen
         public static void DisplayFightersHP(Player player, Mob mob)
         {
-            Console.WriteLine("\n\n" + player.name + ": " + player.hp + "/" + player.maxHp);
-            Console.WriteLine("--------------------");
-            Console.WriteLine(mob.name + ": " + mob.hp + "/" + mob.maxHp + "\n");
+            World.message.WriteLine("\n\n" + player.name + ": " + player.hp + "/" + player.maxHp);
+            World.message.WriteLine("--------------------");
+            World.message.WriteLine(mob.name + ": " + mob.hp + "/" + mob.maxHp + "\n");
         }
 
         //Returns the amount of damage a player or mob will do.
@@ -198,7 +232,23 @@ namespace ConsuleUI
 
         //Gets the player or mobs weakness depending on weapon being used.
         // 0 = slash, 1 = pierce, 2 = blunt, default = magical
-        public static double Weakness(Weapon weapon, Living thing)
+        public static double Weakness(Weapon weapon, Mob thing)
+        {
+            int weaponType = weapon.dmgType;
+            switch (weaponType)
+            {
+                case 0:
+                    return thing.weakSlash;
+                case 1:
+                    return thing.weakPierce;
+                case 2:
+                    return thing.weakBlunt;
+                default:
+                    return thing.weakMagical;
+            }
+        }
+
+        public static double Weakness(Weapon weapon, Player thing)
         {
             int weaponType = weapon.dmgType;
             switch (weaponType)

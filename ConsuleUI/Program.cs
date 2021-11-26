@@ -1,9 +1,9 @@
 ﻿/**
-* 9/10/2021 (UPDATED - 11/6/2021)
+* 9/10/2021 (UPDATED - 11/26/2021)
 * CSC 253
 * Group 4
 * Group Members: Nicholas Baxley, Branden Alder
-* Third sprint of The Nightmare Tunnels project
+* Last sprint of The Nightmare Tunnels project
 */
 using System;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ namespace ConsuleUI
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to The Nightmare Tunnels!");
+            World.message = new Alert(Console.WriteLine, Console.Write);
 
             // Log player in
             Login.PlayerLogin();
@@ -29,8 +29,8 @@ namespace ConsuleUI
             
             // Shows help message and starting location
             StandardMessages.DisplayHelpMessage();
-            Console.WriteLine(StandardMessages.DisplayCurrentRoom(World.position, World.rooms));
-            Console.WriteLine(StandardMessages.DisplayRoomDescription(World.position, World.rooms));
+            World.message.WriteLine(StandardMessages.DisplayCurrentRoom(World.position, World.rooms));
+            World.message.WriteLine(StandardMessages.DisplayRoomDescription(World.position, World.rooms));
 
             // Main Menu that controls most of the game
             Menu.Game();

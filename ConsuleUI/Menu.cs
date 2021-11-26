@@ -12,9 +12,10 @@ namespace ConsuleUI
         public static void Game()
         {
             Player player = World.player;
+
             while (!World.quit)
             {
-
+                World.message.Write("Input >> ");
                 switch (Console.ReadLine().ToLower())
                 {
                     case "north":
@@ -27,22 +28,22 @@ namespace ConsuleUI
                     case "south":
                     case "s":
                         Movement.MoveSouth(ref World.position, World.rooms);
-                        Console.WriteLine(StandardMessages.DisplayCurrentRoom(World.position, World.rooms));
-                        Console.WriteLine(StandardMessages.DisplayRoomDescription(World.position, World.rooms));
+                        World.message.WriteLine(StandardMessages.DisplayCurrentRoom(World.position, World.rooms));
+                        World.message.WriteLine(StandardMessages.DisplayRoomDescription(World.position, World.rooms));
                         StandardMessages.DisplayNextRooms(World.position, World.rooms);
                         break;
                     case "west":
                     case "w":
                         Movement.MoveWest(ref World.position, World.rooms);
-                        Console.WriteLine(StandardMessages.DisplayCurrentRoom(World.position, World.rooms));
-                        Console.WriteLine(StandardMessages.DisplayRoomDescription(World.position, World.rooms));
+                        World.message.WriteLine(StandardMessages.DisplayCurrentRoom(World.position, World.rooms));
+                        World.message.WriteLine(StandardMessages.DisplayRoomDescription(World.position, World.rooms));
                         StandardMessages.DisplayNextRooms(World.position, World.rooms);
                         break;
                     case "east":
                     case "e":
                         Movement.MoveEast(ref World.position, World.rooms);
-                        Console.WriteLine(StandardMessages.DisplayCurrentRoom(World.position, World.rooms));
-                        Console.WriteLine(StandardMessages.DisplayRoomDescription(World.position, World.rooms));
+                        World.message.WriteLine(StandardMessages.DisplayCurrentRoom(World.position, World.rooms));
+                        World.message.WriteLine(StandardMessages.DisplayRoomDescription(World.position, World.rooms));
                         StandardMessages.DisplayNextRooms(World.position, World.rooms);
                         break;
                     case "directions":
@@ -78,8 +79,8 @@ namespace ConsuleUI
                     case "i":
                     case "inventory":
                         InventoryMenu.DisplayInventory(player);
-                        Console.WriteLine(StandardMessages.DisplayCurrentRoom(World.position, World.rooms));
-                        Console.WriteLine(StandardMessages.DisplayRoomDescription(World.position, World.rooms));
+                        World.message.WriteLine(StandardMessages.DisplayCurrentRoom(World.position, World.rooms));
+                        World.message.WriteLine(StandardMessages.DisplayRoomDescription(World.position, World.rooms));
                         break;
                     case "l":
                     case "look":
@@ -88,20 +89,20 @@ namespace ConsuleUI
                     case "t":
                     case "take":
                         InventoryMenu.TakeItem(player, World.rooms[World.position]);
-                        Console.WriteLine(StandardMessages.DisplayCurrentRoom(World.position, World.rooms));
-                        Console.WriteLine(StandardMessages.DisplayRoomDescription(World.position, World.rooms));
+                        World.message.WriteLine(StandardMessages.DisplayCurrentRoom(World.position, World.rooms));
+                        World.message.WriteLine(StandardMessages.DisplayRoomDescription(World.position, World.rooms));
                         break;
                     case "save":
                         SqliteDataAccess.SavePlayer(player);
-                        Console.WriteLine("Saved.");
+                        World.message.WriteLine("Saved.");
                         break;
                     case "me":
                     case "moveenemies":
                         Movement.MoveEnemies();
-                        Console.WriteLine("\nEnemies Moved");
+                        World.message.WriteLine("\nEnemies Moved");
                         break;
                     default:
-                        Console.WriteLine("Invalid input.");
+                        World.message.WriteLine("Invalid input.");
                         break;
                 }
             }

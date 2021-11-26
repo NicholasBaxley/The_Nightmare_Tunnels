@@ -41,11 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alert.cs" />
     <Compile Include="IInventoryItem.cs" />
     <Compile Include="Living.cs" />
     <Compile Include="Mob.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="StatusEffect.cs" />
     <Compile Include="Treasure.cs" />
     <Compile Include="Potion.cs" />
     <Compile Include="Weapon.cs" />

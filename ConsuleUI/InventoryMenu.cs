@@ -40,7 +40,7 @@ namespace ConsuleUI
                         quit = true;
                         break;
                     default:
-                        Console.WriteLine("Invalid input.");
+                        World.message.WriteLine("Invalid input.");
                         break;
                 }
             }
@@ -54,13 +54,13 @@ namespace ConsuleUI
             while (!quit)
             {
                 StandardMessages.DisplayInventoryItems(player);
-                Console.WriteLine("\nType the id of the item you want to delete or type Quit to leave.");
+                World.message.WriteLine("\nType the id of the item you want to delete or type Quit to leave.");
                 input = Console.ReadLine().ToLower();
 
                 if (input == "quit" || input == "q")
                 {
                     quit = true;
-                    input = "fail boolean check";
+                    input = "";
                 }
 
                 bool succuess = int.TryParse(input, out id);
@@ -68,16 +68,16 @@ namespace ConsuleUI
                 {
                     if (id < 0)
                     {
-                        Console.WriteLine("Items cant have negative id's!");
+                        World.message.WriteLine("Items cant have negative id's!");
                     }
                     else if (id > player.inventory.Count() - 1)
                     {
-                        Console.WriteLine("That item doesnt exist!");
+                        World.message.WriteLine("That item doesnt exist!");
                     }
                     else
                     {
                         player.inventory.RemoveAt(id);
-                        Console.WriteLine("Item deleted!");
+                        World.message.WriteLine("Item deleted!");
                     }               
                 }
             }                 
@@ -91,7 +91,7 @@ namespace ConsuleUI
             while (!quit)
             {
                 StandardMessages.DisplayRoomItems(room);
-                Console.WriteLine("\nType the id of the item you want to take or type All to take all items or Quit to go back to the game menu.");
+                World.message.WriteLine("\nType the id of the item you want to take or type All to take all items or Quit to go back to the game menu.");
                 input = Console.ReadLine().ToLower();
 
                 if (input == "quit" || input == "q")
@@ -108,7 +108,7 @@ namespace ConsuleUI
                         player.inventory.Add(room.items[index]);
                         room.items.Remove(room.items[index]);
                     }
-                    Console.WriteLine("You took all the items!");
+                    World.message.WriteLine("You took all the items!");
 
                 }
 
@@ -117,20 +117,57 @@ namespace ConsuleUI
                 {
                     if (id < 0)
                     {
-                        Console.WriteLine("Items cant have negative id's!");
+                        World.message.WriteLine("Items cant have negative id's!");
                     }
                     else if (id > player.inventory.Count() - 1)
                     {
-                        Console.WriteLine("That item doesnt exist!");
+                        World.message.WriteLine("That item doesnt exist!");
                     }
                     else
                     {                     
                         player.inventory.Add(room.items[id]);
                         room.items.RemoveAt(id);
-                        Console.WriteLine("Item Obtained!");
+                        World.message.WriteLine("Item Obtained!");
                     }
                 }
             }
+        }
+
+        public static Potion GrabPotionFromInv()
+        {
+            bool loop = true;
+            List<int> validPots = StandardMessages.DisplayPotionsAndIds(World.player);
+            Console.WriteLine("What potion do you want to use?");
+            Potion pot = new Potion();
+            string input;
+            while (loop)
+            {
+                input = Console.ReadLine();
+                bool succuess = int.TryParse(input, out int id);
+                if (succuess)
+                {
+                    if (id < 0)
+                    {
+                        World.message.WriteLine("Items cant have negative id's!");
+                    }
+                    else if (!validPots.Contains(id))
+                    {
+                        World.message.WriteLine("That item doesnt exist!");
+                    }
+                    else
+                    {
+                        loop = false;
+                        Potion temp = (Potion)World.player.inventory[id];
+                        pot = new Potion(temp.id, temp.name, temp.desc, temp.dmg);
+                        World.player.inventory.RemoveAt(id);
+                    }
+                }
+                else
+                {
+                    World.message.WriteLine("Enter a Valid ID!");
+                }                
+            }
+            return pot;
         }
     }
 }

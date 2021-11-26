@@ -19,41 +19,41 @@ namespace ConsuleUI
             int nPosition = rooms[position].nExit;
             if (!(nPosition == -1))
             {
-                Console.WriteLine("N: " + rooms[nPosition].name);
+                World.message.WriteLine("N: " + rooms[nPosition].name);
             }
             else
             {
-                Console.WriteLine("N: [nothing]");
+                World.message.WriteLine("N: [nothing]");
             }
 
             int sPosition = rooms[position].sExit;
             if (!(sPosition == -1))
             {
-                Console.WriteLine("S: " + rooms[sPosition].name);
+                World.message.WriteLine("S: " + rooms[sPosition].name);
             }
             else
             {
-                Console.WriteLine("S: [nothing]");
+                World.message.WriteLine("S: [nothing]");
             }
 
             int wPosition = rooms[position].wExit;
             if (!(wPosition == -1))
             {
-                Console.WriteLine("W: " + rooms[wPosition].name);
+                World.message.WriteLine("W: " + rooms[wPosition].name);
             }
             else
             {
-                Console.WriteLine("W: [nothing]");
+                World.message.WriteLine("W: [nothing]");
             }
 
             int ePosition = rooms[position].eExit;
             if (!(ePosition == -1))
             {
-                Console.WriteLine("E: " + rooms[ePosition].name);
+                World.message.WriteLine("E: " + rooms[ePosition].name);
             }
             else
             {
-                Console.WriteLine("E: [nothing]");
+                World.message.WriteLine("E: [nothing]");
             }
         }
 
@@ -66,7 +66,7 @@ namespace ConsuleUI
         // Lists every command the user can use
         public static void DisplayHelpMessage()
         {
-            Console.WriteLine("\nNorth: Moves the player to the northern room.\n"
+            World.message.WriteLine("\nNorth: Moves the player to the northern room.\n"
                             + "South: Moves the player to the southern room.\n"
                             + "West: Moves the player to the western room.\n"
                             + "East: Moves the player to the eastern room.\n"
@@ -83,7 +83,7 @@ namespace ConsuleUI
         //Gives you the commands for the inventory menu
         public static void DisplayInventoryMenu()
         {
-            Console.WriteLine("\nWhat would you like to do?" +
+            World.message.WriteLine("\nWhat would you like to do?" +
                               "\nAll" +
                               "\nWeapon" +
                               "\nItems" +
@@ -94,20 +94,53 @@ namespace ConsuleUI
         //Display the currently equipped weapon
         public static void DisplayInventoryWeapon(Player player)
         {
-            Console.WriteLine("\n[WEAPON]-----------------------");
-            Console.WriteLine(player.equippedWeapon.name);
+            World.message.WriteLine("\n[WEAPON]-----------------------");
+            World.message.WriteLine(player.equippedWeapon.name);
         }
 
         //Displays all your items
         public static void DisplayInventoryItems(Player player)
         {
             int count = 0;
-            Console.WriteLine("\n[ITEMS]-----------------------");
+            World.message.WriteLine("\n[ITEMS]-----------------------");
             foreach (IInventoryItem item in player.inventory)
             {
-                Console.WriteLine($"[{count}] " + item.name);
+                World.message.WriteLine($"[{count}] " + item.name);
                 count++;
             }
+        }
+
+        // Displays all potions
+        public static void DisplayPotions(Player player)
+        {
+            int count = 0;
+            World.message.WriteLine("\n[POTIONS]-----------------------");
+            foreach (IInventoryItem item in player.inventory)
+            {
+                if(item is Potion)
+                {
+                    World.message.WriteLine($"[{count}] " + item.name);
+                }
+                count++;
+            }
+        }
+
+        // Displays all potions and returns a list of their ids
+        public static List<int> DisplayPotionsAndIds(Player player)
+        {
+            List<int> validPots = new List<int>();
+            int count = 0;
+            World.message.WriteLine("\n[POTIONS]-----------------------");
+            foreach (IInventoryItem item in player.inventory)
+            {
+                if (item is Potion)
+                {
+                    validPots.Add(count);
+                    World.message.WriteLine($"[{count}] " + item.name);
+                }
+                count++;
+            }
+            return validPots;
         }
 
         //Displays both your weapon and items
@@ -126,20 +159,20 @@ namespace ConsuleUI
 
         public static void NoMobsInRoom()
         {
-            Console.WriteLine("There are no mobs in this room");
+            World.message.WriteLine("There are no mobs in this room");
         }
 
         //Displays the current rooms mobs
         public static void DisplayRoomMobs(Room room)
         {   
-                Console.WriteLine("\n[MOBS]--------------");
+                World.message.WriteLine("\n[MOBS]--------------");
                 if (room.mob == null)
                 {
-                Console.WriteLine("");
+                World.message.WriteLine("");
                 }
                 else
                 {
-                    Console.WriteLine("A " + room.mob.name + " watches you from the corner of the room.");
+                    World.message.WriteLine("A " + room.mob.name + " watches you from the corner of the room.");
                 }
         }
 
@@ -147,12 +180,14 @@ namespace ConsuleUI
         public static void DisplayRoomItems(Room room)
         {
             int count = 0;
-            Console.WriteLine("\n[ITEMS]--------------");
+
+            World.message.WriteLine("\n" + "[ITEMS]--------------");
             foreach (Item item in room.items)
             {
-                Console.WriteLine($"[{count}]You see a " + item.name + " in this room.");
+                World.message.WriteLine($"[{count}]You see a " + item.name + " in this room.");
                 count++;
             }
         }
+
     }
 }
