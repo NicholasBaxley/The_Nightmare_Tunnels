@@ -1,28 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Objects;
 
-namespace ConsuleUI
+namespace NightmareEngine
 {
-    public class Menu
+    public static class Menu
     {
-        public static void Game()
+        public static void Game(bool isForms)
         {
             Player player = World.player;
 
             while (!World.quit)
             {
+                if (!isForms)
+                {
                 World.message.Write("Input >> ");
+                }
+
                 switch (World.message.ReadLine().ToLower())
                 {
                     case "north":
                     case "n":
                         Movement.MoveNorth(ref World.position, World.rooms);
-                        Console.WriteLine(StandardMessages.DisplayCurrentRoom(World.position, World.rooms));
-                        Console.WriteLine(StandardMessages.DisplayRoomDescription(World.position, World.rooms));
+                        World.message.WriteLine(StandardMessages.DisplayCurrentRoom(World.position, World.rooms));
+                        World.message.WriteLine(StandardMessages.DisplayRoomDescription(World.position, World.rooms));
                         StandardMessages.DisplayNextRooms(World.position, World.rooms);
                         break;
                     case "south":

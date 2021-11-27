@@ -1,6 +1,6 @@
 ﻿using System;
-using ConsuleUI;
 using Objects;
+using NightmareEngine;
 
 namespace The_Nightmare_Tunnels
 {
@@ -26,7 +26,7 @@ namespace The_Nightmare_Tunnels
             World.message.WriteLine(StandardMessages.DisplayRoomDescription(World.position, World.rooms));
 
             // Main Menu that controls most of the game
-            Menu.Game();
+            Menu.Game(false);
         }
     }
 }

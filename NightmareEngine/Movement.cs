@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Objects;
 
-namespace ConsuleUI
+namespace NightmareEngine
 {
     public class Movement
     {

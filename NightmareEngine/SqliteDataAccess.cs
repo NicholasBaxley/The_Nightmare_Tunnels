@@ -7,9 +7,9 @@ using System.Linq;
 using Dapper;
 using Objects;
 
-namespace ConsuleUI
+namespace NightmareEngine
 {
-    public class SqliteDataAccess
+    public static class SqliteDataAccess
     {
 
         // Loads all items into the world list

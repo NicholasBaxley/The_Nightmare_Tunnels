@@ -5,7 +5,7 @@ using System.Text;
 using Objects;
 using System.Threading.Tasks;
 
-namespace ConsuleUI
+namespace NightmareEngine
 {
     public class InventoryMenu
     {

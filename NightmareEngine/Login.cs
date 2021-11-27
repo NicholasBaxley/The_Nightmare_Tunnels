@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Objects;
 
-namespace ConsuleUI
+namespace NightmareEngine
 {
     public static class Login
     {

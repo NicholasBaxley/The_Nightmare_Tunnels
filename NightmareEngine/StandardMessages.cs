@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsuleUI
+namespace NightmareEngine
 {
     public class StandardMessages
     {
