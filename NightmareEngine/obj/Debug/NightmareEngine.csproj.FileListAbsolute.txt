@@ -8,3 +8,14 @@ C:\Users\decei\Desktop\projectrepo\The_Nightmare_Tunnels\NightmareEngine\bin\Deb
 C:\Users\decei\Desktop\projectrepo\The_Nightmare_Tunnels\NightmareEngine\obj\Debug\NightmareEngine.csproj.CopyComplete
 C:\Users\decei\Desktop\projectrepo\The_Nightmare_Tunnels\NightmareEngine\obj\Debug\NightmareEngine.dll
 C:\Users\decei\Desktop\projectrepo\The_Nightmare_Tunnels\NightmareEngine\obj\Debug\NightmareEngine.pdb
+C:\Users\decei\Desktop\projectrepo\test\The_Nightmare_Tunnels\NightmareEngine\bin\Debug\NightmareEngine.dll
+C:\Users\decei\Desktop\projectrepo\test\The_Nightmare_Tunnels\NightmareEngine\bin\Debug\NightmareEngine.pdb
+C:\Users\decei\Desktop\projectrepo\test\The_Nightmare_Tunnels\NightmareEngine\bin\Debug\Dapper.dll
+C:\Users\decei\Desktop\projectrepo\test\The_Nightmare_Tunnels\NightmareEngine\bin\Debug\System.Data.SQLite.dll
+C:\Users\decei\Desktop\projectrepo\test\The_Nightmare_Tunnels\NightmareEngine\bin\Debug\Dapper.xml
+C:\Users\decei\Desktop\projectrepo\test\The_Nightmare_Tunnels\NightmareEngine\bin\Debug\System.Data.SQLite.xml
+C:\Users\decei\Desktop\projectrepo\test\The_Nightmare_Tunnels\NightmareEngine\obj\Debug\NightmareEngine.csproj.AssemblyReference.cache
+C:\Users\decei\Desktop\projectrepo\test\The_Nightmare_Tunnels\NightmareEngine\obj\Debug\NightmareEngine.csproj.CoreCompileInputs.cache
+C:\Users\decei\Desktop\projectrepo\test\The_Nightmare_Tunnels\NightmareEngine\obj\Debug\NightmareEngine.csproj.CopyComplete
+C:\Users\decei\Desktop\projectrepo\test\The_Nightmare_Tunnels\NightmareEngine\obj\Debug\NightmareEngine.dll
+C:\Users\decei\Desktop\projectrepo\test\The_Nightmare_Tunnels\NightmareEngine\obj\Debug\NightmareEngine.pdb

@@ -8,7 +8,7 @@ namespace The_Nightmare_Tunnels
     {
         static void Main(string[] args)
         {
-            World.message = new Alert(Console.WriteLine, Console.Write);
+            World.message = new Alert(Console.WriteLine, Console.Write, Console.ReadLine);
 
             // Log player in
             Login.PlayerLogin();

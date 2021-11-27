@@ -9,16 +9,19 @@ namespace Objects
     public class Alert
     {
         public delegate void SendMessageLine(string message);
-        public delegate void SendMessage(string message);        
-        
-        public Alert(SendMessageLine sendMessageLine, SendMessage sendMessage)
+        public delegate void SendMessage(string message);
+        public delegate string GetInput();
+
+        public Alert(SendMessageLine sendMessageLine, SendMessage sendMessage, GetInput getInput)
         {
             SendLine = sendMessageLine;
             Send = sendMessage;
+            Input = getInput;
         }
 
         public SendMessageLine SendLine { get; set; }
         public SendMessage Send { get; set; }
+        public GetInput Input { get; set; }
 
         public void Write(string message)
         {
@@ -28,6 +31,11 @@ namespace Objects
         public void WriteLine(string message)
         {
             SendLine(message);
+        }
+
+        public string ReadLine()
+        {
+            return Input();
         }
 
     }
