@@ -16,7 +16,7 @@ namespace ConsuleUI
             while (!World.quit)
             {
                 World.message.Write("Input >> ");
-                switch (Console.ReadLine().ToLower())
+                switch (World.message.ReadLine().ToLower())
                 {
                     case "north":
                     case "n":

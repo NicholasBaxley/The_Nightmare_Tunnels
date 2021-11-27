@@ -16,7 +16,7 @@ namespace ConsuleUI
             while (!quit)
             {
                 StandardMessages.DisplayInventoryMenu();
-                input = Console.ReadLine().ToLower(); ;
+                input = World.message.ReadLine().ToLower(); ;
                 switch (input)
                 {
                     case "a":
@@ -55,7 +55,7 @@ namespace ConsuleUI
             {
                 StandardMessages.DisplayInventoryItems(player);
                 World.message.WriteLine("\nType the id of the item you want to delete or type Quit to leave.");
-                input = Console.ReadLine().ToLower();
+                input = World.message.ReadLine().ToLower();
 
                 if (input == "quit" || input == "q")
                 {
@@ -92,7 +92,7 @@ namespace ConsuleUI
             {
                 StandardMessages.DisplayRoomItems(room);
                 World.message.WriteLine("\nType the id of the item you want to take or type All to take all items or Quit to go back to the game menu.");
-                input = Console.ReadLine().ToLower();
+                input = World.message.ReadLine().ToLower();
 
                 if (input == "quit" || input == "q")
                 {
@@ -142,7 +142,7 @@ namespace ConsuleUI
             string input;
             while (loop)
             {
-                input = Console.ReadLine();
+                input = World.message.ReadLine();
                 bool succuess = int.TryParse(input, out int id);
                 if (succuess)
                 {

@@ -51,7 +51,7 @@ namespace ConsuleUI
                         bool attacking = true;
                         while (attacking)
                         {
-                            choice = Console.ReadLine();
+                            choice = World.message.ReadLine();
                             switch (choice.ToLower())
                             {
                                 case "a":
@@ -84,7 +84,7 @@ namespace ConsuleUI
                                     string option = "";
                                     while (loop)
                                     {
-                                        option = Console.ReadLine().ToLower();
+                                        option = World.message.ReadLine().ToLower();
                                         switch (option)
                                         {
                                             case "player":

@@ -23,7 +23,7 @@ namespace ConsuleUI
             {
 
                 World.message.WriteLine("Are you a new player?(y/n)");
-                input = Console.ReadLine().ToLower();
+                input = World.message.ReadLine().ToLower();
 
                 // New User
                 if (input == "y" || input == "yes")
@@ -32,10 +32,10 @@ namespace ConsuleUI
                     {
 
                         World.message.WriteLine("\nWhat is your name?");
-                        input = Console.ReadLine();
+                        input = World.message.ReadLine();
                         name = input;
                         World.message.WriteLine($"Are you sure {input} is the name you want? (y/n)");
-                        input = Console.ReadLine();
+                        input = World.message.ReadLine();
 
                         if (input.ToLower() == "y" || input.ToLower() == "yes")
                         {
@@ -56,7 +56,7 @@ namespace ConsuleUI
                     while (loop)
                     {
                         World.message.WriteLine("\nEnter a password. (must contain upper case, lower case and a special character)");
-                        password = Console.ReadLine();
+                        password = World.message.ReadLine();
 
                         if (Player.CheckPassword(password))
                         {
@@ -73,7 +73,7 @@ namespace ConsuleUI
                     while (loop)
                     {
                         World.message.WriteLine("\nWhat class do you want to be? (Warrior or mage)");
-                        playerClass = Console.ReadLine();
+                        playerClass = World.message.ReadLine();
                         if(playerClass.ToLower() == "warrior" || playerClass.ToLower() == "mage")
                         {
                             World.message.WriteLine($"You picked {playerClass}.");
@@ -91,7 +91,7 @@ namespace ConsuleUI
                     while (loop)
                     {
                         World.message.WriteLine("\nWhat race do you want to be? (Human or dwarf)");
-                        race = Console.ReadLine();
+                        race = World.message.ReadLine();
                         if(race.ToLower() == "human" || race.ToLower() == "dwarf")
                         {
                             World.message.WriteLine($"You picked {race}.");
@@ -118,7 +118,7 @@ namespace ConsuleUI
                     while (loop)
                     {
                         World.message.WriteLine("Enter your characters name.");
-                        loginName = Console.ReadLine();
+                        loginName = World.message.ReadLine();
                         if (!SqliteDataAccess.CheckForPlayer(loginName))
                         {
                             World.message.WriteLine("Not a user!");
@@ -134,7 +134,7 @@ namespace ConsuleUI
                     while (loop)
                     {
                         World.message.WriteLine("Enter your password");
-                        pass = Console.ReadLine();
+                        pass = World.message.ReadLine();
                         if (!SqliteDataAccess.CheckForPass(loginName, pass))
                         {
                             World.message.WriteLine("Not the correct password!");
