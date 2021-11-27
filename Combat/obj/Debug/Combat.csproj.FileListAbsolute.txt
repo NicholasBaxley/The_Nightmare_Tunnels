@@ -1,9 +1,0 @@
-C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\Combat\bin\Debug\Combat.dll
-C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\Combat\bin\Debug\Combat.pdb
-C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\Combat\obj\Debug\Combat.csprojAssemblyReference.cache
-C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\Combat\obj\Debug\Combat.csproj.CoreCompileInputs.cache
-C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\Combat\obj\Debug\Combat.dll
-C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\Combat\obj\Debug\Combat.pdb
-C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\Combat\bin\Debug\Objects.dll
-C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\Combat\bin\Debug\Objects.pdb
-C:\Users\Nick\Documents\Projects\The_Nightmare_Tunnels\Combat\obj\Debug\Combat.csproj.CopyComplete
