@@ -1,0 +1,15 @@
+﻿<Window x:Class="WpfUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfUI"
+        mc:Ignorable="d"
+        Title="The Nightmare Tunnels" Height="450" Width="800" Loaded="Window_Loaded">
+	<Grid x:Name="mainWindow" Margin="0,0,0,59">
+		<TextBox x:Name="gameDisplayTextBox" HorizontalAlignment="Left" Height="281" Margin="144,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="497" IsReadOnly="True"/>
+		<TextBox x:Name="inputTextBox" HorizontalAlignment="Left" Height="23" Margin="144,313,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="402" KeyDown="inputTextBox_KeyPress"/>
+		<Button x:Name="inputButton" Content="Enter" HorizontalAlignment="Left" Margin="566,313,0,0" VerticalAlignment="Top" Width="75" Click="inputButton_Click"/>
+
+	</Grid>
+</Window>
