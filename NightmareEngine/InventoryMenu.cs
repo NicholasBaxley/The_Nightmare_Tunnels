@@ -16,7 +16,7 @@ namespace NightmareEngine
             while (!quit)
             {
                 StandardMessages.DisplayInventoryMenu();
-                input = World.message.ReadLine().ToLower(); ;
+                input = World.message.ReadLine().Result.ToLower(); ;
                 switch (input)
                 {
                     case "a":
@@ -55,7 +55,7 @@ namespace NightmareEngine
             {
                 StandardMessages.DisplayInventoryItems(player);
                 World.message.WriteLine("\nType the id of the item you want to delete or type Quit to leave.");
-                input = World.message.ReadLine().ToLower();
+                input = World.message.ReadLine().Result.ToLower();
 
                 if (input == "quit" || input == "q")
                 {
@@ -92,7 +92,7 @@ namespace NightmareEngine
             {
                 StandardMessages.DisplayRoomItems(room);
                 World.message.WriteLine("\nType the id of the item you want to take or type All to take all items or Quit to go back to the game menu.");
-                input = World.message.ReadLine().ToLower();
+                input = World.message.ReadLine().Result.ToLower();
 
                 if (input == "quit" || input == "q")
                 {
@@ -142,7 +142,7 @@ namespace NightmareEngine
             string input;
             while (loop)
             {
-                input = World.message.ReadLine();
+                input = World.message.ReadLine().Result;
                 bool succuess = int.TryParse(input, out int id);
                 if (succuess)
                 {

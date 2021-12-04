@@ -1,6 +1,7 @@
 ﻿using System;
 using Objects;
 using NightmareEngine;
+using System.Windows.Forms;
 
 namespace The_Nightmare_Tunnels
 {
@@ -10,6 +11,7 @@ namespace The_Nightmare_Tunnels
         {
             World.message = new Alert(Console.WriteLine, Console.Write, Console.ReadLine);
 
+            
             // Log player in
             Login.PlayerLogin();
             Player player = World.player;
@@ -26,7 +28,7 @@ namespace The_Nightmare_Tunnels
             World.message.WriteLine(StandardMessages.DisplayRoomDescription(World.position, World.rooms));
 
             // Main Menu that controls most of the game
-            Menu.Game(false);
+            NightmareEngine.Menu.Game();
         }
     }
 }

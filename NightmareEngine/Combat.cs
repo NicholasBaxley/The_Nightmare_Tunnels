@@ -51,7 +51,7 @@ namespace NightmareEngine
                         bool attacking = true;
                         while (attacking)
                         {
-                            choice = World.message.ReadLine();
+                            choice = World.message.ReadLine().Result;
                             switch (choice.ToLower())
                             {
                                 case "a":
@@ -84,7 +84,8 @@ namespace NightmareEngine
                                     string option = "";
                                     while (loop)
                                     {
-                                        option = World.message.ReadLine().ToLower();
+                                        option = World.message.ReadLine().Result
+                                            .ToLower();
                                         switch (option)
                                         {
                                             case "player":

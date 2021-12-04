@@ -29,13 +29,11 @@ namespace WinUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.mapPictureBox = new System.Windows.Forms.PictureBox();
             this.characterSheetPictureBox = new System.Windows.Forms.PictureBox();
             this.gameDisplayTextBox = new System.Windows.Forms.RichTextBox();
             this.inputTextBox = new System.Windows.Forms.TextBox();
-            this.enterButton = new System.Windows.Forms.Button();
-            this.GameTimer = new System.Windows.Forms.Timer(this.components);
+            this.tempLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.mapPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.characterSheetPictureBox)).BeginInit();
             this.SuspendLayout();
@@ -62,7 +60,6 @@ namespace WinUI
             // 
             // gameDisplayTextBox
             // 
-            this.gameDisplayTextBox.AccessibleRole = System.Windows.Forms.AccessibleRole.StaticText;
             this.gameDisplayTextBox.BackColor = System.Drawing.SystemColors.ControlText;
             this.gameDisplayTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.gameDisplayTextBox.Location = new System.Drawing.Point(278, 13);
@@ -73,7 +70,6 @@ namespace WinUI
             this.gameDisplayTextBox.TabIndex = 2;
             this.gameDisplayTextBox.TabStop = false;
             this.gameDisplayTextBox.Text = "";
-            this.gameDisplayTextBox.TextChanged += new System.EventHandler(this.GameDisplayTextEvent);
             // 
             // inputTextBox
             // 
@@ -81,38 +77,27 @@ namespace WinUI
             this.inputTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.inputTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.inputTextBox.Location = new System.Drawing.Point(278, 401);
+            this.inputTextBox.MaximumSize = new System.Drawing.Size(420, 23);
             this.inputTextBox.MinimumSize = new System.Drawing.Size(420, 23);
             this.inputTextBox.Name = "inputTextBox";
-            this.inputTextBox.Size = new System.Drawing.Size(420, 23);
+            this.inputTextBox.Size = new System.Drawing.Size(420, 13);
             this.inputTextBox.TabIndex = 0;
-            this.inputTextBox.Enter += new System.EventHandler(this.EnterButton_Click);
+            this.inputTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InputTextBox_KeyPress);
             // 
-            // enterButton
+            // tempLabel
             // 
-            this.enterButton.BackColor = System.Drawing.SystemColors.ControlText;
-            this.enterButton.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.enterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.enterButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.enterButton.Location = new System.Drawing.Point(704, 401);
-            this.enterButton.MinimumSize = new System.Drawing.Size(82, 23);
-            this.enterButton.Name = "enterButton";
-            this.enterButton.Size = new System.Drawing.Size(82, 23);
-            this.enterButton.TabIndex = 1;
-            this.enterButton.Text = "Enter";
-            this.enterButton.UseVisualStyleBackColor = false;
-            this.enterButton.Click += new System.EventHandler(this.EnterButton_Click);
-            this.enterButton.Enter += new System.EventHandler(this.EnterButton_Click);
-            // 
-            // GameTimer
-            // 
-            this.GameTimer.Tick += new System.EventHandler(this.GameTimerEvent_Tick);
+            this.tempLabel.AutoSize = true;
+            this.tempLabel.Location = new System.Drawing.Point(871, 415);
+            this.tempLabel.Name = "tempLabel";
+            this.tempLabel.Size = new System.Drawing.Size(0, 13);
+            this.tempLabel.TabIndex = 3;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(988, 461);
-            this.Controls.Add(this.enterButton);
+            this.Controls.Add(this.tempLabel);
             this.Controls.Add(this.inputTextBox);
             this.Controls.Add(this.gameDisplayTextBox);
             this.Controls.Add(this.characterSheetPictureBox);
@@ -132,10 +117,9 @@ namespace WinUI
 
         private System.Windows.Forms.PictureBox mapPictureBox;
         private System.Windows.Forms.PictureBox characterSheetPictureBox;
-        private System.Windows.Forms.RichTextBox gameDisplayTextBox;
         private System.Windows.Forms.TextBox inputTextBox;
-        private System.Windows.Forms.Button enterButton;
-        private System.Windows.Forms.Timer GameTimer;
+        public System.Windows.Forms.RichTextBox gameDisplayTextBox;
+        private System.Windows.Forms.Label tempLabel;
     }
 }
 

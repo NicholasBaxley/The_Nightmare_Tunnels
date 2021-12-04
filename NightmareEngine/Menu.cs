@@ -5,18 +5,15 @@ namespace NightmareEngine
 {
     public static class Menu
     {
-        public static void Game(bool isForms)
+        public static void Game()
         {
             Player player = World.player;
 
+            StandardMessages.DisplayHelpMessage();
             while (!World.quit)
             {
-                if (!isForms)
-                {
-                World.message.Write("Input >> ");
-                }
 
-                switch (World.message.ReadLine().ToLower())
+                switch (World.message.ReadLine().Result)
                 {
                     case "north":
                     case "n":
